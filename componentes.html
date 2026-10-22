@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Componentes · Intranet Banasan</title>
+  <link rel="icon" href="assets/brand/simbolo-banasan.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/foundation.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <style>
+    body{min-height:100vh;background:var(--surface-page)}
+    .catalog-header{display:flex;align-items:center;justify-content:space-between;padding:28px clamp(22px,5vw,72px);color:var(--text-inverse);background:var(--surface-inverse)}
+    .catalog-header p{margin:5px 0 0;color:rgba(255,255,255,.65)}
+    .catalog-header a{font-weight:700}
+    main{width:min(1120px,calc(100% - 40px));margin:0 auto;padding:64px 0 96px}
+    h1{margin:0;font:600 clamp(42px,6vw,72px)/.98 var(--font-display);letter-spacing:-.045em}
+    .catalog-intro{max-width:720px;margin:18px 0 56px;color:var(--text-secondary);font-size:18px;line-height:1.6}
+    .catalog-section{display:grid;grid-template-columns:minmax(180px,.4fr) minmax(0,1fr);gap:48px;padding:38px 0;border-top:1px solid var(--border-subtle)}
+    .catalog-section h2{margin:0;font:600 25px/1.1 var(--font-display);letter-spacing:-.03em}
+    .catalog-stage{display:flex;flex-wrap:wrap;align-items:center;gap:22px;min-height:112px;padding:28px;border-radius:var(--radius-surface);background:var(--surface-raised)}
+    .catalog-stage--inverse{background:var(--surface-inverse)}
+    @media(max-width:680px){.catalog-section{grid-template-columns:1fr;gap:18px}.catalog-header{align-items:flex-start;flex-direction:column;gap:22px}}
+  </style>
+</head>
+<body>
+  <header class="catalog-header">
+    <div><strong>Intranet Banasan</strong><p>Superficie interna de validación</p></div>
+    <a href="inicio.html">Volver al inicio</a>
+  </header>
+  <main>
+    <h1>Componentes activos.</h1>
+    <p class="catalog-intro">Esta superficie valida contratos visuales compartidos. No contiene datos reales ni reemplaza las pantallas del producto.</p>
+
+    <section class="catalog-section" aria-labelledby="actions-title">
+      <h2 id="actions-title">Acciones</h2>
+      <div class="catalog-stage">
+        <a class="ui-action ui-action--primary" href="#">Ver noticias <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span></a>
+        <button class="ui-icon-action" type="button" aria-label="Abrir detalle"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></button>
+        <button class="ui-action" type="button" disabled>Acción no disponible</button>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="identity-title">
+      <h2 id="identity-title">Identidad</h2>
+      <div class="catalog-stage catalog-stage--inverse">
+        <a class="ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
+        <button class="ui-account-mark" type="button" aria-label="Abrir cuenta"><span>JS</span></button>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="state-title">
+      <h2 id="state-title">Estados</h2>
+      <div class="catalog-stage">
+        <span class="ui-state-mark ui-state-mark--positive">Activo</span>
+        <span class="ui-state-mark ui-state-mark--pending">Pendiente</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "color": {
+    "navy": { "900": { "$value": "#031D36", "$type": "color" }, "800": { "$value": "#052B51", "$type": "color" }, "700": { "$value": "#073451", "$type": "color" } },
+    "blue": { "600": { "$value": "#0874C9", "$type": "color" }, "100": { "$value": "#E7F3FA", "$type": "color" } },
+    "yellow": { "400": { "$value": "#FFD000", "$type": "color" }, "100": { "$value": "#FFF3B8", "$type": "color" } },
+    "neutral": { "0": { "$value": "#FFFFFF", "$type": "color" }, "50": { "$value": "#F7FAFB", "$type": "color" }, "100": { "$value": "#EEF4F6", "$type": "color" }, "300": { "$value": "#D8E3E9", "$type": "color" }, "600": { "$value": "#607184", "$type": "color" }, "900": { "$value": "#10253A", "$type": "color" } },
+    "red": { "600": { "$value": "#B42318", "$type": "color" } },
+    "green": { "700": { "$value": "#176B49", "$type": "color" } }
+  },
+  "space": { "1": { "$value": "4px", "$type": "dimension" }, "2": { "$value": "8px", "$type": "dimension" }, "3": { "$value": "12px", "$type": "dimension" }, "4": { "$value": "16px", "$type": "dimension" }, "6": { "$value": "24px", "$type": "dimension" }, "8": { "$value": "32px", "$type": "dimension" }, "12": { "$value": "48px", "$type": "dimension" }, "16": { "$value": "64px", "$type": "dimension" }, "24": { "$value": "96px", "$type": "dimension" } },
+  "radius": { "control": { "$value": "12px", "$type": "dimension" }, "surface": { "$value": "20px", "$type": "dimension" }, "round": { "$value": "999px", "$type": "dimension" } }
+}

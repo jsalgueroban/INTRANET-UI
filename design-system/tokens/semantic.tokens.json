@@ -1,0 +1,8 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "surface": { "page": { "$value": "{color.neutral.50}" }, "raised": { "$value": "{color.neutral.0}" }, "inverse": { "$value": "{color.navy.900}" }, "navigation": { "$value": "{color.navy.700}" }, "subtle": { "$value": "{color.neutral.100}" } },
+  "text": { "primary": { "$value": "{color.neutral.900}" }, "secondary": { "$value": "{color.neutral.600}" }, "inverse": { "$value": "{color.neutral.0}" }, "action": { "$value": "{color.blue.600}" } },
+  "action": { "primary": { "$value": "{color.yellow.400}" }, "secondary": { "$value": "{color.blue.600}" }, "inverse": { "$value": "{color.navy.900}" } },
+  "border": { "subtle": { "$value": "{color.neutral.300}" }, "focus": { "$value": "{color.blue.600}" } },
+  "status": { "error": { "$value": "{color.red.600}" }, "success": { "$value": "{color.green.700}" } }
+}
