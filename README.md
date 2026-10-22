@@ -50,3 +50,9 @@ La autoridad se resuelve en este orden:
 
 Las nuevas superficies deben reutilizar este contrato o registrar una decisión antes de
 introducir una variante visual o de interacción.
+
+## Flujo Git
+
+`main` es la rama principal y la fuente vigente del producto. El mantenimiento puede
+publicarse directamente en ella cuando el cambio esté verificado y conserve el repositorio
+limpio. Las ramas auxiliares se reservan para trabajo que necesite aislamiento temporal.
