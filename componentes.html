@@ -10,52 +10,61 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/foundation.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
-  <style>
-    body{min-height:100vh;background:var(--surface-page)}
-    .catalog-header{display:flex;align-items:center;justify-content:space-between;padding:28px clamp(22px,5vw,72px);color:var(--text-inverse);background:var(--surface-inverse)}
-    .catalog-header p{margin:5px 0 0;color:rgba(255,255,255,.65)}
-    .catalog-header a{font-weight:700}
-    main{width:min(1120px,calc(100% - 40px));margin:0 auto;padding:64px 0 96px}
-    h1{margin:0;font:600 clamp(42px,6vw,72px)/.98 var(--font-display);letter-spacing:-.045em}
-    .catalog-intro{max-width:720px;margin:18px 0 56px;color:var(--text-secondary);font-size:18px;line-height:1.6}
-    .catalog-section{display:grid;grid-template-columns:minmax(180px,.4fr) minmax(0,1fr);gap:48px;padding:38px 0;border-top:1px solid var(--border-subtle)}
-    .catalog-section h2{margin:0;font:600 25px/1.1 var(--font-display);letter-spacing:-.03em}
-    .catalog-stage{display:flex;flex-wrap:wrap;align-items:center;gap:22px;min-height:112px;padding:28px;border-radius:var(--radius-surface);background:var(--surface-raised)}
-    .catalog-stage--inverse{background:var(--surface-inverse)}
-    @media(max-width:680px){.catalog-section{grid-template-columns:1fr;gap:18px}.catalog-header{align-items:flex-start;flex-direction:column;gap:22px}}
-  </style>
+  <link rel="stylesheet" href="assets/css/catalog.css" />
 </head>
 <body>
+  <a class="skip-link" href="#catalog">Ir a componentes</a>
   <header class="catalog-header">
-    <div><strong>Intranet Banasan</strong><p>Superficie interna de validación</p></div>
+    <div><strong>Intranet Banasan</strong><p>Foundation 0.4 · Catálogo interno</p></div>
     <a href="inicio.html">Volver al inicio</a>
   </header>
-  <main>
+  <main class="catalog-main" id="catalog">
     <h1>Componentes activos.</h1>
-    <p class="catalog-intro">Esta superficie valida contratos visuales compartidos. No contiene datos reales ni reemplaza las pantallas del producto.</p>
+    <p class="catalog-intro">Referencia de consumo para estados, accesibilidad y composición. Las piezas experimentales conservan su frontera hasta completar los gates registrados.</p>
 
     <section class="catalog-section" aria-labelledby="actions-title">
-      <h2 id="actions-title">Acciones</h2>
-      <div class="catalog-stage">
-        <a class="ui-action ui-action--primary" href="#">Ver noticias <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span></a>
-        <button class="ui-icon-action" type="button" aria-label="Abrir detalle"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></button>
-        <button class="ui-action" type="button" disabled>Acción no disponible</button>
+      <div class="catalog-section__intro"><h2 id="actions-title">Acciones</h2><p>Default, jerarquía, carga y disponibilidad.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="catalog-grid">
+          <div class="catalog-swatch"><b>Principal</b><a class="ui-action ui-action--primary" href="#">Ver noticias <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span></a></div>
+          <div class="catalog-swatch"><b>Secundaria</b><button class="ui-action ui-action--secondary" type="button">Guardar cambios</button></div>
+          <div class="catalog-swatch"><b>Procesando</b><button class="ui-action ui-action--secondary" type="button" aria-busy="true"><span class="ui-action__spinner" aria-hidden="true"></span>Guardando</button></div>
+          <div class="catalog-swatch"><b>No disponible</b><button class="ui-action" type="button" disabled>Acción no disponible</button></div>
+          <div class="catalog-swatch"><b>Acción de icono</b><button class="ui-icon-action" type="button" aria-label="Abrir detalle"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></button></div>
+          <div class="catalog-swatch"><b>Destructiva</b><button class="ui-action ui-action--danger" type="button">Desactivar</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="forms-title">
+      <div class="catalog-section__intro"><h2 id="forms-title">Formulario</h2><p>Entrada, ayuda, error, búsqueda y selección.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="catalog-grid">
+          <div class="ui-field"><label for="catalog-name">Nombre</label><input id="catalog-name" type="text" value="Andrea Martínez" /><p class="ui-field__message">Usa el nombre corporativo.</p></div>
+          <div class="ui-field"><label for="catalog-email">Correo</label><input id="catalog-email" type="email" value="correo-invalido" aria-invalid="true" aria-describedby="catalog-email-error" /><p class="ui-field__message ui-field__message--error" id="catalog-email-error">Ingresa un correo corporativo válido.</p></div>
+          <div class="ui-field"><label for="catalog-disabled">Área</label><input id="catalog-disabled" type="text" value="Gestión humana" disabled /><p class="ui-field__message">Disponible cuando exista el catálogo.</p></div>
+          <label class="ui-search-field"><span class="sr-only">Buscar</span><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4"/><path d="m10 10 3 3"/></svg><input type="search" placeholder="Buscar usuarios" /></label>
+        </div>
+        <label class="ui-check"><input type="checkbox" checked /><span>Recibir notificaciones de esta actualización</span></label>
       </div>
     </section>
 
     <section class="catalog-section" aria-labelledby="identity-title">
-      <h2 id="identity-title">Identidad</h2>
+      <div class="catalog-section__intro"><h2 id="identity-title">Identidad</h2><p>Producto, respaldo institucional y acceso de cuenta.</p></div>
       <div class="catalog-stage catalog-stage--inverse">
         <a class="ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
         <button class="ui-account-mark" type="button" aria-label="Abrir cuenta"><span>JS</span></button>
       </div>
     </section>
 
-    <section class="catalog-section" aria-labelledby="state-title">
-      <h2 id="state-title">Estados</h2>
-      <div class="catalog-stage">
-        <span class="ui-state-mark ui-state-mark--positive">Activo</span>
-        <span class="ui-state-mark ui-state-mark--pending">Pendiente</span>
+    <section class="catalog-section" aria-labelledby="states-title">
+      <div class="catalog-section__intro"><h2 id="states-title">Estados</h2><p>Señales compactas y resultados de superficie.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="catalog-status"><span class="ui-state-mark ui-state-mark--positive">Activo</span><span class="ui-state-mark ui-state-mark--pending">Pendiente</span><span class="ui-state-mark ui-state-mark--danger">Bloqueado</span></div>
+        <div class="ui-feedback ui-feedback--loading" role="status"><span class="ui-action__spinner" aria-hidden="true"></span><div><strong>Cargando información</strong><p>Conservamos el contexto mientras llega la respuesta.</p></div></div>
+        <div class="ui-feedback ui-feedback--empty"><strong>Sin resultados</strong><p>Ajusta la búsqueda o limpia los filtros activos.</p></div>
+        <div class="ui-feedback ui-feedback--error" role="alert"><strong>No fue posible cargar</strong><p>Intenta nuevamente. Tus cambios no se perdieron.</p><button class="ui-action ui-action--quiet" type="button">Reintentar</button></div>
+        <div class="ui-feedback ui-feedback--forbidden"><strong>Acceso restringido</strong><p>Solicita acceso al responsable de esta información.</p></div>
       </div>
     </section>
   </main>

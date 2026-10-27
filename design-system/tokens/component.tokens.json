@@ -1,6 +1,9 @@
 {
   "$schema": "https://tr.designtokens.org/format/",
-  "button": { "height": { "md": { "$value": "44px", "$type": "dimension" }, "lg": { "$value": "54px", "$type": "dimension" } }, "radius": { "regular": { "$value": "{radius.control}" }, "leaf": { "$value": "22px 8px 22px 8px" } } },
-  "input": { "height": { "$value": "46px", "$type": "dimension" }, "radius": { "$value": "{radius.control}" } },
-  "motion": { "press": { "$value": "140ms", "$type": "duration" }, "feedback": { "$value": "170ms", "$type": "duration" }, "panel": { "$value": "260ms", "$type": "duration" } }
+  "button": { "height": { "md": { "$value": "44px", "$type": "dimension" }, "lg": { "$value": "54px", "$type": "dimension" } }, "radius": { "regular": { "$value": "{radius.control}" }, "leaf": { "$value": "22px 8px 22px 8px" } }, "icon": { "md": { "$value": "16px", "$type": "dimension" } } },
+  "input": { "height": { "$value": "46px", "$type": "dimension" }, "radius": { "$value": "{radius.control}" }, "inset": { "$value": "14px", "$type": "dimension" } },
+  "hitbox": { "minimum": { "$value": "44px", "$type": "dimension" } },
+  "icon": { "sm": { "$value": "16px", "$type": "dimension" }, "md": { "$value": "20px", "$type": "dimension" }, "lg": { "$value": "24px", "$type": "dimension" }, "stroke": { "$value": 1.7, "$type": "number" } },
+  "navigation": { "height": { "$value": "86px", "$type": "dimension" }, "radius": { "$value": "22px", "$type": "dimension" } },
+  "panel": { "radius": { "$value": "{radius.surface}" }, "inset": { "$value": "{space.6}" } }
 }

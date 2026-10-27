@@ -1,6 +1,6 @@
-# Estado de adopción · Foundation 0.3
+# Estado de adopción · Foundation 0.4
 
-Última consolidación: 2026-10-21. Este registro indica qué puede reutilizarse y con qué
+Última consolidación: 2026-10-27. Este registro indica qué puede reutilizarse y con qué
 alcance; no afirma integración productiva ni aprobación de backend.
 
 Estados: `approved` (regla estable del proyecto), `candidate` (evidencia repetida, gate
@@ -33,7 +33,11 @@ aislado), `legacy-tolerated` y `retired`.
 | Hub de plataformas con isotipo 3D | `experimental` | Inicio, física v19 | Catálogo real, SSO, permisos y segunda superficie |
 | Navegación retráctil por tensión | `experimental` | Inicio | Validación física, zoom 200 % y segunda superficie |
 | Foundation CSS compartida | `candidate` | Login, inicio, Usuarios y catálogo | Retirar aliases después de migrar CSS local |
-| Catálogo de componentes | `local-valid` | `componentes.html` | Añadir estados busy, error e inversos |
+| Catálogo de componentes | `candidate` | `componentes.html` | Validación en una segunda superficie operativa |
+| Tokens generados | `approved` | JSON → CSS reproducible | Mantener validación automática |
+| Estados de formulario y feedback | `candidate` | Catálogo Foundation 0.4 | Consumir en autenticación y administración |
+| Contratos de interacción | `candidate` | Shell, cuenta, hub y async | Evidencia física y reduced motion |
+| Matriz de validación | `approved` | Foundation 0.4 | Ampliar con cada nueva familia de vista |
 
 Un patrón sólo pasa a `approved` cuando mantiene significado, estados, accesibilidad
 y comportamiento en tipos de superficie diferentes.

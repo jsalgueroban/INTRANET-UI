@@ -1,6 +1,6 @@
 # Componentes
 
-La Foundation 0.3 inicia la implementación compartida sin declarar todavía primitives
+La Foundation 0.4 consolida la implementación compartida sin declarar todavía primitives
 aprobados. Los estilos de referencia viven en `assets/css/components.css`; cada ficha
 define propósito, contrato, estados, accesibilidad y criterio de promoción.
 
@@ -9,6 +9,8 @@ define propósito, contrato, estados, accesibilidad y criterio de promoción.
 - [Lockup de producto](product-lockup.md)
 - [Marca de cuenta](account-mark.md)
 - [Señal de estado](state-mark.md)
+- [Campo de formulario](form-field.md)
+- [Estado de superficie](feedback-state.md)
 
 | Componente | Estado | Frontera |
 | --- | --- | --- |

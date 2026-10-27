@@ -1,0 +1,13 @@
+{
+  "name": "intranet-ui",
+  "private": true,
+  "version": "0.4.0",
+  "description": "Foundation visual y prototipo navegable de la Intranet Banasan",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "validate": "node scripts/validate-foundation.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

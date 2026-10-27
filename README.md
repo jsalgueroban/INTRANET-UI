@@ -21,6 +21,16 @@ python -m http.server 4173
 
 Abrir `http://localhost:4173`.
 
+## Contrato local
+
+```powershell
+npm run tokens
+npm run validate
+```
+
+El primer comando materializa los tokens CSS. El segundo valida estructura, referencias,
+codificación y sincronía de la Foundation sin elegir todavía una stack de aplicación.
+
 ## Estructura
 
 ```text
@@ -35,7 +45,9 @@ design-system/
   decisions/      decisiones de arquitectura visual
   foundations/    fundamentos del sistema
   patterns/       patrones de interacción y composición
+  interactions/   máquinas de estado y comportamiento
   tokens/         valores primitivos, semánticos y de componente
+  validation/     matrices y gates verificables
 ```
 
 ## Gobierno visual

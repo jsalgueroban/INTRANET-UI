@@ -1,6 +1,6 @@
 # Mapa del sistema de diseño
 
-Versión: `foundation-0.3`. Modo visual: `selected-direction / redesign-in-progress`.
+Versión: `foundation-0.4`. Modo visual: `selected-direction / redesign-in-progress`.
 Plataforma: Web. Producto: Intranet Banasan.
 
 ## Cómo leer el sistema
@@ -13,10 +13,12 @@ Plataforma: Web. Producto: Intranet Banasan.
 6. [`content/voice-and-tone.md`](content/voice-and-tone.md): reglas de contenido visible.
 7. [`status.md`](status.md): qué puede reutilizarse hoy y qué gate falta.
 8. [`decisions/README.md`](decisions/README.md): decisiones vigentes, reemplazadas y abiertas.
+9. [`interactions/README.md`](interactions/README.md): estados, eventos e interrupciones.
+10. [`validation/README.md`](validation/README.md): matriz, gates y evidencia reproducible.
 
-La implementación compartida se divide en `assets/css/foundation.css` para el contrato
-base y `assets/css/components.css` para componentes reutilizables. Los CSS de pantalla
-componen esas piezas y conservan únicamente decisiones locales.
+Los JSON de `tokens/` son la fuente editable. `npm run tokens` genera
+`assets/css/tokens.css`; `foundation.css` y `components.css` consumen ese resultado.
+Los CSS de pantalla sólo conservan decisiones locales.
 
 ## Capas y autoridad
 

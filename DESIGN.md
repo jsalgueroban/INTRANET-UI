@@ -1,6 +1,6 @@
 # Sistema UI/UX — Intranet Banasan
 
-Estado: `foundation-0.3`. Este documento es la constitución
+Estado: `foundation-0.4`. Este documento es la constitución
 visual del producto. No es un catálogo de pantallas ni un inventario de CSS.
 
 ## Autoridad y alcance
@@ -77,12 +77,12 @@ Todo patrón se clasifica como `local-valid`, `candidate`, `approved`,
 accesibilidad y evidencia en contextos diferentes. El estado vigente se consulta en
 [`design-system/status.md`](design-system/status.md).
 
-## Foundation 0.3
+## Foundation 0.4
 
-Foundation 0.3 consolida decisiones observadas en login, inicio y administración de
-usuarios sin declarar terminado el sistema. Introduce una capa CSS compartida para
-foundations y componentes candidatos; las pantallas conservan composición y features.
-Mantiene patrones en evaluación con criterios explícitos.
+Foundation 0.4 convierte los criterios consolidados en un contrato consumible: tokens
+generados, catálogo de estados, máquinas de interacción y una matriz de validación.
+Las pantallas siguen aportando evidencia, pero no alteran el sistema por repetición.
+La stack de producto y el inventario definitivo de vistas quedan fuera de esta versión.
 
 - [Color](design-system/foundations/color.md)
 - [Tipografía](design-system/foundations/typography.md)
@@ -92,6 +92,9 @@ Mantiene patrones en evaluación con criterios explícitos.
 - [Tokens](design-system/tokens)
 - [Componentes](design-system/components/README.md)
 - [Patrones](design-system/patterns/README.md)
+- [Contratos de interacción](design-system/interactions/README.md)
+- [Contrato visual del proyecto](design-system/project-visual-contract.md)
+- [Validación](design-system/validation/README.md)
 - [Contenido](design-system/content/voice-and-tone.md)
 - [Mapa del sistema](design-system/README.md)
 - [Registro de decisiones](design-system/decisions/README.md)
