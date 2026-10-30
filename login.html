@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/foundation.css?v=1" />
   <link rel="stylesheet" href="assets/css/login.css?v=6" />
   <link rel="stylesheet" href="assets/css/components.css?v=1" />
-  <script src="assets/js/login.js?v=4" defer></script>
+  <script src="assets/js/login.js?v=5" defer></script>
 </head>
 <body class="archive-page">
   <a class="skip-link" href="#login-form">Ir al formulario de acceso</a>
@@ -30,11 +30,11 @@
     <section class="archive-access" aria-labelledby="access-title">
       <div class="access-intro">
         <h2 id="access-title">Bienvenido.</h2>
-        <p>Ingresa con tu correo corporativo y contraseña.</p>
+        <p>Vista de prueba. Usa datos de ejemplo para ingresar.</p>
       </div>
       <form class="login-form login-form--selected" id="login-form" novalidate>
-        <div class="field"><label for="email">Correo corporativo</label><input id="email" name="email" type="email" autocomplete="username" inputmode="email" placeholder="nombre@banasan.com.co" aria-describedby="email-error" required /><p class="field__error" id="email-error" role="alert"></p></div>
-        <div class="field field--password"><label for="password">Contraseña</label><div class="password-control"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" aria-describedby="password-error" required /><button class="password-toggle" type="button" aria-label="Mostrar contraseña" aria-pressed="false"><span>Mostrar</span></button></div><a class="recovery-link" href="#recovery">¿Olvidaste tu contraseña?</a><p class="field__error" id="password-error" role="alert"></p></div>
+        <div class="field"><label for="email">Correo corporativo</label><input id="email" name="email" type="email" autocomplete="off" inputmode="email" placeholder="nombre@banasan.com.co" aria-describedby="email-error" required /><p class="field__error" id="email-error" role="alert"></p></div>
+        <div class="field field--password"><label for="password">Contraseña</label><div class="password-control"><input id="password" name="password" type="password" autocomplete="off" placeholder="Ingresa tu contraseña" aria-describedby="password-error" required /><button class="password-toggle" type="button" aria-label="Mostrar contraseña" aria-pressed="false"><span>Mostrar</span></button></div><a class="recovery-link" href="#recovery">¿Olvidaste tu contraseña?</a><p class="field__error" id="password-error" role="alert"></p></div>
         <label class="remember"><input type="checkbox" name="remember" /><span>Mantener mi sesión iniciada</span></label>
         <button class="submit-button" type="submit"><span class="submit-button__label">Ingresar</span><span class="submit-button__loader" aria-hidden="true"></span></button><div class="form-feedback" role="status" aria-live="polite"></div>
       </form>
