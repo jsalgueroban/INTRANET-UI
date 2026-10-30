@@ -14,49 +14,32 @@
   <link rel="stylesheet" href="assets/css/usuarios.css?v=5" />
   <link rel="stylesheet" href="assets/css/components.css?v=16" />
   <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
+  <link rel="stylesheet" href="assets/css/site-header.css?v=1" />
+  <script src="assets/js/site-header.js?v=1" defer></script>
   <script type="module" src="assets/js/usuarios.js?v=6"></script>
   <script src="assets/js/account-tray.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
-  <header class="site-header" data-header>
-    <div class="nav-shell">
-      <a class="back-link" href="inicio.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12 8H3M7 4 3 8l4 4" /></svg><span>Inicio</span></a>
-      <a class="admin-brand ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
-      <div class="admin-session"><span>Administración</span>
-        <div class="account-tray-host" data-account-tray>
-          <button class="account-mark ui-account-mark account-tray__trigger" type="button" aria-label="Abrir cuenta" aria-expanded="false" aria-controls="account-tray-users"><span>JS</span><i aria-hidden="true"></i></button>
-          <button class="account-tray__backdrop" type="button" tabindex="-1" aria-hidden="true" data-account-close></button>
-          <section class="account-tray" id="account-tray-users" aria-label="Cuenta" aria-hidden="true">
-            <header class="account-tray__identity"><div><strong>Cuenta</strong></div><button type="button" aria-label="Cerrar cuenta" data-account-close><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></header>
-            <nav class="account-tray__nav" aria-label="Opciones de cuenta">
-              <a href="#" data-account-pending><span><strong>Perfil</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
-              <a href="#" data-account-pending><span><strong>Empresa</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
-              <a href="usuarios.html" aria-current="page"><span><strong>Gestión de usuarios</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
-            </nav>
-          </section>
-        </div>
-      </div>
-    </div>
-  </header>
+  <div data-site-header></div>
 
   <main id="contenido" class="admin-main">
     <header class="page-heading">
       <div><h1>Administración<br />de usuarios.</h1></div>
       <div class="page-note">
         <p>Superficie de prueba para organizar búsqueda, selección y detalle. Los datos y acciones definitivos se incorporarán cuando exista el modelo de usuario.</p>
-        <button type="button" disabled aria-describedby="pending-model">Agregar usuario <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" /></svg></button>
+        <button class="ui-action ui-action--primary" type="button" disabled aria-describedby="pending-model">Agregar usuario <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" /></svg></span></button>
         <small id="pending-model">Disponible cuando se defina el modelo.</small>
       </div>
     </header>
 
     <section class="workspace" aria-label="Explorador de usuarios">
       <div class="workspace-toolbar">
-        <label class="search-field"><span>Buscar usuarios</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input type="search" placeholder="Nombre o correo" autocomplete="off" data-search /><kbd>⌘ K</kbd></label>
-        <div class="filter-strip" aria-label="Filtrar usuarios">
-          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todos <span>6</span></button>
-          <button class="filter" type="button" data-filter="active" aria-pressed="false">Activos <span>4</span></button>
-          <button class="filter" type="button" data-filter="pending" aria-pressed="false">Pendientes <span>2</span></button>
+        <div class="search-control"><label for="user-search">Buscar usuarios</label><div class="ui-search-field" data-filled="false"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg><input id="user-search" type="search" placeholder="Nombre o correo" autocomplete="off" data-search /><button class="ui-search-field__clear" type="button" aria-label="Limpiar búsqueda" data-search-clear><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-x" /></svg></button></div></div>
+        <div class="ui-filter-bar" role="group" aria-label="Filtrar usuarios">
+          <button class="ui-filter-bar__item is-active" type="button" data-filter="all" aria-pressed="true">Todos <span>6</span></button>
+          <button class="ui-filter-bar__item" type="button" data-filter="active" aria-pressed="false">Activos <span>4</span></button>
+          <button class="ui-filter-bar__item" type="button" data-filter="pending" aria-pressed="false">Pendientes <span>2</span></button>
         </div>
       </div>
 
@@ -64,21 +47,21 @@
         <section class="user-list-region ui-data-list" aria-labelledby="user-list-title">
           <header class="list-heading"><h2 id="user-list-title">Usuarios</h2><p role="status"><span data-result-count>6</span> registros demostrativos</p></header>
           <div class="user-list ui-data-list__items" aria-label="Usuarios demostrativos" data-user-list>
-            <button class="user-row ui-data-list__row is-selected" type="button" aria-pressed="true" data-status="active" data-name="Andrea Martínez" data-email="andrea.martinez@banasan.com.co" data-initials="AM"><span class="identity-mark">AM<i></i></span><span class="user-identity"><strong>Andrea Martínez</strong><small>andrea.martinez@banasan.com.co</small></span><span class="state-mark ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
-            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="active" data-name="Carlos Rivera" data-email="carlos.rivera@banasan.com.co" data-initials="CR"><span class="identity-mark">CR<i></i></span><span class="user-identity"><strong>Carlos Rivera</strong><small>carlos.rivera@banasan.com.co</small></span><span class="state-mark ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
-            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="pending" data-name="Diana Pérez" data-email="diana.perez@banasan.com.co" data-initials="DP"><span class="identity-mark">DP<i></i></span><span class="user-identity"><strong>Diana Pérez</strong><small>diana.perez@banasan.com.co</small></span><span class="state-mark ui-state-mark ui-state-mark--pending">Pendiente</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
-            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="active" data-name="Felipe Gómez" data-email="felipe.gomez@banasan.com.co" data-initials="FG"><span class="identity-mark">FG<i></i></span><span class="user-identity"><strong>Felipe Gómez</strong><small>felipe.gomez@banasan.com.co</small></span><span class="state-mark ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
-            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="pending" data-name="María López" data-email="maria.lopez@banasan.com.co" data-initials="ML"><span class="identity-mark">ML<i></i></span><span class="user-identity"><strong>María López</strong><small>maria.lopez@banasan.com.co</small></span><span class="state-mark ui-state-mark ui-state-mark--pending">Pendiente</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
-            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="active" data-name="Sergio Torres" data-email="sergio.torres@banasan.com.co" data-initials="ST"><span class="identity-mark">ST<i></i></span><span class="user-identity"><strong>Sergio Torres</strong><small>sergio.torres@banasan.com.co</small></span><span class="state-mark ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="user-row ui-data-list__row is-selected" type="button" aria-pressed="true" data-status="active" data-name="Andrea Martínez" data-email="andrea.martinez@banasan.com.co" data-initials="AM"><span class="identity-mark">AM<i></i></span><span class="user-identity"><strong>Andrea Martínez</strong><small>andrea.martinez@banasan.com.co</small></span><span class="ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="active" data-name="Carlos Rivera" data-email="carlos.rivera@banasan.com.co" data-initials="CR"><span class="identity-mark">CR<i></i></span><span class="user-identity"><strong>Carlos Rivera</strong><small>carlos.rivera@banasan.com.co</small></span><span class="ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="pending" data-name="Diana Pérez" data-email="diana.perez@banasan.com.co" data-initials="DP"><span class="identity-mark">DP<i></i></span><span class="user-identity"><strong>Diana Pérez</strong><small>diana.perez@banasan.com.co</small></span><span class="ui-state-mark ui-state-mark--pending">Pendiente</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="active" data-name="Felipe Gómez" data-email="felipe.gomez@banasan.com.co" data-initials="FG"><span class="identity-mark">FG<i></i></span><span class="user-identity"><strong>Felipe Gómez</strong><small>felipe.gomez@banasan.com.co</small></span><span class="ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="pending" data-name="María López" data-email="maria.lopez@banasan.com.co" data-initials="ML"><span class="identity-mark">ML<i></i></span><span class="user-identity"><strong>María López</strong><small>maria.lopez@banasan.com.co</small></span><span class="ui-state-mark ui-state-mark--pending">Pendiente</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="user-row ui-data-list__row" type="button" aria-pressed="false" data-status="active" data-name="Sergio Torres" data-email="sergio.torres@banasan.com.co" data-initials="ST"><span class="identity-mark">ST<i></i></span><span class="user-identity"><strong>Sergio Torres</strong><small>sergio.torres@banasan.com.co</small></span><span class="ui-state-mark ui-state-mark--positive">Activo</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
           </div>
-          <div class="empty-state" hidden data-empty><strong>Sin resultados</strong><p>Ajusta la búsqueda o cambia el filtro.</p></div>
+          <div class="ui-feedback ui-feedback--empty user-empty" hidden data-empty><span class="ui-feedback__symbol" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg></span><div class="ui-feedback__body"><strong>Sin resultados</strong><p>Ajusta la búsqueda o cambia el filtro.</p></div></div>
         </section>
 
         <aside class="user-detail ui-detail-panel" aria-labelledby="detail-title" aria-live="polite">
           <div class="detail-identity"><span class="identity-mark identity-mark--inverse" data-detail-initials>AM<i></i></span><div><p>Usuario seleccionado</p><h2 id="detail-title" data-detail-name>Andrea Martínez</h2><a href="mailto:andrea.martinez@banasan.com.co" data-detail-email>andrea.martinez@banasan.com.co</a></div></div>
           <div class="detail-boundary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 4.8 3.3 7.7 8 9 4.7-1.3 8-4.2 8-9V7l-8-4Z"/><path d="M9 12h6M12 9v6"/></svg><div><strong>Definición pendiente</strong><p>Roles, permisos, atributos y ciclo de vida se incorporarán cuando exista el modelo definitivo.</p></div></div>
           <dl class="detail-list"><div><dt>Estado de acceso</dt><dd data-detail-status>Activo</dd></div><div><dt>Origen</dt><dd>Dato demostrativo</dd></div><div><dt>Última actualización</dt><dd>No disponible</dd></div></dl>
-          <button class="detail-action" type="button" disabled>Editar usuario</button>
+          <button class="detail-action ui-action ui-action--outline-inverse" type="button" disabled>Editar usuario</button>
         </aside>
       </div>
     </section>

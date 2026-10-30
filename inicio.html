@@ -14,48 +14,14 @@
   <link rel="stylesheet" href="assets/css/inicio.css?v=21" />
   <link rel="stylesheet" href="assets/css/components.css?v=3" />
   <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
-  <script src="assets/js/inicio.js?v=8" defer></script>
+  <link rel="stylesheet" href="assets/css/site-header.css?v=1" />
+  <script src="assets/js/site-header.js?v=1" defer></script>
+  <script src="assets/js/inicio.js?v=9" defer></script>
   <script src="assets/js/account-tray.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
-  <header class="site-header" data-header>
-    <div class="nav-shell">
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><b>Menú</b></button>
-      <a class="mobile-brand" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
-      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
-        <div class="nav-group nav-group--left">
-          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Nuestra empresa <span>⌄</span></button><div class="nav-popover"><a href="#">Quiénes somos</a><a href="#">Nuestra cultura</a><a href="#">Directorio corporativo</a></div></div>
-          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Indicadores y acciones <span>⌄</span></button><div class="nav-popover"><a href="#">Indicadores corporativos</a><a href="#">Planes de acción</a><a href="#">Seguimiento</a></div></div>
-          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">UI <span>⌄</span></button><div class="nav-popover"><a href="componentes.html">Componentes</a><a href="usuarios.html">Gestión de usuarios</a><a href="data-list-demo.html">Directorio de servicios</a><a href="navigation-demo.html">Navegación</a><a href="login.html">Acceso</a></div></div>
-        </div>
-        <a class="brand-lockup ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
-        <div class="nav-group nav-group--right">
-          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Bienestar laboral <span>⌄</span></button><div class="nav-popover"><a href="#">Beneficios</a><a href="#">Seguridad y salud</a><a href="#vacantes">Vacantes internas</a></div></div>
-          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Formatos y documentos <span>⌄</span></button><div class="nav-popover"><a href="#">Formatos frecuentes</a><a href="#">Políticas</a><a href="#">Biblioteca documental</a></div></div>
-          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Para TI <span>⌄</span></button><div class="nav-popover"><a href="#">Solicitar soporte</a><a href="#">Servicios tecnológicos</a><a href="#">Buenas prácticas</a></div></div>
-        </div>
-      </nav>
-      <button class="nav-pull-handle" type="button" aria-expanded="true" aria-controls="main-nav" aria-label="Ocultar navegación">
-        <span aria-hidden="true"></span>
-      </button>
-      <div class="header-tools">
-        <button type="button" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg></button>
-        <div class="account-tray-host" data-account-tray>
-          <button class="profile account-mark ui-account-mark account-tray__trigger" type="button" aria-label="Abrir cuenta" aria-expanded="false" aria-controls="account-tray-home"><span>JS</span><i aria-hidden="true"></i></button>
-          <button class="account-tray__backdrop" type="button" tabindex="-1" aria-hidden="true" data-account-close></button>
-          <section class="account-tray" id="account-tray-home" aria-label="Cuenta" aria-hidden="true">
-            <header class="account-tray__identity"><div><strong>Cuenta</strong></div><button type="button" aria-label="Cerrar cuenta" data-account-close><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></header>
-            <nav class="account-tray__nav" aria-label="Opciones de cuenta">
-              <a href="#" data-account-pending><span><strong>Perfil</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
-              <a href="#" data-account-pending><span><strong>Empresa</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
-              <a href="usuarios.html"><span><strong>Gestión de usuarios</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
-            </nav>
-          </section>
-        </div>
-      </div>
-    </div>
-  </header>
+  <div data-site-header></div>
 
   <main id="contenido">
     <section class="hero scroll-scene" aria-labelledby="hero-title" data-scroll-scene>
@@ -76,7 +42,6 @@
         <a href="#"><span class="quick-icon">⌁</span><strong>Directorio</strong><small>Personas y áreas</small></a>
         <a href="#"><span class="quick-icon">✓</span><strong>Gestión humana</strong><small>Certificados y novedades</small></a>
         <a href="#"><span class="quick-icon">▤</span><strong>Documentos</strong><small>Formatos vigentes</small></a>
-        <a href="#"><span class="quick-icon">?</span><strong>Soporte TI</strong><small>Ayuda tecnológica</small></a>
       </div>
     </section>
 
@@ -108,9 +73,9 @@
         <span class="platform-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 5h12v14H6zM9 9h6M9 13h6"/></svg></span>
         <strong>SIAL</strong>
       </a>
-      <a class="platform-link platform-link--two" href="#" aria-label="Abrir Mesa TI">
+      <a class="platform-link platform-link--two" href="#" aria-label="Abrir GLPI">
         <span class="platform-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7h14v10H5zM9 21h6M12 17v4"/></svg></span>
-        <strong>Mesa TI</strong>
+        <strong>GLPI</strong>
       </a>
       <a class="platform-link platform-link--three" href="#" aria-label="Abrir Analítica">
         <span class="platform-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19V9M12 19V5M19 19v-7"/></svg></span>

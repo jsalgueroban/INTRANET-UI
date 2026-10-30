@@ -36,6 +36,7 @@
           <div class="catalog-swatch"><b>Procesando</b><button class="ui-action ui-action--secondary" type="button" aria-busy="true"><span class="ui-action__spinner" aria-hidden="true"></span>Guardando</button></div>
           <div class="catalog-swatch"><b>No disponible</b><button class="ui-action" type="button" disabled>Acción no disponible</button></div>
           <div class="catalog-swatch"><b>Acción de icono</b><button class="ui-icon-action" type="button" aria-label="Abrir detalle"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></button></div>
+          <div class="catalog-swatch catalog-swatch--inverse"><b>Contorno sobre oscuro</b><button class="ui-action ui-action--outline-inverse" type="button">Editar usuario</button></div>
           <div class="catalog-swatch"><b>Destructiva</b><button class="ui-action ui-action--danger" type="button">Desactivar</button></div>
         </div>
       </div>
@@ -72,10 +73,10 @@
     <section class="catalog-section" aria-labelledby="selection-title">
       <div class="catalog-section__intro"><h2 id="selection-title">Selección y recorrido</h2><p>Filtros, revelado progresivo, navegación y filas de resultado.</p></div>
       <div class="catalog-stage catalog-stage--stack">
-        <div class="ui-filter-bar" role="tablist" aria-label="Filtrar usuarios">
-          <button class="ui-filter-bar__item is-active" type="button" role="tab" aria-selected="true" data-filter>Todos <span>24</span></button>
-          <button class="ui-filter-bar__item" type="button" role="tab" aria-selected="false" tabindex="-1" data-filter>Activos <span>18</span></button>
-          <button class="ui-filter-bar__item" type="button" role="tab" aria-selected="false" tabindex="-1" data-filter>Pendientes <span>6</span></button>
+        <div class="ui-filter-bar" role="group" aria-label="Filtrar usuarios">
+          <button class="ui-filter-bar__item is-active" type="button" aria-pressed="true" data-filter="all">Todos <span>24</span></button>
+          <button class="ui-filter-bar__item" type="button" aria-pressed="false" data-filter="active">Activos <span>18</span></button>
+          <button class="ui-filter-bar__item" type="button" aria-pressed="false" data-filter="pending">Pendientes <span>6</span></button>
           <button class="ui-filter-bar__refine" type="button"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-filter" /></svg><span>Refinar</span></button>
         </div>
 
@@ -142,6 +143,6 @@
       </div>
     </section>
   </main>
-  <script src="assets/js/catalog.js"></script>
+  <script type="module" src="assets/js/catalog.js"></script>
 </body>
 </html>

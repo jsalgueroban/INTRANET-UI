@@ -1,3 +1,8 @@
+import { initSearchField, initFilterBar } from './ui-controls.js';
+
+document.querySelectorAll('.ui-search-field').forEach(initSearchField);
+document.querySelectorAll('.ui-filter-bar').forEach(group => initFilterBar(group));
+
 const catalog = document.querySelector("#catalog");
 
 catalog?.addEventListener("click", (event) => {
@@ -44,55 +49,10 @@ catalog?.addEventListener("click", (event) => {
     nav.parentElement.querySelector(".ui-pagination__status").textContent = `Página ${page} de 3`;
     return;
   }
-  const clear = event.target.closest("[data-search-clear]");
-  if (clear) {
-    const field = clear.closest(".ui-search-field");
-    const input = field?.querySelector("input");
-    if (input) {
-      input.value = "";
-      field.dataset.filled = "false";
-      input.focus();
-      input.dispatchEvent(new Event("input", { bubbles: true }));
-    }
-    return;
-  }
-
-  const filter = event.target.closest("[data-filter]");
-  if (filter) {
-    const group = filter.closest("[role=tablist]");
-    group?.querySelectorAll("[data-filter]").forEach((item) => {
-      const selected = item === filter;
-      item.classList.toggle("is-active", selected);
-      item.setAttribute("aria-selected", String(selected));
-      item.tabIndex = selected ? 0 : -1;
-    });
-    return;
-  }
-
   const disclosure = event.target.closest("[data-disclosure]");
   if (disclosure) {
     const expanded = disclosure.getAttribute("aria-expanded") === "true";
     disclosure.setAttribute("aria-expanded", String(!expanded));
     document.querySelector(`#${disclosure.getAttribute("aria-controls")}`)?.toggleAttribute("hidden", expanded);
   }
-});
-
-catalog?.addEventListener("input", (event) => {
-  const input = event.target.closest(".ui-search-field input");
-  if (input) input.closest(".ui-search-field").dataset.filled = String(Boolean(input.value));
-});
-
-catalog?.addEventListener("keydown", (event) => {
-  const current = event.target.closest("[data-filter]");
-  if (!current || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-  const items = [...current.closest("[role=tablist]").querySelectorAll("[data-filter]")];
-  const index = items.indexOf(current);
-  let next = index;
-  if (event.key === "ArrowLeft") next = (index - 1 + items.length) % items.length;
-  if (event.key === "ArrowRight") next = (index + 1) % items.length;
-  if (event.key === "Home") next = 0;
-  if (event.key === "End") next = items.length - 1;
-  event.preventDefault();
-  items[next].click();
-  items[next].focus();
 });

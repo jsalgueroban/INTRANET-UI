@@ -1,13 +1,10 @@
+import { initSearchField } from './ui-controls.js';
 import { createDataList, updateDetailPanel } from './data-list.js';
 
 const search = document.querySelector('[data-search]');
+initSearchField(search.closest('.ui-search-field'));
 const detail = document.querySelector('.user-detail');
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const siteHeader = document.querySelector('[data-header]');
-function syncHeader() { siteHeader?.classList.toggle('is-scrolled', window.scrollY > 28); }
-addEventListener('scroll', syncHeader, { passive: true });
-syncHeader();
-
 createDataList({
   rows: [...document.querySelectorAll('.user-row')], search,
   filters: [...document.querySelectorAll('[data-filter]')],

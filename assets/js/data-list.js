@@ -1,3 +1,5 @@
+import { initFilterBar } from './ui-controls.js';
+
 export function createDataList({ rows, search, filters, empty, count, detail, matches, onSelect }) {
   let activeFilter = 'all';
   function select(row) {
@@ -14,11 +16,8 @@ export function createDataList({ rows, search, filters, empty, count, detail, ma
     if (visible.length && !visible.some(row => row.classList.contains('is-selected'))) select(visible[0]);
   }
   rows.forEach(row => row.addEventListener('click', () => select(row)));
-  filters.forEach(button => button.addEventListener('click', () => {
-    activeFilter = button.dataset.filter;
-    filters.forEach(item => { const selected = item === button; item.classList.toggle('is-active', selected); item.setAttribute('aria-pressed', String(selected)); });
-    update();
-  }));
+  const filterGroup = filters[0]?.closest('.ui-filter-bar');
+  if (filterGroup) initFilterBar(filterGroup, value => { activeFilter = value; update(); });
   search.addEventListener('input', update);
   return { update, select };
 }

@@ -21,3 +21,5 @@ body{min-height:100vh;background:var(--surface-page)}
 .catalog-selection-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.8fr);gap:28px;align-items:start}
 @media(max-width:760px){.catalog-section{grid-template-columns:1fr;gap:18px}.catalog-section--full{width:calc(100vw - 28px)}.catalog-navigation-frame{height:150px}.catalog-header{align-items:flex-start;flex-direction:column;gap:22px}.catalog-grid,.catalog-quick-grid{grid-template-columns:1fr}.catalog-main{width:min(100% - 28px,1120px);padding-top:44px}.catalog-stage{padding:20px}}
 @media(max-width:760px){.catalog-selection-grid{grid-template-columns:1fr}}
+
+.catalog-swatch--inverse{color:var(--text-inverse);background:var(--surface-inverse)}
