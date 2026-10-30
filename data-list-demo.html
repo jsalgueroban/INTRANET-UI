@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Directorio de servicios · Intranet</title>
+  <link rel="stylesheet" href="assets/css/foundation.css" />
+  <link rel="stylesheet" href="assets/css/components.css?v=16" />
+  <link rel="stylesheet" href="assets/css/data-list-demo.css" />
+  <script type="module" src="assets/js/data-list-demo.js"></script>
+</head>
+<body>
+  <main class="demo-main">
+    <a href="componentes.html">Volver a componentes</a>
+    <h1>Directorio de servicios</h1>
+    <div class="ui-field"><label for="service-search">Buscar servicios</label><input id="service-search" type="search" /></div>
+    <div class="demo-layout">
+      <section class="ui-data-list" aria-labelledby="service-list-title">
+        <h2 id="service-list-title">Servicios</h2><p role="status"><span data-count>3</span> servicios</p>
+        <div class="ui-data-list__items">
+          <button type="button" class="ui-data-list__row is-selected" aria-pressed="true" data-name="Soporte tecnológico" data-description="Atención de incidentes y solicitudes de tecnología."><strong>Soporte tecnológico</strong><span>Ayuda y equipos</span></button>
+          <button type="button" class="ui-data-list__row" aria-pressed="false" data-name="Gestión documental" data-description="Consulta de formatos y documentos vigentes."><strong>Gestión documental</strong><span>Documentos</span></button>
+          <button type="button" class="ui-data-list__row" aria-pressed="false" data-name="Directorio corporativo" data-description="Información de contacto de personas y áreas."><strong>Directorio corporativo</strong><span>Personas y áreas</span></button>
+        </div>
+        <p data-empty hidden>Sin resultados. Prueba con otra búsqueda.</p>
+      </section>
+      <aside class="ui-detail-panel demo-detail" aria-labelledby="service-detail-name" aria-live="polite"><h2 id="service-detail-name" data-detail-name>Soporte tecnológico</h2><p data-detail-description>Atención de incidentes y solicitudes de tecnología.</p></aside>
+    </div>
+  </main>
+</body>
+</html>

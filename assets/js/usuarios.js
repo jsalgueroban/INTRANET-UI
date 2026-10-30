@@ -1,0 +1,30 @@
+import { createDataList, updateDetailPanel } from './data-list.js';
+
+const search = document.querySelector('[data-search]');
+const detail = document.querySelector('.user-detail');
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const siteHeader = document.querySelector('[data-header]');
+function syncHeader() { siteHeader?.classList.toggle('is-scrolled', window.scrollY > 28); }
+addEventListener('scroll', syncHeader, { passive: true });
+syncHeader();
+
+createDataList({
+  rows: [...document.querySelectorAll('.user-row')], search,
+  filters: [...document.querySelectorAll('[data-filter]')],
+  empty: document.querySelector('[data-empty]'), count: document.querySelector('[data-result-count]'), detail,
+  matches: (row, query, filter) => (filter === 'all' || row.dataset.status === filter) && `${row.dataset.name} ${row.dataset.email}`.toLocaleLowerCase('es').includes(query),
+  onSelect: row => {
+    updateDetailPanel(detail, {
+      initials: { text: row.dataset.initials }, name: { text: row.dataset.name },
+      email: { text: row.dataset.email, href: `mailto:${row.dataset.email}` },
+      status: { text: row.dataset.status === 'active' ? 'Activo' : 'Pendiente' }
+    });
+    if (!reduceMotion.matches) detail.querySelectorAll('.detail-identity,.detail-boundary,.detail-list').forEach((node, index) => node.animate(
+      [{ opacity: .72, transform: 'translateY(5px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 180 + index * 25, easing: 'cubic-bezier(.23,1,.32,1)' }
+    ));
+  }
+});
+document.addEventListener('keydown', event => {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search.focus(); }
+});

@@ -1,0 +1,70 @@
+@import url("./tokens.css");
+
+:root{
+  --blue:var(--color-blue-600);
+  --blue-deep:var(--color-navy-800);
+  --blue-night:var(--color-navy-900);
+  --navy:var(--color-navy-900);
+  --deep:var(--color-navy-800);
+  --night:var(--color-navy-900);
+  --yellow:var(--color-yellow-400);
+  --ink:var(--text-primary);
+  --muted:var(--text-secondary);
+  --mist:var(--surface-subtle);
+  --paper:var(--surface-raised);
+  --page:var(--surface-page);
+  --line:var(--border-subtle);
+  --success:var(--color-green-700);
+  --display:var(--font-family-display);
+  --body:var(--font-family-body);
+  --ease:var(--motion-easing-expressive);
+  --font-display:var(--font-family-display);
+  --font-body:var(--font-family-body);
+  --motion-expressive:var(--motion-easing-expressive);
+  --motion-press:var(--motion-duration-press);
+  --motion-feedback:var(--motion-duration-feedback);
+  --motion-panel:var(--motion-duration-panel);
+  --focus-ring:var(--border-focus);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--text-primary);font-family:var(--font-body);background:var(--surface-page)}
+button,input,select,textarea{font:inherit}
+button{color:inherit}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+[hidden]{display:none!important}
+
+:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
+
+.skip-link{
+  position:fixed;
+  z-index:var(--layer-skip-link);
+  top:10px;
+  left:10px;
+  padding:10px 15px;
+  border-radius:var(--radius-sm);
+  color:var(--text-inverse);
+  background:var(--surface-inverse);
+  transform:translateY(-160%);
+  transition:transform var(--motion-feedback) var(--motion-expressive);
+}
+.skip-link:focus{transform:none}
+
+.sr-only{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}

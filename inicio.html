@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Inicio de la Intranet Banasan." />
+  <meta name="theme-color" content="#062b4a" />
+  <title>Inicio · Intranet</title>
+  <link rel="icon" href="assets/brand/simbolo-banasan.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/foundation.css?v=1" />
+  <link rel="stylesheet" href="assets/css/inicio.css?v=21" />
+  <link rel="stylesheet" href="assets/css/components.css?v=3" />
+  <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
+  <script src="assets/js/inicio.js?v=8" defer></script>
+  <script src="assets/js/account-tray.js?v=3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><b>Menú</b></button>
+      <a class="mobile-brand" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <div class="nav-group nav-group--left">
+          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Nuestra empresa <span>⌄</span></button><div class="nav-popover"><a href="#">Quiénes somos</a><a href="#">Nuestra cultura</a><a href="#">Directorio corporativo</a></div></div>
+          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Indicadores y acciones <span>⌄</span></button><div class="nav-popover"><a href="#">Indicadores corporativos</a><a href="#">Planes de acción</a><a href="#">Seguimiento</a></div></div>
+        </div>
+        <a class="brand-lockup ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
+        <div class="nav-group nav-group--right">
+          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Bienestar laboral <span>⌄</span></button><div class="nav-popover"><a href="#">Beneficios</a><a href="#">Seguridad y salud</a><a href="#vacantes">Vacantes internas</a></div></div>
+          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Formatos y documentos <span>⌄</span></button><div class="nav-popover"><a href="#">Formatos frecuentes</a><a href="#">Políticas</a><a href="#">Biblioteca documental</a></div></div>
+          <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Para TI <span>⌄</span></button><div class="nav-popover"><a href="#">Solicitar soporte</a><a href="#">Servicios tecnológicos</a><a href="#">Buenas prácticas</a></div></div>
+        </div>
+      </nav>
+      <button class="nav-pull-handle" type="button" aria-expanded="true" aria-controls="main-nav" aria-label="Ocultar navegación">
+        <span aria-hidden="true"></span>
+      </button>
+      <div class="header-tools">
+        <button type="button" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg></button>
+        <div class="account-tray-host" data-account-tray>
+          <button class="profile account-mark ui-account-mark account-tray__trigger" type="button" aria-label="Abrir cuenta" aria-expanded="false" aria-controls="account-tray-home"><span>JS</span><i aria-hidden="true"></i></button>
+          <button class="account-tray__backdrop" type="button" tabindex="-1" aria-hidden="true" data-account-close></button>
+          <section class="account-tray" id="account-tray-home" aria-label="Cuenta" aria-hidden="true">
+            <header class="account-tray__identity"><div><strong>Cuenta</strong></div><button type="button" aria-label="Cerrar cuenta" data-account-close><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></header>
+            <nav class="account-tray__nav" aria-label="Opciones de cuenta">
+              <a href="#" data-account-pending><span><strong>Perfil</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+              <a href="#" data-account-pending><span><strong>Empresa</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+              <a href="usuarios.html"><span><strong>Gestión de usuarios</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+            </nav>
+          </section>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero scroll-scene" aria-labelledby="hero-title" data-scroll-scene>
+      <img class="hero-image" src="assets/art/canopy-banasan-real-v6.png" alt="Camino abierto entre cultivos de banano bajo el cielo" />
+      <div class="hero-wash"></div>
+      <div class="hero-content">
+        <h1 id="hero-title">Hoy en<br />Banasan.</h1>
+        <p>Consulta noticias, formatos y servicios internos.</p>
+        <a class="hero-action primary-cta ui-action ui-action--primary" href="#actualidad">Ver noticias <span class="primary-cta__icon ui-action__icon"><svg class="action-icon ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span></a>
+      </div>
+      <div class="today-note"><strong data-today>Información interna actualizada</strong></div>
+    </section>
+
+    <section class="quick-section flow-panel" aria-labelledby="quick-title" data-flow-panel>
+      <div class="section-heading compact ui-section-heading"><div><h2 id="quick-title">Herramientas frecuentes</h2></div><p>Servicios y recursos de uso diario.</p></div>
+      <div class="quick-rail">
+        <a href="#"><span class="quick-icon"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span><strong>Portal de solicitudes</strong><small>Servicios internos</small></a>
+        <a href="#"><span class="quick-icon">⌁</span><strong>Directorio</strong><small>Personas y áreas</small></a>
+        <a href="#"><span class="quick-icon">✓</span><strong>Gestión humana</strong><small>Certificados y novedades</small></a>
+        <a href="#"><span class="quick-icon">▤</span><strong>Documentos</strong><small>Formatos vigentes</small></a>
+        <a href="#"><span class="quick-icon">?</span><strong>Soporte TI</strong><small>Ayuda tecnológica</small></a>
+      </div>
+    </section>
+
+    <section class="news-section flow-panel" id="actualidad" aria-labelledby="news-title" data-flow-panel>
+      <div class="section-heading ui-section-heading"><div><h2 id="news-title">Noticias Banasan</h2></div><a class="text-link" href="#">Ver todas <svg class="action-icon ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div>
+      <div class="news-layout">
+        <article class="lead-story"><div class="story-image"><img src="assets/art/canopy-portal-photoreal-v4.png" alt="Cultivo de banano bajo un cielo despejado" /><span>Destacada</span></div><div class="story-copy"><p class="story-meta">Cultura</p><h3>Encuentro de equipos en Santa Marta</h3><p>Resumen de la jornada, participantes y próximos encuentros internos.</p><a href="#">Leer noticia <svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></article>
+        <div class="story-list">
+          <article><p class="story-meta">Bienestar</p><h3>Agenda de bienestar de octubre</h3><p>Fechas, horarios y lugares de las próximas actividades.</p><a href="#" aria-label="Leer agenda de bienestar de octubre"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></article>
+          <article><p class="story-meta">Operación</p><h3>Actualización de seguridad en campo</h3><p>Recomendaciones vigentes para las jornadas de trabajo.</p><a href="#" aria-label="Leer actualización de seguridad en campo"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></article>
+          <article class="story-visual"><img src="assets/art/canopy-banasan-real-v5.png" alt="Vista de un cultivo de banano" /><div><small>Galería</small><strong>Trabajo en campo</strong></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="jobs-section flow-panel" id="vacantes" aria-labelledby="jobs-title" data-flow-panel>
+      <div class="jobs-intro"><h2 id="jobs-title">Vacantes<br />internas.</h2><p>Consulta las convocatorias disponibles para colaboradores.</p><a class="primary-cta ui-action ui-action--primary" href="#">Ver vacantes <span class="primary-cta__icon ui-action__icon"><svg class="action-icon ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a></div>
+      <div class="jobs-list" aria-label="Vacantes demostrativas">
+        <a href="#"><div><strong>Profesional de compras</strong><span>Administrativa</span></div><small>Santa Marta · Presencial</small><b><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></b></a>
+        <a href="#"><div><strong>Analista de soporte</strong><span>Tecnología</span></div><small>Santa Marta · Híbrido</small><b><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></b></a>
+        <a href="#"><div><strong>Auxiliar de bienestar</strong><span>Gestión humana</span></div><small>Zona bananera · Presencial</small><b><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></b></a>
+      </div>
+    </section>
+  </main>
+
+  <aside class="platform-hub" data-platform-hub>
+    <div class="platform-hub__orbit" id="platform-links" aria-hidden="true">
+      <a class="platform-link platform-link--one" href="#" aria-label="Abrir SIAL">
+        <span class="platform-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 5h12v14H6zM9 9h6M9 13h6"/></svg></span>
+        <strong>SIAL</strong>
+      </a>
+      <a class="platform-link platform-link--two" href="#" aria-label="Abrir Mesa TI">
+        <span class="platform-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7h14v10H5zM9 21h6M12 17v4"/></svg></span>
+        <strong>Mesa TI</strong>
+      </a>
+      <a class="platform-link platform-link--three" href="#" aria-label="Abrir Analítica">
+        <span class="platform-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19V9M12 19V5M19 19v-7"/></svg></span>
+        <strong>Analítica</strong>
+      </a>
+      <a class="platform-link platform-link--four" href="#" aria-label="Abrir Gestión humana">
+        <span class="platform-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 19c.6-3.4 2.6-5 6-5s5.4 1.6 6 5"/></svg></span>
+        <strong>Gestión humana</strong>
+      </a>
+    </div>
+    <button class="platform-hub__trigger" type="button" aria-expanded="false" aria-controls="platform-links">
+      <img src="assets/brand/simbolo-banasan-3d-v2.png" alt="" />
+      <span class="sr-only">Abrir plataformas internas</span>
+    </button>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-signature"><img src="assets/brand/logo-banasan.svg" alt="Banasan" /><p>Comercializadora Internacional<br />Bananeros Unidos de Santa Marta S.A.S.</p><span>Intranet corporativa</span></div>
+      <div class="footer-grid">
+        <a class="footer-place" href="https://www.google.com/maps" target="_blank" rel="noreferrer"><div class="place-image"><img src="assets/art/living-archive-banasan-real-v5.png" alt="Camino entre cultivos de banano" /></div><div class="place-copy"><p class="eyebrow">Sede principal</p><h2>Santa Marta,<br />Magdalena.</h2><span>Ver ubicación <svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span></div></a>
+        <div class="footer-contact"><p class="footer-label">Contacto</p><address><span>NIT</span><strong>900.031.088-5</strong><span>Dirección</span><strong>Km. 5 vía Gaira, Troncal del Caribe</strong><span>Teléfono</span><a href="tel:+576054237147">(605) 423 7147</a><span>Correo</span><a href="mailto:info@banasan.com.co">info@banasan.com.co</a></address></div>
+        <nav class="footer-links" aria-label="Enlaces corporativos"><p class="footer-label">Enlaces</p><a href="https://www.banasan.com.co"><span>Sitio web Banasan</span><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a><a href="#"><span>Aporta tu idea</span><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a><a href="#"><span>Reporta tus PQRS</span><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a><a href="#"><span>Canal de transparencia</span><svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></nav>
+      </div>
+    </div>
+    <div class="footer-bottom ui-copyright"><a href="https://www.banasan.com.co/" target="_blank" rel="noreferrer">C.I. Banasan S.A.S © 2026 Todos los derechos reservados</a></div>
+  </footer>
+</body>
+</html>

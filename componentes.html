@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Componentes · Intranet Banasan</title>
+  <link rel="icon" href="assets/brand/simbolo-banasan.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/foundation.css" />
+  <link rel="stylesheet" href="assets/css/components.css?v=14" />
+  <link rel="stylesheet" href="assets/css/catalog.css?v=5" />
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Ir a componentes</a>
+  <header class="catalog-header">
+    <div><strong>Intranet Banasan</strong><p>Foundation 0.4 · Catálogo interno</p></div>
+    <a href="inicio.html">Volver al inicio</a>
+  </header>
+  <main class="catalog-main" id="catalog">
+    <h1>Componentes activos.</h1>
+    <p class="catalog-intro">Referencia de consumo para estados, accesibilidad y composición. Las piezas experimentales conservan su frontera hasta completar los gates registrados.</p>
+
+    <section class="catalog-section catalog-section--full" aria-labelledby="navigation-title">
+      <div class="catalog-section__intro"><h2 id="navigation-title">Navegación global</h2><p>Menús, búsqueda, cuenta, responsive y estado retráctil.</p></div>
+      <iframe class="catalog-navigation-frame" src="navigation-demo.html" title="Componente de navegación global" loading="eager"></iframe>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="actions-title">
+      <div class="catalog-section__intro"><h2 id="actions-title">Acciones</h2><p>Default, jerarquía, carga y disponibilidad.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="catalog-grid">
+          <div class="catalog-swatch"><b>Principal</b><a class="ui-action ui-action--primary" href="#">Ver noticias <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span></a></div>
+          <div class="catalog-swatch"><b>Secundaria</b><button class="ui-action ui-action--secondary" type="button">Guardar cambios</button></div>
+          <div class="catalog-swatch"><b>Procesando</b><button class="ui-action ui-action--secondary" type="button" aria-busy="true"><span class="ui-action__spinner" aria-hidden="true"></span>Guardando</button></div>
+          <div class="catalog-swatch"><b>No disponible</b><button class="ui-action" type="button" disabled>Acción no disponible</button></div>
+          <div class="catalog-swatch"><b>Acción de icono</b><button class="ui-icon-action" type="button" aria-label="Abrir detalle"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></button></div>
+          <div class="catalog-swatch"><b>Destructiva</b><button class="ui-action ui-action--danger" type="button">Desactivar</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="forms-title">
+      <div class="catalog-section__intro"><h2 id="forms-title">Formulario</h2><p>Entrada, ayuda, error, búsqueda y selección.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="catalog-grid">
+          <div class="ui-field"><label for="catalog-name">Nombre</label><input id="catalog-name" type="text" value="Andrea Martínez" /><p class="ui-field__message">Usa el nombre corporativo.</p></div>
+          <div class="ui-field"><label for="catalog-email">Correo</label><input id="catalog-email" type="email" value="correo-invalido" aria-invalid="true" aria-describedby="catalog-email-error" /><p class="ui-field__message ui-field__message--error" id="catalog-email-error">Ingresa un correo corporativo válido.</p></div>
+          <div class="ui-field"><label for="catalog-disabled">Área</label><input id="catalog-disabled" type="text" value="Gestión humana" disabled /><p class="ui-field__message">Disponible cuando exista el catálogo.</p></div>
+          <div class="ui-search-field" data-filled="true"><label class="sr-only" for="catalog-search">Buscar usuarios</label><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg><input id="catalog-search" type="search" value="Andrea" placeholder="Buscar por nombre o correo" /><button class="ui-search-field__clear" type="button" aria-label="Limpiar búsqueda" data-search-clear><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-x" /></svg></button></div>
+        </div>
+        <label class="ui-check"><input type="checkbox" checked /><span>Recibir notificaciones de esta actualización</span></label>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="controls-title">
+      <div class="catalog-section__intro"><h2 id="controls-title">Selección y progreso</h2><p>Controles para elegir opciones y comunicar el avance.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <fieldset class="ui-choice-group"><legend>Preferencias</legend>
+          <label class="ui-check"><input type="checkbox" checked /><span>Recibir avisos por correo</span></label>
+          <label class="ui-check"><input type="checkbox" /><span>Incluir novedades de mi área</span></label>
+          <label class="ui-check"><input type="checkbox" disabled /><span>Notificaciones por SMS</span></label>
+        </fieldset>
+        <label class="ui-switch"><input type="checkbox" role="switch" checked /><span class="ui-switch__track" aria-hidden="true"></span><span><strong>Notificaciones</strong><small>Recibir avisos de la intranet</small></span></label>
+        <label class="ui-switch"><input type="checkbox" role="switch" disabled /><span class="ui-switch__track" aria-hidden="true"></span><span><strong>Resumen semanal</strong><small>No disponible</small></span></label>
+        <div class="ui-progress"><div class="ui-progress__heading"><label for="catalog-progress">Preparando archivos</label><span>60 %</span></div><progress id="catalog-progress" value="60" max="100">60 %</progress></div>
+        <div class="ui-progress"><label for="catalog-progress-wait">Cargando información</label><progress id="catalog-progress-wait">Cargando</progress></div>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="selection-title">
+      <div class="catalog-section__intro"><h2 id="selection-title">Selección y recorrido</h2><p>Filtros, revelado progresivo, navegación y filas de resultado.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="ui-filter-bar" role="tablist" aria-label="Filtrar usuarios">
+          <button class="ui-filter-bar__item is-active" type="button" role="tab" aria-selected="true" data-filter>Todos <span>24</span></button>
+          <button class="ui-filter-bar__item" type="button" role="tab" aria-selected="false" tabindex="-1" data-filter>Activos <span>18</span></button>
+          <button class="ui-filter-bar__item" type="button" role="tab" aria-selected="false" tabindex="-1" data-filter>Pendientes <span>6</span></button>
+          <button class="ui-filter-bar__refine" type="button"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-filter" /></svg><span>Refinar</span></button>
+        </div>
+
+        <div class="catalog-selection-grid">
+          <div class="ui-disclosure">
+            <button class="ui-disclosure__trigger" type="button" aria-expanded="false" aria-controls="catalog-disclosure" data-disclosure><span><strong>Indicadores y acciones</strong><small>Información corporativa</small></span><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-chevron-down" /></svg></button>
+            <div class="ui-disclosure__panel" id="catalog-disclosure" hidden><a href="#">Indicadores corporativos</a><a href="#">Planes de acción</a></div>
+          </div>
+
+          <nav class="ui-nav-sample" aria-label="Navegación de ejemplo">
+            <a class="ui-navigation-item" href="#"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-user" /></svg><span><strong>Perfil</strong><small>Información personal</small></span><svg class="ui-icon ui-navigation-item__arrow" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-arrow-up-right" /></svg></a>
+            <a class="ui-navigation-item" href="#"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-building" /></svg><span><strong>Empresa</strong><small>Contexto corporativo</small></span><svg class="ui-icon ui-navigation-item__arrow" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-arrow-up-right" /></svg></a>
+            <a class="ui-navigation-item" href="usuarios.html"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-users" /></svg><span><strong>Gestión de usuarios</strong><small>Administración</small></span><svg class="ui-icon ui-navigation-item__arrow" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-arrow-up-right" /></svg></a>
+          </nav>
+        </div>
+
+        <div class="ui-list" aria-label="Vacantes disponibles">
+          <a class="ui-list-row" href="#"><span class="ui-list-row__mark"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-briefcase" /></svg></span><span class="ui-list-row__content"><strong>Profesional de compras</strong><small><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-map-pin" /></svg>Santa Marta · Presencial</small></span><span class="ui-list-row__meta">Administrativa</span><span class="ui-list-row__action"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-arrow-up-right" /></svg></span></a>
+          <a class="ui-list-row" href="#"><span class="ui-list-row__mark"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-settings" /></svg></span><span class="ui-list-row__content"><strong>Analista de soporte</strong><small><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-map-pin" /></svg>Santa Marta · Híbrido</small></span><span class="ui-list-row__meta">Tecnología</span><span class="ui-list-row__action"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-arrow-up-right" /></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="overlays-title">
+      <div class="catalog-section__intro"><h2 id="overlays-title">Ayuda y confirmación</h2><p>Información contextual y decisiones que requieren atención.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="ui-help"><span>Correo corporativo</span><button type="button" class="ui-help__trigger" aria-expanded="false" aria-controls="catalog-help" data-help>Ayuda</button><p id="catalog-help" class="ui-help__content" hidden>Utiliza la dirección asignada por Banasan.</p></div>
+        <div><button type="button" class="ui-action ui-action--secondary" data-dialog-open="catalog-dialog">Ver confirmación</button></div>
+        <dialog id="catalog-dialog" class="ui-dialog" aria-labelledby="catalog-dialog-title" aria-describedby="catalog-dialog-description"><h2 id="catalog-dialog-title">Descartar cambios</h2><p id="catalog-dialog-description">Los cambios que no guardaste se perderán.</p><div class="ui-dialog__actions"><button type="button" class="ui-action ui-action--quiet" data-dialog-close autofocus>Seguir editando</button><button type="button" class="ui-action ui-action--danger" data-dialog-close>Descartar</button></div></dialog>
+        <nav class="ui-pagination" aria-label="Páginas de ejemplo"><button type="button" disabled aria-label="Página anterior" data-page-prev>‹</button><button type="button" aria-current="page" data-page="1">1</button><button type="button" data-page="2">2</button><button type="button" data-page="3">3</button><button type="button" aria-label="Página siguiente" data-page-next>›</button></nav>
+        <p class="ui-pagination__status" role="status" aria-live="polite">Página 1 de 3</p>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="identity-title">
+      <div class="catalog-section__intro"><h2 id="identity-title">Identidad</h2><p>Producto, respaldo institucional y acceso de cuenta.</p></div>
+      <div class="catalog-stage catalog-stage--inverse">
+        <a class="ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
+        <button class="ui-account-mark" type="button" aria-label="Abrir cuenta"><span>JS</span></button>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="navigation-parts-title">
+      <div class="catalog-section__intro"><h2 id="navigation-parts-title">Orientación</h2><p>Encabezados, enlaces y accesos de uso frecuente.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="ui-section-heading"><div><h2>Herramientas frecuentes</h2></div><p>Servicios y recursos de uso diario.</p></div>
+        <div class="catalog-quick-grid">
+          <a class="ui-quick-access" href="#"><svg class="ui-icon ui-quick-access__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg><strong>Portal de solicitudes</strong><small>Servicios internos</small></a>
+          <a class="ui-quick-access" href="#"><svg class="ui-icon ui-quick-access__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.5"/><path d="M3.5 13c.5-3 2-4.5 4.5-4.5s4 1.5 4.5 4.5"/></svg><strong>Directorio</strong><small>Personas y áreas</small></a>
+          <a class="ui-quick-access" href="#"><svg class="ui-icon ui-quick-access__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10v9H3zM5 2h6v4H5z"/></svg><strong>Documentos</strong><small>Formatos vigentes</small></a>
+        </div>
+        <a class="ui-content-link" href="#">Ver todos los servicios <svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+      </div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="states-title">
+      <div class="catalog-section__intro"><h2 id="states-title">Estados</h2><p>Señales compactas y resultados de superficie.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <div class="catalog-status"><span class="ui-state-mark ui-state-mark--positive">Activo</span><span class="ui-state-mark ui-state-mark--pending">Pendiente</span><span class="ui-state-mark ui-state-mark--danger">Bloqueado</span></div>
+        <div class="ui-feedback ui-feedback--loading"><span class="ui-feedback__symbol" aria-hidden="true"><span class="ui-action__spinner"></span></span><div class="ui-feedback__body"><strong>Cargando información</strong><p>Estamos preparando los datos.</p><div class="ui-feedback__progress"><div><span>Ejemplo de progreso</span><output id="feedback-progress-value">64 %</output></div><progress id="feedback-progress" value="64" max="100" aria-label="Progreso de ejemplo">64 %</progress></div><button class="ui-feedback__action" type="button" data-progress-demo>Simular carga <span aria-hidden="true">↗</span></button><span class="sr-only" id="feedback-progress-status" role="status"></span></div></div>
+        <div class="ui-feedback ui-feedback--empty"><span class="ui-feedback__symbol" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg></span><div class="ui-feedback__body"><strong>Sin resultados</strong><p>Prueba con otra búsqueda o limpia los filtros.</p><button class="ui-feedback__action" type="button">Limpiar filtros <span aria-hidden="true">↗</span></button></div></div>
+        <div class="ui-feedback ui-feedback--error" role="alert"><span class="ui-feedback__symbol" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01"/><path d="M10.3 3.9 2.7 17a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><div class="ui-feedback__body"><strong>No pudimos cargar la información</strong><p>Inténtalo de nuevo en unos momentos.</p><button class="ui-feedback__action" type="button">Reintentar <span aria-hidden="true">↗</span></button></div></div>
+        <div class="ui-feedback ui-feedback--forbidden"><span class="ui-feedback__symbol" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></svg></span><div class="ui-feedback__body"><strong>Acceso restringido</strong><p>Contacta al responsable de esta información para solicitar acceso.</p></div></div>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/catalog.js"></script>
+</body>
+</html>
