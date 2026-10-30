@@ -4,6 +4,10 @@ Propuesta visual de la intranet corporativa de Banasan. Reúne las vistas de acc
 
 Las vistas utilizan datos de ejemplo. El formulario de acceso no está conectado a un servicio de autenticación.
 
+## Sitio web
+
+La propuesta está preparada para publicarse mediante GitHub Pages desde la rama `main`.
+
 ## Ejecución local
 
 Desde la raíz del repositorio, inicia un servidor HTTP:
