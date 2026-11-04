@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Directorio de servicios · Intranet</title>
-  <link rel="stylesheet" href="assets/css/foundation.css" />
-  <link rel="stylesheet" href="assets/css/components.css?v=16" />
+  <title>Ejemplo de lista y detalle · Intranet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/foundation.css?v=30" />
+  <link rel="stylesheet" href="assets/css/components.css?v=30" />
   <link rel="stylesheet" href="assets/css/data-list-demo.css" />
   <script type="module" src="assets/js/data-list-demo.js"></script>
 </head>
 <body>
   <main class="demo-main">
-    <a href="componentes.html">Volver a componentes</a>
-    <h1>Directorio de servicios</h1>
-    <div class="ui-field"><label for="service-search">Buscar servicios</label><input id="service-search" type="search" /></div>
+    <header class="ui-page-heading"><a class="ui-return" href="componentes.html" aria-label="Volver a Componentes"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Componentes</span></a><h1>Ejemplo de lista y detalle</h1></header>
+    <div class="demo-search"><label for="service-search">Buscar servicios</label><div class="ui-search-field" data-filled="false"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg><input id="service-search" type="search" placeholder="Nombre o descripción" /><button class="ui-search-field__clear" type="button" aria-label="Limpiar búsqueda" data-search-clear><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-x" /></svg></button></div></div>
     <div class="demo-layout">
       <section class="ui-data-list" aria-labelledby="service-list-title">
         <h2 id="service-list-title">Servicios</h2><p role="status"><span data-count>3</span> servicios</p>
@@ -22,7 +24,7 @@
           <button type="button" class="ui-data-list__row" aria-pressed="false" data-name="Gestión documental" data-description="Consulta de formatos y documentos vigentes."><strong>Gestión documental</strong><span>Documentos</span></button>
           <button type="button" class="ui-data-list__row" aria-pressed="false" data-name="Directorio corporativo" data-description="Información de contacto de personas y áreas."><strong>Directorio corporativo</strong><span>Personas y áreas</span></button>
         </div>
-        <p data-empty hidden>Sin resultados. Prueba con otra búsqueda.</p>
+        <div class="ui-feedback ui-feedback--empty" data-empty hidden><span class="ui-feedback__symbol" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg></span><div class="ui-feedback__body"><strong>Sin resultados</strong><p>Prueba con otra búsqueda.</p></div></div>
       </section>
       <aside class="ui-detail-panel demo-detail" aria-labelledby="service-detail-name" aria-live="polite"><h2 id="service-detail-name" data-detail-name>Soporte tecnológico</h2><p data-detail-description>Atención de incidentes y solicitudes de tecnología.</p></aside>
     </div>

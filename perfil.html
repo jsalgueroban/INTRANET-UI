@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#031d36" /><title>Mi perfil · Intranet Banasan</title>
+  <link rel="icon" href="assets/brand/simbolo-banasan.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/foundation.css?v=30" /><link rel="stylesheet" href="assets/css/components.css?v=30" />
+  <link rel="stylesheet" href="assets/css/account-tray.css" /><link rel="stylesheet" href="assets/css/site-header.css?v=3" /><link rel="stylesheet" href="assets/css/perfil.css?v=30" />
+  <script src="assets/js/site-header.js?v=8" defer></script><script src="assets/js/account-tray.js" defer></script><script type="module" src="assets/js/perfil.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a><div data-site-header></div>
+  <main id="contenido" class="profile-page">
+    <header class="profile-heading"><div class="ui-page-heading"><a class="ui-return" href="inicio.html" aria-label="Volver a Inicio"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Inicio</span></a><h1>Mi perfil.</h1><p>Consulta tu información y preferencias.</p></div><span class="profile-example">Datos de ejemplo</span></header>
+    <div class="profile-layout">
+      <section class="profile-identity" aria-labelledby="profile-name"><div class="profile-initials" aria-hidden="true">JS</div><h2 id="profile-name">John Salguero</h2><p>Analista de desarrollo</p><span>Banasan</span><button class="ui-action ui-action--outline-inverse" type="button" disabled>Cambiar fotografía</button></section>
+      <div class="profile-content">
+        <section class="profile-section" aria-labelledby="personal-title"><div class="profile-section-heading"><h2 id="personal-title">Información personal</h2><p>Datos asociados a tu cuenta.</p></div><dl class="profile-details"><div><dt>Nombre</dt><dd>John Salguero</dd></div><div><dt>Identificación</dt><dd>No disponible</dd></div><div><dt>Correo corporativo</dt><dd>john@ejemplo.com</dd></div><div><dt>Acceso</dt><dd>Cuenta corporativa</dd></div><div><dt>Empresa principal</dt><dd>Banasan</dd></div><div><dt>Área</dt><dd>Tecnología</dd></div><div><dt>Cargo</dt><dd>Analista de desarrollo</dd></div><div><dt>Jefe directo</dt><dd>No disponible</dd></div></dl></section>
+        <section class="profile-section" id="empresa" aria-labelledby="company-title"><div class="profile-section-heading"><h2 id="company-title">Empresa</h2><p>Selecciona el contexto de consulta.</p></div><fieldset class="ui-company-picker" data-company-picker><legend class="sr-only">Empresas disponibles</legend><label class="ui-company-option"><input type="radio" name="company" value="Banasan" checked /><span class="ui-company-option__body"><strong>Banasan</strong><small>Empresa principal</small></span><span class="ui-company-option__indicator" aria-hidden="true"></span></label><label class="ui-company-option"><input type="radio" name="company" value="Empresa de ejemplo" /><span class="ui-company-option__body"><strong>Empresa de ejemplo</strong><small>Acceso de demostración</small></span><span class="ui-company-option__indicator" aria-hidden="true"></span></label></fieldset><p class="profile-note" role="status" data-company-status>Empresa seleccionada: Banasan. La selección es de ejemplo y no cambia los accesos.</p></section>
+        <section class="profile-section" aria-labelledby="notifications-title"><div class="profile-section-heading"><h2 id="notifications-title">Notificaciones</h2><p>Consulta tus avisos y su estado de lectura.</p></div><p><a class="ui-action ui-action--secondary" href="notificaciones.html">Ver notificaciones</a></p><div></div><div class="profile-preferences"><label class="ui-switch"><input type="checkbox" checked data-preference /><span class="ui-switch__track"></span><span><strong>Correo electrónico</strong><small>Recibir avisos por correo.</small></span></label><label class="ui-switch"><input type="checkbox" checked data-preference /><span class="ui-switch__track"></span><span><strong>Avisos en la intranet</strong><small>Consultar avisos al ingresar.</small></span></label></div><p class="profile-note">Vista de prueba: los cambios no se guardan.</p><button class="ui-action ui-action--secondary" type="button" disabled>Guardar preferencias</button></section>
+      </div>
+    </div>
+  </main><footer class="profile-footer ui-copyright ui-copyright--light"><a href="https://www.banasan.com.co/" target="_blank" rel="noreferrer">C.I. Banasan S.A.S © 2026 Todos los derechos reservados</a></footer>
+</body></html>

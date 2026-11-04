@@ -10,13 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/foundation.css?v=1" />
-  <link rel="stylesheet" href="assets/css/usuarios.css?v=5" />
-  <link rel="stylesheet" href="assets/css/components.css?v=16" />
+  <link rel="stylesheet" href="assets/css/foundation.css?v=30" />
+  <link rel="stylesheet" href="assets/css/usuarios.css?v=30" />
+  <link rel="stylesheet" href="assets/css/components.css?v=30" />
   <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
-  <link rel="stylesheet" href="assets/css/site-header.css?v=1" />
-  <script src="assets/js/site-header.js?v=1" defer></script>
-  <script type="module" src="assets/js/usuarios.js?v=6"></script>
+  <link rel="stylesheet" href="assets/css/site-header.css?v=3" />
+  <script src="assets/js/site-header.js?v=8" defer></script>
+  <script type="module" src="assets/js/usuarios.js?v=27"></script>
   <script src="assets/js/account-tray.js?v=3" defer></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
 
   <main id="contenido" class="admin-main">
     <header class="page-heading">
-      <div><h1>Administración<br />de usuarios.</h1></div>
+      <div class="ui-page-heading"><a class="ui-return" href="inicio.html" aria-label="Volver a Inicio"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Inicio</span></a><h1>Administración<br />de usuarios.</h1></div>
       <div class="page-note">
         <p>Superficie de prueba para organizar búsqueda, selección y detalle. Los datos y acciones definitivos se incorporarán cuando exista el modelo de usuario.</p>
         <button class="ui-action ui-action--primary" type="button" disabled aria-describedby="pending-model">Agregar usuario <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" /></svg></span></button>
@@ -36,10 +36,10 @@
     <section class="workspace" aria-label="Explorador de usuarios">
       <div class="workspace-toolbar">
         <div class="search-control"><label for="user-search">Buscar usuarios</label><div class="ui-search-field" data-filled="false"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg><input id="user-search" type="search" placeholder="Nombre o correo" autocomplete="off" data-search /><button class="ui-search-field__clear" type="button" aria-label="Limpiar búsqueda" data-search-clear><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-x" /></svg></button></div></div>
-        <div class="ui-filter-bar" role="group" aria-label="Filtrar usuarios">
-          <button class="ui-filter-bar__item is-active" type="button" data-filter="all" aria-pressed="true">Todos <span>6</span></button>
-          <button class="ui-filter-bar__item" type="button" data-filter="active" aria-pressed="false">Activos <span>4</span></button>
-          <button class="ui-filter-bar__item" type="button" data-filter="pending" aria-pressed="false">Pendientes <span>2</span></button>
+        <div class="ui-filter-bar ui-filter-bar--counted" role="group" aria-label="Filtrar usuarios">
+          <button class="ui-filter-bar__item is-active" type="button" data-filter="all" aria-pressed="true" data-label="Todos">Todos<span class="ui-filter-count" data-filter-count aria-hidden="true" hidden></span></button>
+          <button class="ui-filter-bar__item" type="button" data-filter="active" aria-pressed="false" data-label="Activos">Activos<span class="ui-filter-count" data-filter-count aria-hidden="true" hidden></span></button>
+          <button class="ui-filter-bar__item" type="button" data-filter="pending" aria-pressed="false" data-label="Pendientes">Pendientes<span class="ui-filter-count ui-filter-count--attention" data-filter-count aria-hidden="true" hidden></span></button>
         </div>
       </div>
 

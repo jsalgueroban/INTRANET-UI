@@ -10,15 +10,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/foundation.css?v=1" />
+  <link rel="stylesheet" href="assets/css/foundation.css?v=30" />
   <link rel="stylesheet" href="assets/css/inicio.css?v=21" />
-  <link rel="stylesheet" href="assets/css/components.css?v=3" />
+  <link rel="stylesheet" href="assets/css/components.css?v=30" />
   <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
-  <link rel="stylesheet" href="assets/css/site-header.css?v=1" />
-  <script src="assets/js/site-header.js?v=1" defer></script>
+  <link rel="stylesheet" href="assets/css/site-header.css?v=3" />
+  <script src="assets/js/site-header.js?v=8" defer></script>
   <script src="assets/js/inicio.js?v=9" defer></script>
   <script src="assets/js/account-tray.js?v=3" defer></script>
-</head>
+<script type="module" src="assets/js/news-home.js"></script></head>
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <div data-site-header></div>
@@ -41,24 +41,24 @@
         <a href="#"><span class="quick-icon"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span><strong>Portal de solicitudes</strong><small>Servicios internos</small></a>
         <a href="#"><span class="quick-icon">⌁</span><strong>Directorio</strong><small>Personas y áreas</small></a>
         <a href="#"><span class="quick-icon">✓</span><strong>Gestión humana</strong><small>Certificados y novedades</small></a>
-        <a href="#"><span class="quick-icon">▤</span><strong>Documentos</strong><small>Formatos vigentes</small></a>
+        <a href="documentos.html"><span class="quick-icon">▤</span><strong>Documentos</strong><small>Formatos vigentes</small></a>
       </div>
     </section>
 
     <section class="news-section flow-panel" id="actualidad" aria-labelledby="news-title" data-flow-panel>
-      <div class="section-heading ui-section-heading"><div><h2 id="news-title">Noticias Banasan</h2></div><a class="text-link" href="#">Ver todas <svg class="action-icon ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div>
+      <div class="section-heading ui-section-heading"><div><h2 id="news-title">Noticias Banasan</h2></div><a class="text-link" href="noticias.html">Ver todas <svg class="action-icon ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div>
       <div class="news-layout">
-        <article class="lead-story"><div class="story-image"><img src="assets/art/canopy-portal-photoreal-v4.png" alt="Cultivo de banano bajo un cielo despejado" /><span>Destacada</span></div><div class="story-copy"><p class="story-meta">Cultura</p><h3>Encuentro de equipos en Santa Marta</h3><p>Resumen de la jornada, participantes y próximos encuentros internos.</p><a href="#">Leer noticia <svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></article>
+        <article class="lead-story"><div class="story-image"><img src="assets/art/canopy-portal-photoreal-v4.png" alt="Cultivo de banano bajo un cielo despejado" /><span>Destacada</span></div><div class="story-copy"><p class="story-meta">Cultura</p><h3>Encuentro de equipos en Santa Marta</h3><p>Resumen de la jornada, participantes y próximos encuentros internos.</p><a href="noticia.html?id=encuentro-equipos">Leer noticia <svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></article>
         <div class="story-list">
-          <article><p class="story-meta">Bienestar</p><h3>Agenda de bienestar de octubre</h3><p>Fechas, horarios y lugares de las próximas actividades.</p><a href="#" aria-label="Leer agenda de bienestar de octubre"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></article>
-          <article><p class="story-meta">Operación</p><h3>Actualización de seguridad en campo</h3><p>Recomendaciones vigentes para las jornadas de trabajo.</p><a href="#" aria-label="Leer actualización de seguridad en campo"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></article>
+          <article><p class="story-meta">Bienestar</p><h3>Agenda de bienestar de octubre</h3><p>Fechas, horarios y lugares de las próximas actividades.</p><a href="noticia.html?id=agenda-bienestar" aria-label="Leer agenda de bienestar de octubre"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></article>
+          <article><p class="story-meta">Operación</p><h3>Actualización de seguridad en campo</h3><p>Recomendaciones vigentes para las jornadas de trabajo.</p><a href="noticia.html?id=seguridad-campo" aria-label="Leer actualización de seguridad en campo"><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a></article>
           <article class="story-visual"><img src="assets/art/canopy-banasan-real-v5.png" alt="Vista de un cultivo de banano" /><div><small>Galería</small><strong>Trabajo en campo</strong></div></article>
         </div>
       </div>
     </section>
 
     <section class="jobs-section flow-panel" id="vacantes" aria-labelledby="jobs-title" data-flow-panel>
-      <div class="jobs-intro"><h2 id="jobs-title">Vacantes<br />internas.</h2><p>Consulta las convocatorias disponibles para colaboradores.</p><a class="primary-cta ui-action ui-action--primary" href="#">Ver vacantes <span class="primary-cta__icon ui-action__icon"><svg class="action-icon ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a></div>
+      <div class="jobs-intro"><h2 id="jobs-title">Vacantes<br />internas.</h2><p>Consulta las convocatorias disponibles para colaboradores.</p><a class="primary-cta ui-action ui-action--primary" href="vacantes.html">Ver vacantes <span class="primary-cta__icon ui-action__icon"><svg class="action-icon ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a></div>
       <div class="jobs-list" aria-label="Vacantes demostrativas">
         <a href="#"><div><strong>Profesional de compras</strong><span>Administrativa</span></div><small>Santa Marta · Presencial</small><b><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></b></a>
         <a href="#"><div><strong>Analista de soporte</strong><span>Tecnología</span></div><small>Santa Marta · Híbrido</small><b><svg class="action-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></b></a>
@@ -103,5 +103,5 @@
     </div>
     <div class="footer-bottom ui-copyright"><a href="https://www.banasan.com.co/" target="_blank" rel="noreferrer">C.I. Banasan S.A.S © 2026 Todos los derechos reservados</a></div>
   </footer>
-</body>
+<script type="module" src="assets/js/vacancies-home.js"></script></body>
 </html>

@@ -1,0 +1,8 @@
+import { readNotices } from './notification-store.js';
+import { contentLinks, feedback } from './ui-content-links.js';
+import { dateLabel } from './news-data.js';
+import { initFilterBar, updateFilterCounts } from './ui-controls.js?v=3';
+const host=document.querySelector('[data-notices]'),count=document.querySelector('[data-count]'),bar=document.querySelector('.ui-filter-bar');
+let filter=new URLSearchParams(location.search).get('state')||'all';if(!['all','read','unread'].includes(filter))filter='all';
+function render(){history.replaceState(null,'','notificaciones.html?state='+filter);bar.querySelectorAll('button').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.filter===filter));b.classList.toggle('is-active',b.dataset.filter===filter);});try{const all=readNotices(),items=all.filter(x=>filter==='all'||(filter==='read'?x.read:!x.read));updateFilterCounts(bar,{all:all.length,unread:all.filter(x=>!x.read).length,read:all.filter(x=>x.read).length});count.textContent=items.length+' notificaciones en esta vista';host.innerHTML=items.length?contentLinks(items.map(x=>({title:x.title,summary:x.summary,meta:(x.read?'Leída':'No leída')+' · '+dateLabel(x.date),href:'aviso.html?id='+encodeURIComponent(x.id)+'&from='+filter}))):feedback('No hay avisos en esta vista','Puedes consultar los demás estados de lectura.');}catch{updateFilterCounts(bar,null);count.textContent='No pudimos cargar tus avisos';host.innerHTML=feedback('No pudimos cargar tus avisos','Inténtalo de nuevo.','Reintentar');host.querySelector('[data-retry]').addEventListener('click',render);}}
+initFilterBar(bar,value=>{filter=value;render();});window.addEventListener('pageshow',render);render();

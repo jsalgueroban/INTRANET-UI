@@ -1,6 +1,8 @@
+import { initSearchField } from './ui-controls.js';
 import { createDataList, updateDetailPanel } from './data-list.js';
 
 const detail = document.querySelector('.ui-detail-panel');
+initSearchField(document.querySelector('.ui-search-field'));
 createDataList({
   rows: [...document.querySelectorAll('.ui-data-list__row')],
   search: document.querySelector('#service-search'),

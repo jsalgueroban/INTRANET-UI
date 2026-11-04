@@ -33,3 +33,17 @@ export function initFilterBar(group, onChange = () => {}) {
     items[next].click();
   });
 }
+
+export function updateFilterCounts(group, counts) {
+  group.querySelectorAll('[data-filter]').forEach(button => {
+    const counter=button.querySelector('[data-filter-count]');
+    if(!counter)return;
+    const label=button.dataset.label;
+    const value=counts?.[button.dataset.filter];
+    const available=Number.isInteger(value)&&value>=0;
+    counter.hidden=!available;
+    counter.textContent=available?String(value):'';
+    counter.dataset.countEmpty=String(value===0);
+    button.setAttribute('aria-label',available?`${label}: ${value}`:label);
+  });
+}

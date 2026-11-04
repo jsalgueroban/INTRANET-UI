@@ -8,25 +8,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/foundation.css" />
-  <link rel="stylesheet" href="assets/css/components.css?v=14" />
-  <link rel="stylesheet" href="assets/css/catalog.css?v=5" />
+  <link rel="stylesheet" href="assets/css/foundation.css?v=30" />
+  <link rel="stylesheet" href="assets/css/components.css?v=30" />
+  <link rel="stylesheet" href="assets/css/catalog.css?v=30" />
 </head>
 <body>
   <a class="skip-link" href="#catalog">Ir a componentes</a>
   <header class="catalog-header">
     <div><strong>Intranet Banasan</strong><p>Foundation 0.4 · Catálogo interno</p></div>
-    <a href="inicio.html">Volver al inicio</a>
+    <a class="ui-return" href="inicio.html" aria-label="Volver a Inicio"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Inicio</span></a>
   </header>
   <main class="catalog-main" id="catalog">
     <h1>Componentes activos.</h1>
     <p class="catalog-intro">Referencia de consumo para estados, accesibilidad y composición. Las piezas experimentales conservan su frontera hasta completar los gates registrados.</p>
+
+    <section class="catalog-section catalog-section--full" id="tipografia" aria-labelledby="typography-title">
+      <div class="catalog-section__intro"><h2 id="typography-title">Tipografía</h2><p>Manrope para títulos. DM Sans para lectura, datos y controles.</p></div>
+      <div class="catalog-stage catalog-stage--stack">
+        <p class="ui-type-page">Título de página</p>
+        <p class="ui-type-section">Título de sección</p>
+        <p class="ui-type-subheading">Título de bloque</p>
+        <p class="ui-type-body">Texto de lectura y valores de formularios.</p>
+        <p class="ui-type-label">Etiquetas y acciones</p>
+        <p class="ui-type-meta">Fechas, referencias y ayuda contextual</p>
+      </div>
+    </section>
 
     <section class="catalog-section catalog-section--full" aria-labelledby="navigation-title">
       <div class="catalog-section__intro"><h2 id="navigation-title">Navegación global</h2><p>Menús, búsqueda, cuenta, responsive y estado retráctil.</p></div>
       <iframe class="catalog-navigation-frame" src="navigation-demo.html" title="Componente de navegación global" loading="eager"></iframe>
     </section>
 
+    <section class="catalog-section" id="retorno" aria-labelledby="return-title"><div class="catalog-section__intro"><h2 id="return-title">Encabezado con retorno</h2><p>Flecha integrada al título. El destino se indica al pasar el cursor y al enfocar con teclado.</p></div><div class="catalog-stage"><div class="ui-page-heading"><a class="ui-return" href="notificaciones.html" aria-label="Volver a Notificaciones"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Notificaciones</span></a><h2>Notificaciones</h2></div></div></section>
+    <section class="catalog-section" aria-labelledby="counted-filter-title"><div class="catalog-section__intro"><h2 id="counted-filter-title">Filtros con cantidad</h2><p>La cantidad pendiente destaca en amarillo. Los demás totales acompañan cada filtro.</p></div><div class="catalog-stage"><div class="ui-filter-bar ui-filter-bar--counted" role="group" aria-label="Notificaciones de ejemplo"><button class="ui-filter-bar__item is-active" type="button" aria-pressed="true" aria-label="Todas: 5">Todas<span class="ui-filter-count" aria-hidden="true">5</span></button><button class="ui-filter-bar__item" type="button" aria-pressed="false" aria-label="No leídas: 4">No leídas<span class="ui-filter-count ui-filter-count--attention" aria-hidden="true">4</span></button><button class="ui-filter-bar__item" type="button" aria-pressed="false" aria-label="Leídas: 1">Leídas<span class="ui-filter-count" aria-hidden="true">1</span></button></div></div></section>
     <section class="catalog-section" aria-labelledby="actions-title">
       <div class="catalog-section__intro"><h2 id="actions-title">Acciones</h2><p>Default, jerarquía, carga y disponibilidad.</p></div>
       <div class="catalog-stage catalog-stage--stack">
@@ -54,6 +68,8 @@
         <label class="ui-check"><input type="checkbox" checked /><span>Recibir notificaciones de esta actualización</span></label>
       </div>
     </section>
+
+    <section class="catalog-section" aria-labelledby="company-picker-title"><div class="catalog-section__intro"><h2 id="company-picker-title">Selección de empresa</h2><p>Elección única de contexto.</p></div><div class="catalog-stage"><fieldset class="ui-company-picker"><legend class="sr-only">Empresa de ejemplo</legend><label class="ui-company-option"><input type="radio" name="catalog-company" checked /><span class="ui-company-option__body"><strong>Banasan</strong><small>Empresa principal</small></span><span class="ui-company-option__indicator" aria-hidden="true"></span></label><label class="ui-company-option"><input type="radio" name="catalog-company" /><span class="ui-company-option__body"><strong>Empresa de ejemplo</strong><small>Acceso de demostración</small></span><span class="ui-company-option__indicator" aria-hidden="true"></span></label></fieldset></div></section>
 
     <section class="catalog-section" aria-labelledby="controls-title">
       <div class="catalog-section__intro"><h2 id="controls-title">Selección y progreso</h2><p>Controles para elegir opciones y comunicar el avance.</p></div>
@@ -100,6 +116,11 @@
       </div>
     </section>
 
+    <section class="catalog-section" aria-labelledby="data-list-title"><div class="catalog-section__intro"><h2 id="data-list-title">Lista y detalle</h2><p>Selección, búsqueda y estado vacío.</p></div><div class="catalog-stage"><a class="ui-content-link" href="data-list-demo.html">Ver ejemplo de lista y detalle <span aria-hidden="true">↗</span></a></div></section>
+
+    <section class="catalog-section" aria-labelledby="text-row-title"><div class="catalog-section__intro"><h2 id="text-row-title">Fila sin icono</h2><p>Título y descripción, categoría y acceso. Se utiliza en secciones, búsqueda y notificaciones.</p></div><div class="catalog-stage"><div class="ui-list"><a class="ui-list-row ui-list-row--text" href="informacion.html?id=cultura"><span class="ui-list-row__content"><strong>Nuestra cultura</strong><small>Trabajo, comunicación y colaboración entre equipos.</small></span><span class="ui-list-row__meta">Nuestra empresa</span><span class="ui-list-row__action"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-arrow-up-right" /></svg></span></a></div></div></section>
+    <section class="catalog-section" aria-labelledby="work-item-title"><div class="catalog-section__intro"><h2 id="work-item-title">Fila de trabajo</h2><p>La fila compartida abre el trámite correspondiente. El estado y la acción pertenecen al proceso.</p></div><div class="catalog-stage"><div class="ui-list"><a class="ui-list-row" href="pendiente.html?id=C-104"><span class="ui-list-row__mark"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-file-text" /></svg></span><span class="ui-list-row__content"><strong>Jornada de formación en campo</strong><small>Revisar publicación · Contenido</small></span><span class="ui-list-row__meta">Recibido 24 oct 2026</span><span class="ui-list-row__action"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-arrow-up-right" /></svg></span></a></div></div></section>
+
     <section class="catalog-section" aria-labelledby="overlays-title">
       <div class="catalog-section__intro"><h2 id="overlays-title">Ayuda y confirmación</h2><p>Información contextual y decisiones que requieren atención.</p></div>
       <div class="catalog-stage catalog-stage--stack">
@@ -142,7 +163,7 @@
         <div class="ui-feedback ui-feedback--forbidden"><span class="ui-feedback__symbol" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></svg></span><div class="ui-feedback__body"><strong>Acceso restringido</strong><p>Contacta al responsable de esta información para solicitar acceso.</p></div></div>
       </div>
     </section>
-  </main>
+  <section class="catalog-section"><div class="catalog-section__intro"><h2>Archivos adjuntos</h2><p>Nombre, tipo, descripción y descarga. Misma composición utilizada en la vista previa del contenido.</p></div><div class="catalog-stage" data-resource-example></div></section><section class="catalog-section"><div class="catalog-section__intro"><h2>Revisión editorial</h2><p>Comparación y lectura completa compartidas por revisión, historial y vista previa.</p></div><div class="catalog-stage" data-editorial-example></div></section></main>
   <script type="module" src="assets/js/catalog.js"></script>
-</body>
+<script type="module" src="assets/js/resource-example.js"></script><script type="module" src="assets/js/editorial-example.js"></script></body>
 </html>

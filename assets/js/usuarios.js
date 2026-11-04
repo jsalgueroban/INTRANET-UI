@@ -1,4 +1,4 @@
-import { initSearchField } from './ui-controls.js';
+import { initSearchField, updateFilterCounts } from './ui-controls.js?v=3';
 import { createDataList, updateDetailPanel } from './data-list.js';
 
 const search = document.querySelector('[data-search]');
@@ -25,3 +25,10 @@ createDataList({
 document.addEventListener('keydown', event => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search.focus(); }
 });
+
+function refreshCounts(){
+ const query=search.value.trim().toLocaleLowerCase('es');
+ const rows=[...document.querySelectorAll('.user-row')].filter(row=>`${row.dataset.name} ${row.dataset.email}`.toLocaleLowerCase('es').includes(query));
+ updateFilterCounts(document.querySelector('.ui-filter-bar'),{all:rows.length,active:rows.filter(row=>row.dataset.status==='active').length,pending:rows.filter(row=>row.dataset.status==='pending').length});
+}
+search.addEventListener('input',refreshCounts);refreshCounts();
