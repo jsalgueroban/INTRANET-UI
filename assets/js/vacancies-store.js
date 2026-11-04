@@ -1,0 +1,9 @@
+const key = 'banasan-vacancies-demo-v1';
+const seed = [
+  {id:'compras',title:'Profesional de compras',area:'Administrativa',place:'Santa Marta',mode:'Presencial',description:'Apoyar la gestión de compras y el seguimiento de solicitudes del equipo.',activities:['Coordinar solicitudes y mantener su seguimiento.','Organizar información para el equipo de compras.'],status:'Disponible'},
+  {id:'soporte',title:'Analista de soporte',area:'Tecnología',place:'Santa Marta',mode:'Híbrido',description:'Acompañar a los colaboradores en el uso de las herramientas tecnológicas.',activities:['Atender solicitudes de soporte.','Documentar soluciones y orientar a los usuarios.'],status:'Disponible'},
+  {id:'bienestar',title:'Auxiliar de bienestar',area:'Gestión humana',place:'Zona bananera',mode:'Presencial',description:'Apoyar la coordinación de actividades de bienestar para los colaboradores.',activities:['Organizar la programación de actividades.','Apoyar la comunicación con los equipos.'],status:'Disponible'},
+  {id:'archivo',title:'Auxiliar administrativo',area:'Administrativa',place:'Santa Marta',mode:'Presencial',description:'Apoyo administrativo para la organización de información del área.',activities:['Organizar información de trabajo.'],status:'Ocupada',closedAt:'2026-10-28T15:00:00Z',closedBy:'Gestión Humana · Ejemplo'}
+];
+export function readVacancies(){const raw=sessionStorage.getItem(key);const items=raw?JSON.parse(raw):structuredClone(seed);if(!Array.isArray(items))throw new Error('invalid vacancies');return items;}
+export function occupyVacancy(id){const items=readVacancies();const item=items.find(entry=>entry.id===id);if(!item||item.status!=='Disponible')return {error:'Esta vacante ya no está disponible. Actualiza la consulta.'};Object.assign(item,{status:'Ocupada',closedAt:new Date().toISOString(),closedBy:'Gestión Humana · Ejemplo'});sessionStorage.setItem(key,JSON.stringify(items));return {item};}

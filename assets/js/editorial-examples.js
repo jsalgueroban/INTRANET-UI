@@ -1,0 +1,6 @@
+const agenda = (revision) => ({ id: 'agenda-encuentro', name: 'Agenda del encuentro', originalName: 'agenda.txt', type: 'text/plain', size: 48, description: 'Programación de la jornada.', data: revision === 1 ? 'data:text/plain;base64,QWdlbmRhOiA1IGRlIG5vdmllbWJyZS4=' : 'data:text/plain;base64,QWdlbmRhOiA2IGRlIG5vdmllbWJyZS4=' });
+export function enrichEditorialExample(item) {
+  if (item.id !== 'C-104' || item.beforeSnapshot || item.afterSnapshot) return item;
+  const common = { title: item.title, category: 'Cultura', summary: 'Jornada de trabajo con los equipos de campo.', alt: 'Cultivo de banano', sections: [] };
+  return { ...item, beforeSnapshot: { ...common, image: 'canopy-banasan-real-v6.png', sections: [{ title: 'Programación', text: item.before }], resources: [agenda(1)] }, afterSnapshot: { ...common, image: 'canopy-portal-photoreal-v4.png', sections: [{ title: 'Programación', text: item.after }, { title: 'Participantes', text: 'Equipos de operación y bienestar.' }], resources: [agenda(2), { id: 'indicaciones-encuentro', name: 'Indicaciones de llegada', originalName: 'indicaciones.txt', type: 'text/plain', size: 50, description: 'Punto de encuentro de la jornada.', data: 'data:text/plain;base64,UHVudG8gZGUgZW5jdWVudHJvOiBzZWRlIHByaW5jaXBhbC4=' }] } };
+}

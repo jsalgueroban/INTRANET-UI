@@ -1,52 +1,30 @@
-# Intranet Banasan UI
+# Intranet Banasan
 
-Base visual y funcional de la Intranet Banasan. El repositorio contiene las superficies
-vigentes, los recursos de marca utilizados y el sistema de diseño que gobierna su evolución.
+Propuesta visual de la intranet corporativa de Banasan. Reúne las vistas de acceso, inicio y gestión de usuarios, junto con un catálogo de componentes e interacciones.
 
-## Superficies
+Las vistas utilizan datos de ejemplo. El acceso es una simulación y no está conectado a un servicio de autenticación. Usa datos de ejemplo.
 
-- `index.html`: acceso a la intranet.
-- `inicio.html`: inicio, navegación y accesos corporativos.
-- `usuarios.html`: administración de usuarios.
-- `componentes.html`: catálogo de componentes compartidos.
+## Sitio web
 
-## Desarrollo local
+La propuesta está preparada para publicarse mediante GitHub Pages desde la rama `main`.
 
-Servir la raíz con un servidor HTTP local. Las páginas no requieren proceso de compilación
-en esta etapa.
+## Ejecución local
 
-```powershell
-python -m http.server 4173
+Desde la raíz del repositorio, inicia un servidor HTTP:
+
+```bash
+python -m http.server 8000
 ```
 
-Abrir `http://localhost:4173`.
+Abre `http://localhost:8000/` para explorar la propuesta.
 
-## Estructura
+## Contenido
 
-```text
-assets/
-  art/            fotografía y composiciones activas
-  brand/          firmas e isotipos Banasan
-  css/            fundamentos, componentes y composición por superficie
-  js/             comportamiento por capacidad y patrones compartidos
-design-system/
-  components/     contratos y estados de componentes
-  content/        criterios de contenido
-  decisions/      decisiones de arquitectura visual
-  foundations/    fundamentos del sistema
-  patterns/       patrones de interacción y composición
-  tokens/         valores primitivos, semánticos y de componente
-```
+- `index.html`: entrada a la propuesta de acceso.
+- `inicio.html`: portada de la intranet.
+- `login.html`: propuesta de inicio de sesión.
+- `usuarios.html`: gestión de usuarios con datos de ejemplo.
+- `componentes.html`: catálogo visual de componentes.
+- `assets/`: estilos, scripts, imágenes e iconos.
 
-## Gobierno visual
-
-La autoridad se resuelve en este orden:
-
-1. `DESIGN.md`.
-2. Fundamentos y tokens.
-3. Componentes y patrones.
-4. Decisiones vigentes.
-5. Implementación.
-
-Las nuevas superficies deben reutilizar este contrato o registrar una decisión antes de
-introducir una variante visual o de interacción.
+Los iconos Tabler se distribuyen bajo la licencia incluida en [LICENSE-TABLER.txt](LICENSE-TABLER.txt).
