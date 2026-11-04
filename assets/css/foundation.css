@@ -1,4 +1,4 @@
-@import url("./tokens.css");
+@import url("./tokens.css?v=30");
 
 :root{
   --blue:var(--color-blue-600);
@@ -68,3 +68,6 @@ img{display:block;max-width:100%}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+body{font-size:var(--type-body-size);line-height:var(--font-line-height-body)}
+h1,h2,h3,h4{font-family:var(--font-family-display)}

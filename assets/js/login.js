@@ -62,9 +62,7 @@ document.querySelectorAll(".login-form").forEach((form) => {
     feedback.classList.remove("is-visible");
     setSubmitting(true);
     window.setTimeout(() => {
-      setSubmitting(false);
-      feedback.textContent = "La autenticación no está disponible en esta versión.";
-      feedback.classList.add("is-visible");
+      window.location.assign("inicio.html");
     }, 900);
   });
 });
