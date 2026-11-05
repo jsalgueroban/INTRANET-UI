@@ -56,3 +56,16 @@ catalog?.addEventListener("click", (event) => {
     document.querySelector(`#${disclosure.getAttribute("aria-controls")}`)?.toggleAttribute("hidden", expanded);
   }
 });
+
+const catalogIndex=document.querySelector('[data-catalog-index]');
+if(catalogIndex){
+  document.querySelectorAll('.catalog-section').forEach((section,index)=>{
+    const heading=document.getElementById(section.getAttribute('aria-labelledby'))||section.querySelector('h2');
+    if(!heading)return;
+    if(!section.id)section.id=`catalog-group-${index+1}`;
+    const link=document.createElement('a');
+    link.href=`#${section.id}`;
+    link.textContent=heading.textContent;
+    catalogIndex.append(link);
+  });
+}

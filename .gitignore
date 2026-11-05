@@ -1,0 +1,8 @@
+node_modules/
+.playwright-mcp/
+.env
+.env.*
+*.log
+__pycache__/
+Thumbs.db
+.DS_Store
