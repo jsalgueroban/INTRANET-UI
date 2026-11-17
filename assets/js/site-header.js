@@ -9,6 +9,7 @@ if (headerTarget) {
         <div class="nav-group nav-group--left">
           <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Nuestra empresa <span>⌄</span></button><div class="nav-popover"><a href="secciones.html">Información institucional</a><a href="informacion.html?id=cultura">Nuestra cultura</a><a href="#">Directorio corporativo</a></div></div>
           <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Indicadores y acciones <span>⌄</span></button><div class="nav-popover"><a href="#">Indicadores corporativos</a><a href="#">Planes de acción</a><a href="#">Seguimiento</a></div></div>
+<div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Biotime <span>⌄</span></button><div class="nav-popover"><a href="biometria.html#/?view=inicio">Inicio</a><a href="biometria.html#/?view=marcaciones">Marcaciones</a><a href="biometria.html#/?view=historico">Histórico por persona</a><a href="biometria.html#/?view=novedades">Novedades</a><a href="usuarios.html">Usuarios</a><a href="biometria.html#/?view=administracion">Fuentes y dispositivos</a></div></div>
           <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">UI <span>⌄</span></button><div class="nav-popover"><a href="componentes.html">Componentes</a><a href="usuarios.html">Gestión de usuarios</a><a href="pendientes.html">Mis pendientes</a><a href="noticias.html">Noticias</a><a href="salas.html">Salas y reservas</a><a href="contenidos.html">Contenidos</a><a href="vacantes.html">Vacantes</a><a href="secciones.html">Secciones</a><a href="busqueda.html">Búsqueda</a><a href="notificaciones.html">Notificaciones</a><a href="documentos.html">Documentos</a><a href="navigation-demo.html">Navegación</a><a href="login.html">Acceso</a></div></div>
         </div>
         <a class="brand-lockup ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
@@ -55,13 +56,18 @@ const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const syncHeader=()=>siteHeader?.classList.toggle('is-scrolled',window.scrollY>40);
 window.addEventListener('scroll',syncHeader,{passive:true});
 syncHeader();
-const workspace=document.querySelector('main.admin-main,main.inbox-page,main.news-page,main.rooms-page,main.profile-page');
+let workspace=document.querySelector('main.admin-main,main.inbox-page,main.news-page,main.rooms-page,main.profile-page');
 const desktopNavigation=matchMedia('(min-width:981px)');
 const workspaceOriginalAnchor=document.documentElement.style.overflowAnchor;
 let workspaceFrame=0;
 let workspaceExpandedPadding=null;
 let workspaceOriginalPadding='';
 function compactWorkspace(collapsed){
+  // React views can mount after the shared header has initialized.
+  if(!workspace?.isConnected){
+    workspace=document.querySelector('main.admin-main,main.inbox-page,main.news-page,main.rooms-page,main.profile-page');
+    workspaceExpandedPadding=null;
+  }
   if(!workspace)return;
   cancelAnimationFrame(workspaceFrame);
   if(workspaceExpandedPadding===null){
