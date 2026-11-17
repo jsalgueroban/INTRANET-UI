@@ -1,3 +1,6 @@
 *.pdf binary
 *.docx binary
 *.xlsx binary
+
+# Preserve whitespace inside template literals emitted by esbuild.
+assets/biometria/app.js whitespace=-blank-at-eol
