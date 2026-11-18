@@ -11,7 +11,7 @@ Desde la raíz del repositorio ejecuta `python -m http.server 8000` y abre `http
 ## Vistas
 
 - Acceso e inicio: index.html, login.html, inicio.html.
-- Cuenta y usuarios: perfil.html, usuarios.html.
+- Cuenta y acceso: perfil.html, usuarios.html, roles.html. La [propuesta de administración de acceso](docs/access-management-proposal.md) describe el alcance de sus recorridos y lo que falta para conectarlos al producto.
 - Contenidos: contenidos.html, editar-contenido.html, recursos-contenido.html, vista-previa.html, historial-editorial.html.
 - Pendientes: pendientes.html, pendiente.html.
 - Reservas: salas.html, solicitar-reserva.html, mis-reservas.html.

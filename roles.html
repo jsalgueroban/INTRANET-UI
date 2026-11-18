@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Propuesta visual de gestión de roles y permisos de la Intranet Banasan." />
+  <meta name="theme-color" content="#031d36" />
+  <title>Gestión de roles · Intranet</title>
+  <link rel="icon" href="assets/brand/simbolo-banasan.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/foundation.css" />
+  <link rel="stylesheet" href="assets/css/usuarios.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
+  <link rel="stylesheet" href="assets/css/site-header.css?v=3" />
+  <link rel="stylesheet" href="assets/css/roles.css" />
+  <script src="assets/js/site-header.js?v=9" defer></script>
+  <script type="module" src="assets/js/roles.js"></script>
+  <script src="assets/js/account-tray.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <div data-site-header></div>
+
+  <main id="contenido" class="admin-main roles-main">
+    <header class="page-heading">
+      <div class="ui-page-heading"><a class="ui-return" href="usuarios.html" aria-label="Volver a Usuarios"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Usuarios</span></a><h1>Gestión<br />de roles.</h1></div>
+      <div class="page-note"><p>Define roles y permisos por empresa, sección y recurso.</p><button class="ui-action ui-action--primary" type="button" data-new-role>Crear rol <span class="ui-action__icon" aria-hidden="true">↗</span></button></div>
+    </header>
+
+    <nav class="roles-section-nav" aria-label="Administración de acceso"><a href="usuarios.html">Usuarios</a><a href="roles.html" aria-current="page">Roles y permisos</a></nav>
+
+    <section class="workspace roles-workspace" aria-label="Explorador de roles">
+      <div class="workspace-toolbar roles-toolbar">
+        <div class="search-control"><label for="role-search">Buscar roles</label><div class="ui-search-field" data-filled="false"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg><input id="role-search" type="search" placeholder="Nombre del rol" autocomplete="off" data-search /><button class="ui-search-field__clear" type="button" aria-label="Limpiar búsqueda" data-search-clear><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-x" /></svg></button></div></div>
+        <p class="roles-toolbar-note">Selecciona un rol para revisar sus permisos.</p>
+      </div>
+
+      <div class="management-grid roles-grid">
+        <section class="user-list-region ui-data-list" aria-labelledby="roles-list-title">
+          <header class="list-heading"><h2 id="roles-list-title">Roles</h2><p role="status">Resultados: <span data-result-count>3</span></p></header>
+          <div class="user-list ui-data-list__items" aria-label="Roles" data-role-list>
+            <button class="role-row ui-data-list__row is-selected" type="button" aria-pressed="true" data-role="contenido"><span class="role-symbol" aria-hidden="true">CO</span><span class="role-identity"><strong>Gestión de contenidos</strong><small>Publicar y mantener información</small></span><span class="role-count">3 permisos</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="role-row ui-data-list__row" type="button" aria-pressed="false" data-role="aprobacion"><span class="role-symbol" aria-hidden="true">AP</span><span class="role-identity"><strong>Aprobación de contenidos</strong><small>Revisar y aprobar publicaciones</small></span><span class="role-count">3 permisos</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+            <button class="role-row ui-data-list__row" type="button" aria-pressed="false" data-role="consulta"><span class="role-symbol" aria-hidden="true">LE</span><span class="role-identity"><strong>Consulta</strong><small>Leer información autorizada</small></span><span class="role-count">1 permiso</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg></button>
+          </div>
+          <div class="empty-state" hidden data-empty><strong>Sin roles coincidentes</strong><p>Prueba con otro nombre.</p></div>
+          <div class="roles-list-foot"><strong>Permisos por alcance</strong><p>Cada rol reúne acciones sobre los recursos indicados en su detalle.</p></div>
+        </section>
+
+        <aside class="user-detail ui-detail-panel roles-detail" aria-labelledby="role-detail-title" aria-live="polite">
+          <div class="detail-identity"><span class="identity-mark identity-mark--inverse" aria-hidden="true" data-role-initials>CO<i></i></span><div><p>Rol seleccionado</p><h2 id="role-detail-title" data-role-name>Gestión de contenidos</h2><span class="roles-detail-caption" data-role-summary>Publicar y mantener información</span></div></div>
+          <div class="roles-scope"><span>Alcance</span><strong data-role-scope>C.I. Banasan S.A.S. · Intranet</strong></div>
+          <div class="roles-scope"><span>Estado</span><strong data-role-state>Activo</strong><span>Usuarios asignados</span><strong data-role-users>0</strong></div>
+          <div class="roles-permissions-heading"><h3>Permisos incluidos</h3><span data-permission-count>3 acciones</span></div>
+          <ul class="roles-permission-list" data-permission-list></ul>
+          <div class="admin-actions"><button type="button" data-open-preview>Editar rol y permisos</button><button type="button" data-toggle-role>Inactivar rol</button></div>
+          <p id="roles-action-note" class="roles-action-note" role="status" data-preview-status></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <dialog class="roles-dialog" aria-labelledby="roles-dialog-title" data-preview-dialog>
+    <form method="dialog" class="roles-dialog__form">
+      <div class="roles-dialog__heading"><div><h2 id="roles-dialog-title" data-role-dialog-title>Editar rol</h2></div><button type="button" aria-label="Cerrar" data-close-preview>×</button></div>
+      <div class="admin-fields"><label>Nombre del rol<input name="name" required maxlength="80" data-role-name-input /></label><label>Descripción<input name="summary" required maxlength="160" data-role-summary-input /></label><label>Empresa<input name="company" required maxlength="100" data-role-company-input /></label><label>Sección<input name="section" required maxlength="100" data-role-section-input /></label><label>Recurso<input name="resource" required maxlength="100" data-role-resource-input /></label></div>
+      <fieldset class="roles-dialog__actions"><legend>Acciones sobre el alcance</legend><label><input type="checkbox" value="Consultar" data-preview-permission /><span><strong>Consultar</strong><small>Leer recursos autorizados</small></span></label><label><input type="checkbox" value="Preparar" data-preview-permission /><span><strong>Preparar</strong><small>Crear o modificar borradores</small></span></label><label><input type="checkbox" value="Aprobar" data-preview-permission /><span><strong>Aprobar</strong><small>Autorizar una publicación</small></span></label><label><input type="checkbox" value="Administrar" data-preview-permission /><span><strong>Administrar</strong><small>Gestionar el contenido asignado</small></span></label></fieldset>
+      <p class="admin-form-error" role="alert" data-role-error></p><div class="roles-dialog__footer"><button type="button" data-close-preview>Cancelar</button><button type="submit" class="roles-dialog__apply">Guardar rol</button></div>
+    </form>
+  </dialog>
+  <dialog class="roles-dialog" aria-labelledby="role-status-title" data-role-status-dialog><div class="roles-dialog__form"><div class="roles-dialog__heading"><h2 id="role-status-title" data-role-status-title>Inactivar rol</h2><button type="button" aria-label="Cerrar" data-close-role-status>×</button></div><p class="roles-dialog__intro" data-role-status-description></p><div class="roles-dialog__footer"><button type="button" data-close-role-status>Cancelar</button><button type="button" class="roles-dialog__apply" data-confirm-role-status>Confirmar</button></div></div></dialog>
+  <footer class="admin-footer ui-copyright ui-copyright--light"><a href="https://www.banasan.com.co/" target="_blank" rel="noreferrer">C.I. Banasan S.A.S © 2026 Todos los derechos reservados</a></footer>
+</body>
+</html>
