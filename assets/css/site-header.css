@@ -3,3 +3,5 @@
 .nav-trigger{white-space:nowrap}
 
 @media(min-width:981px) and (max-width:1180px){.nav-trigger{font-size:.75rem;padding-inline:3px;gap:3px;white-space:normal;line-height:1.3;text-align:left}.nav-item{min-width:0}.nav-group--left{padding-right:0}.nav-group--right{padding-left:8px}.nav-trigger span{flex-shrink:0}}
+
+.nav-popover{max-height:min(70vh,560px);overflow-y:auto}

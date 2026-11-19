@@ -1,4 +1,4 @@
-import { escapeHtml as esc } from './news-data.js';
+import { escapeHtml as esc } from './news-data.js?v=20261106e';
 export function fileSize(size) { return size < 1024 * 1024 ? Math.max(1, Math.round(size / 1024)) + ' KB' : (size / 1024 / 1024).toFixed(1) + ' MB'; }
 export function resourceMarkup(item, { href = '', editable = false, selected = false } = {}) {
   const label = item.type.startsWith('image/') ? 'Imagen' : item.type.startsWith('video/') ? 'Vídeo' : item.type === 'application/pdf' ? 'PDF' : 'Texto';

@@ -1,0 +1,2 @@
+const paths={success:'<path d="m5 12 4 4L19 6"/>',error:'<path d="M12 8v5m0 4h.01"/><path d="m10.3 3.9-7.6 13A2 2 0 0 0 4.4 20h15.2a2 2 0 0 0 1.7-3.1l-7.6-13a2 2 0 0 0-3.4 0z"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/>',close:'<path d="m6 6 12 12M18 6 6 18"/>'};
+export const feedbackIcon=type=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[type]}</svg>`;

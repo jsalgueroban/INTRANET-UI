@@ -1,4 +1,4 @@
-import { readDrafts, saveDraft } from './editorial-store.js';
+import { readDrafts, saveDraft } from './editorial-store.js?v=20261106e';
 import { writeResource, deleteResource } from './resource-binary-store.js';
 export { resourceData, supportedTypes } from './resource-binary-store.js';
 export function updateResources(id, change) {

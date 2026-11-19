@@ -13,11 +13,12 @@
   <link rel="stylesheet" href="assets/css/foundation.css?v=30" />
   <link rel="stylesheet" href="assets/css/usuarios.css?v=30" />
   <link rel="stylesheet" href="assets/css/roles.css" />
-  <link rel="stylesheet" href="assets/css/components.css?v=30" />
+  <link rel="stylesheet" href="assets/css/components.css?v=35" />
   <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
-  <link rel="stylesheet" href="assets/css/site-header.css?v=3" />
-  <script src="assets/js/site-header.js?v=9" defer></script>
-  <script type="module" src="assets/js/usuarios.js?v=31"></script>
+  <link rel="stylesheet" href="assets/css/site-header.css?v=4" />
+  <link rel="stylesheet" href="assets/css/usuarios-activacion.css?v=1" />
+  <script src="assets/js/site-header.js?v=13" defer></script>
+  <script type="module" src="assets/js/usuarios.js?v=32"></script>
   <script src="assets/js/account-tray.js?v=3" defer></script>
 </head>
 <body>
@@ -28,7 +29,7 @@
     <header class="page-heading">
       <div class="ui-page-heading"><a class="ui-return" href="inicio.html" aria-label="Volver a Inicio"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Inicio</span></a><h1>Administración<br />de usuarios.</h1></div>
       <div class="page-note">
-        <p>Gestiona cuentas, perfiles y roles de acceso a la Intranet.</p>
+        <p>Gestiona cuentas, perfiles, dependencias y roles de acceso a la Intranet.</p>
         <button class="ui-action ui-action--primary" type="button" data-new-user>Agregar usuario <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" /></svg></span></button>
       </div>
     </header>
@@ -63,8 +64,8 @@
           <div class="detail-identity"><span class="identity-mark identity-mark--inverse" data-detail-initials>AM<i></i></span><div><p>Usuario seleccionado</p><h2 id="detail-title" data-detail-name>Andrea Martínez</h2><a href="mailto:andrea.martinez@banasan.com.co" data-detail-email>andrea.martinez@banasan.com.co</a></div></div>
           <div class="access-status-group"><div class="access-status-card"><span>Acceso en Intranet</span><strong data-detail-status>Activo</strong></div><div class="access-status-card"><span>Cuenta en Directorio Activo</span><strong data-detail-domain-status>Habilitada</strong></div></div>
           <p class="domain-status-note" data-domain-status-note></p>
-          <dl class="detail-list"><div><dt>Origen</dt><dd data-detail-origin>Directorio activo</dd></div><div><dt>Usuario</dt><dd data-detail-username>andrea.martinez</dd></div><div><dt>Empresa</dt><dd data-detail-company>C.I. Banasan S.A.S.</dd></div><div><dt>Área</dt><dd data-detail-area>Gestión humana</dd></div><div><dt>Roles</dt><dd data-detail-roles>Consulta</dd></div></dl>
-          <div class="admin-actions"><button type="button" data-edit-user>Editar perfil y roles</button><button type="button" data-toggle-user>Inactivar usuario</button></div><p class="admin-feedback" role="status" data-user-feedback></p>
+          <dl class="detail-list"><div><dt>Origen</dt><dd data-detail-origin>Directorio activo</dd></div><div><dt>Usuario</dt><dd data-detail-username>andrea.martinez</dd></div><div><dt>Empresa</dt><dd data-detail-company>C.I. Banasan S.A.S.</dd></div><div><dt>Dependencia</dt><dd data-detail-area>Gestión humana</dd></div><div><dt>Cargo</dt><dd data-detail-position>Por asignar</dd></div><div><dt>Roles</dt><dd data-detail-roles>Consulta</dd></div></dl>
+          <div class="admin-actions"><button type="button" data-edit-user>Editar perfil y roles</button><button type="button" data-user-activation>Asignar dependencia</button><button type="button" data-toggle-user>Inactivar usuario</button></div><p class="admin-feedback" role="status" data-user-feedback></p>
         </aside>
       </div>
     </section>
@@ -72,5 +73,6 @@
   <dialog class="roles-dialog" aria-labelledby="user-dialog-title" data-user-dialog><form class="roles-dialog__form" data-user-form><div class="roles-dialog__heading"><h2 id="user-dialog-title" data-user-dialog-title>Agregar usuario</h2><button type="button" aria-label="Cerrar" data-close-user>×</button></div><div class="admin-fields"><label>Nombre completo<input name="name" required maxlength="100" autocomplete="name" /></label><label>Correo electrónico<input name="email" type="email" required maxlength="160" autocomplete="email" /></label><label>Origen de la cuenta<select name="origin"><option value="local">Cuenta local</option><option value="ad">Directorio activo</option></select></label><label>Usuario de dominio<input name="username" maxlength="80" autocomplete="off" /></label><label>Empresa<input name="company" required maxlength="100" value="C.I. Banasan S.A.S." /></label><label>Área<input name="area" required maxlength="100" /></label></div><fieldset class="admin-checks" data-user-roles><legend>Asignar roles</legend></fieldset><p class="admin-form-error" role="alert" data-user-error></p><div class="roles-dialog__footer"><button type="button" data-close-user>Cancelar</button><button class="roles-dialog__apply" type="submit">Guardar usuario</button></div></form></dialog>
   <dialog class="roles-dialog" aria-labelledby="status-dialog-title" data-status-dialog><div class="roles-dialog__form"><div class="roles-dialog__heading"><h2 id="status-dialog-title" data-status-title>Inactivar usuario</h2><button type="button" aria-label="Cerrar" data-close-status>×</button></div><p class="roles-dialog__intro" data-status-description></p><div class="roles-dialog__footer"><button type="button" data-close-status>Cancelar</button><button type="button" class="roles-dialog__apply" data-confirm-status>Confirmar</button></div></div></dialog>
   <footer class="admin-footer ui-copyright ui-copyright--light"><a href="https://www.banasan.com.co/" target="_blank" rel="noreferrer">C.I. Banasan S.A.S © 2026 Todos los derechos reservados</a></footer>
+  <dialog class="user-activation-dialog" data-activation-dialog><form data-activation-form><div class="user-activation-dialog__heading"><div><h2 data-activation-heading>Asignar dependencia</h2><p data-activation-identity></p></div><button type="button" class="ui-action ui-action--quiet" data-close-activation>Cerrar</button></div><label class="ui-select-field">Empresa<select name="company" required></select></label><label class="ui-select-field">Dependencia<select name="unit" required></select></label><label class="ui-field">Cargo<input name="position" required maxlength="100" placeholder="Cargo del colaborador"></label><p>Vista de ejemplo. La activación real requiere validación del servidor.</p><button type="submit" class="ui-action ui-action--primary" data-submit-activation>Guardar asignación</button></form></dialog>
 </body>
 </html>

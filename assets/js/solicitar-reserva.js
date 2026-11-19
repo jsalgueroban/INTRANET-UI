@@ -1,4 +1,4 @@
-import { rooms, readItems, overlapping, requestReservation, escapeHtml as esc, dateLabel } from './pending-store.js';
+import { rooms, readItems, overlapping, requestReservation, escapeHtml as esc, dateLabel } from './pending-store.js?v=20261106e';
 const form=document.querySelector('#reservation-form');
 const params=new URLSearchParams(location.search);
 form.elements.room.innerHTML=rooms.map(room=>`<option>${esc(room.name)}</option>`).join('');

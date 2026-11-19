@@ -1,6 +1,6 @@
-import { readNotices } from './notification-store.js';
-import { contentLinks, feedback } from './ui-content-links.js';
-import { dateLabel } from './news-data.js';
+import { readNotices } from './notification-store.js?v=20261106e';
+import { contentLinks, feedback } from './ui-content-links.js?v=20261106e';
+import { dateLabel } from './news-data.js?v=20261106e';
 import { initFilterBar, updateFilterCounts } from './ui-controls.js?v=3';
 const host=document.querySelector('[data-notices]'),count=document.querySelector('[data-count]'),bar=document.querySelector('.ui-filter-bar');
 let filter=new URLSearchParams(location.search).get('state')||'all';if(!['all','read','unread'].includes(filter))filter='all';

@@ -1,6 +1,6 @@
-import { editorialContentMarkup, bindEditorialMedia } from './ui-editorial-content.js';
+import { editorialContentMarkup, bindEditorialMedia } from './ui-editorial-content.js?v=20261106e';
 import { reviewSnapshot, snapshotChanges } from './editorial-snapshot.js';
-import { escapeHtml as esc } from './news-data.js';
+import { escapeHtml as esc } from './news-data.js?v=20261106e';
 import { initFilterBar } from './ui-controls.js';
 export function mountEditorialReview(host, item) {
   const before = reviewSnapshot(item, 'before'), after = reviewSnapshot(item, 'after');

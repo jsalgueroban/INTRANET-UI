@@ -1,11 +1,15 @@
 import { readAccess, writeAccess, createId, initials, statusLabel } from './access-model.js';
 import { initSearchField, updateFilterCounts } from './ui-controls.js?v=3';
+import { readStructure, saveUserAssignment } from './corporate-structure-store.js';
+import { notify } from './ui-notifications.js';
 
 const state = readAccess();
 const search = document.querySelector('[data-search]');
 initSearchField(search.closest('.ui-search-field'));
 const list = document.querySelector('[data-user-list]');
 const detail = document.querySelector('.user-detail');
+const activationDialog = document.querySelector('[data-activation-dialog]');
+const activationForm = document.querySelector('[data-activation-form]');
 const formDialog = document.querySelector('[data-user-dialog]');
 const form = document.querySelector('[data-user-form]');
 const statusDialog = document.querySelector('[data-status-dialog]');
@@ -31,10 +35,14 @@ function renderDetail() {
   text('[data-domain-status-note]', adStatus === 'locked' ? 'La cuenta está bloqueada en el dominio. Activarla en Intranet no elimina ese bloqueo.' : adStatus === 'disabled' ? 'La cuenta está deshabilitada en el dominio. Activarla en Intranet no la habilita en AD.' : adStatus === 'unknown' ? 'El estado del dominio aún no se ha consultado.' : '');
   text('[data-detail-origin]', user.origin === 'ad' ? 'Directorio activo' : 'Cuenta local');
   text('[data-detail-username]', user.origin === 'ad' ? user.username : 'Correo electrónico');
-  text('[data-detail-company]', user.company);
-  text('[data-detail-area]', user.area);
+  const structure = readStructure();
+  const person = structure.people.find(item => item.name === user.name && item.company);
+  text('[data-detail-company]', structure.companies.find(item => item.id === person?.company)?.short || user.company);
+  text('[data-detail-area]', structure.units.find(item => item.id === person?.unit)?.name || user.area);
+  text('[data-detail-position]', person?.position || 'Por asignar');
   text('[data-detail-roles]', user.roles.map(id => { const role = state.roles.find(item => item.id === id); return role ? `${role.name}${role.active ? '' : ' (inactivo)'}` : null; }).filter(Boolean).join(', ') || 'Sin roles asignados');
   text('[data-toggle-user]', user.status === 'active' ? 'Inactivar usuario' : 'Activar usuario');
+  text('[data-user-activation]', user.status === 'pending' ? 'Activar y asignar' : 'Editar asignación');
 }
 function rowFor(user) {
   const button = document.createElement('button'); button.type = 'button';
@@ -89,6 +97,44 @@ function openForm(user) {
 }
 document.querySelector('[data-new-user]').addEventListener('click', () => openForm(null));
 document.querySelector('[data-edit-user]').addEventListener('click', () => openForm(state.users.find(item => item.id === selectedId)));
+function fillUnits() {
+  const structure = readStructure(), company = activationForm.elements.company.value, previous = activationForm.elements.unit.value;
+  const units = structure.units.filter(unit => unit.company === company && unit.active);
+  activationForm.elements.unit.replaceChildren(new Option('Selecciona una dependencia', ''), ...units.map(unit => new Option(`${unit.code} · ${unit.name}`, unit.id)));
+  activationForm.elements.unit.value = units.some(unit => unit.id === previous) ? previous : '';
+}
+document.querySelector('[data-user-activation]').addEventListener('click', () => {
+  const user = state.users.find(item => item.id === selectedId);
+  if (!user) return;
+  const structure = readStructure(), person = structure.people.find(item => item.name === user.name && item.company);
+  activationForm.reset();
+  activationForm.elements.company.replaceChildren(new Option('Selecciona una empresa', ''), ...structure.companies.map(company => new Option(company.short, company.id)));
+  activationForm.elements.company.value = person?.company || structure.companies.find(company => company.short === user.company)?.id || '';
+  fillUnits();
+  activationForm.elements.unit.value = person?.unit || '';
+  activationForm.elements.position.value = person?.position || '';
+  text('[data-activation-heading]', user.status === 'pending' ? 'Activar y asignar' : 'Editar asignación');
+  text('[data-activation-identity]', `${user.name} · ${user.origin === 'ad' ? user.username : user.email}`);
+  text('[data-submit-activation]', user.status === 'pending' ? 'Activar y guardar' : 'Guardar asignación');
+  activationDialog.showModal(); activationForm.elements.company.focus();
+});
+activationForm.elements.company.addEventListener('change', fillUnits);
+document.querySelector('[data-close-activation]').addEventListener('click', () => activationDialog.close());
+activationForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const user = state.users.find(item => item.id === selectedId);
+  if (!user) return;
+  try {
+    const companyId = activationForm.elements.company.value, unitId = activationForm.elements.unit.value;
+    saveUserAssignment(user.name, companyId, unitId, activationForm.elements.position.value);
+    const structure = readStructure();
+    user.company = structure.companies.find(item => item.id === companyId).short;
+    user.area = structure.units.find(item => item.id === unitId).name;
+    if (user.status === 'pending') user.status = 'active';
+    writeAccess(state); activationDialog.close(); render();
+    notify({message:'Asignación guardada en la propuesta',description:'La activación real requiere validación del servidor.',anchor:document.querySelector('[data-user-activation]')});
+  } catch { notify({message:'Revisa los datos de asignación',tone:'error',anchor:activationForm.elements.company}); }
+});
 document.querySelectorAll('[data-close-user]').forEach(button => button.addEventListener('click', () => formDialog.close()));
 form.addEventListener('submit', event => {
   event.preventDefault();

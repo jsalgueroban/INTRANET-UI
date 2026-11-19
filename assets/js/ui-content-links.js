@@ -1,4 +1,4 @@
-import { escapeHtml as esc, arrow } from './news-data.js';
+import { escapeHtml as esc, arrow } from './news-data.js?v=20261106e';
 export function contentLinks(items) {
   return '<div class="ui-list">'+items.map(item=>`<a class="ui-list-row ui-list-row--text" href="${esc(item.href)}"><span class="ui-list-row__content"><strong>${esc(item.title)}</strong><small>${esc(item.summary)}</small></span><span class="ui-list-row__meta">${esc(item.meta)}</span><span class="ui-list-row__action">${arrow}</span></a>`).join('')+'</div>';
 }

@@ -1,8 +1,8 @@
-import { editorialContentMarkup, bindEditorialMedia } from './ui-editorial-content.js';
+import { editorialContentMarkup, bindEditorialMedia } from './ui-editorial-content.js?v=20261106e';
 import { reviewSnapshot, snapshotReady } from './editorial-snapshot.js';
 import { initFilterBar } from './ui-controls.js';
-import { readItems, editorialEvents, editorialRounds, revisionToken, escapeHtml as esc, dateLabel } from './pending-store.js';
-import { recoverRevision, resumeCorrection } from './editorial-store.js';
+import { readItems, editorialEvents, editorialRounds, revisionToken, escapeHtml as esc, dateLabel } from './pending-store.js?v=20261106e';
+import { recoverRevision, resumeCorrection } from './editorial-store.js?v=20261106e';
 const host = document.querySelector('[data-history]');
 try { const query = sessionStorage.getItem('editorial-return'); if(query?.startsWith('?')) document.querySelector('.news-heading a').href='contenidos.html'+query; } catch {}
 const id = new URLSearchParams(location.search).get('id');

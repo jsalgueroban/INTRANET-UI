@@ -1,4 +1,4 @@
-import { readItems, viewer } from './pending-store.js';
+import { readItems, viewer } from './pending-store.js?v=20261106e';
 const key='banasan-notification-reads-v1';
 const notices=[
  {id:'revision',recipient:'john',title:'Tienes un contenido por revisar',summary:'Consulta la revisión editorial asignada.',date:'2026-11-04',task:'C-104'},

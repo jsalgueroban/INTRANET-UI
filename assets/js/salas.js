@@ -1,4 +1,5 @@
-import { rooms, readItems, dateLabel, escapeHtml as esc } from './pending-store.js';
+import {roomBlocks,roomOpen} from './room-configuration.js';
+import { rooms, readItems, dateLabel, escapeHtml as esc } from './pending-store.js?v=20261106e';
 const room = document.querySelector('#room');
 const day = document.querySelector('#day');
 const params = new URLSearchParams(location.search);
@@ -24,6 +25,10 @@ function render() {
   try {
     const items = readItems().filter(item=>item.type==='reserva' && item.room===room.value && item.day===day.value && ['Por aprobar','Aprobado'].includes(item.status)).sort((a,b)=>a.start.localeCompare(b.start));
     document.querySelector('[data-agenda]').innerHTML = items.length ? items.map(item=>`<div class="rooms-event"><div class="rooms-event-time"><strong>${esc(item.start)}</strong><span>${esc(item.end)}</span></div><div><strong>${esc(item.room)}</strong><p>${esc(item.person)}</p><span class="rooms-status ${item.status==='Aprobado'?'rooms-status--approved':''}">${esc(item.status)}</span></div></div>`).join('') : '<div class="rooms-empty"><h3>No hay solicitudes para este día</h3><p>Puedes solicitar un horario dentro de la disponibilidad de la sala.</p></div>';
+    const blocks=roomBlocks(room.value,day.value);
+    document.querySelector('[data-agenda]').innerHTML+=blocks.map(b=>`<div class="rooms-event"><strong>${esc(b.start)}–${esc(b.end)}</strong><div><strong>Mantenimiento</strong><p>${esc(b.reason)}</p></div></div>`).join('');
+    if(!roomOpen(selected,day.value)){document.querySelector('[data-availability]').innerHTML='<p>La sala no está habilitada este día.</p>';return;}
+    if(blocks.length){document.querySelector('[data-availability]').innerHTML='<p>Hay mantenimiento registrado. Consulta los horarios y las reservas afectadas antes de solicitar. El tratamiento de solicitudes sobre el bloqueo está pendiente.</p>';return;}
     const approved=items.filter(item=>item.status==='Aprobado');
     let cursor=selected.open;
     const gaps=[];

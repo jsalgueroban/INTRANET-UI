@@ -1,5 +1,5 @@
-import { searchPublished, publishedIndex } from './search-index.js';
-import { contentLinks, feedback } from './ui-content-links.js';
+import { searchPublished, publishedIndex } from './search-index.js?v=20261106e';
+import { contentLinks, feedback } from './ui-content-links.js?v=20261106e';
 import { initSearchField } from './ui-controls.js';
 const input=document.querySelector('#global-search'),host=document.querySelector('[data-results]'),count=document.querySelector('[data-count]'),form=document.querySelector('[data-search-form]');
 input.value=new URLSearchParams(location.search).get('q')||'';

@@ -1,3 +1,5 @@
+@import url("./ui-notifications.css?v=1");
+
 .ui-icon{
   width:var(--icon-sm);
   height:var(--icon-sm);
@@ -267,3 +269,67 @@
 .ui-type-meta{font:400 var(--type-meta-size)/1.5 var(--font-family-body)}
 
 .ui-page-heading>h1,.ui-page-heading>h2{min-width:0;overflow-wrap:anywhere}
+
+.ui-dialog--workspace{width:min(620px,calc(100% - 32px));max-height:calc(100dvh - 40px);padding:28px;overflow:auto;overscroll-behavior:contain;border-radius:24px 8px 24px 8px}
+.ui-dialog--wide{width:min(860px,calc(100% - 32px))}
+.ui-dialog__header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px}
+.ui-dialog__header h2{font:var(--type-section);margin:0}.ui-dialog__header button{flex-shrink:0}
+.ui-dialog__feedback:empty{display:none}.ui-dialog__feedback[data-error=true]{color:var(--text-danger)}
+.has-floating-panel{overflow:hidden}.ui-dialog--workspace[open]{animation:ui-panel-enter 180ms ease-out}
+@keyframes ui-panel-enter{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+@media(max-width:600px){.ui-dialog--workspace{padding:20px;max-height:calc(100dvh - 24px);width:calc(100% - 24px)}}
+@media(prefers-reduced-motion:reduce){.ui-dialog--workspace[open]{animation:none}}
+
+.ui-document-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.ui-document-tile {
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: .5rem;
+  width: min(100%, 12rem);
+  min-height: 9rem;
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-action);
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.ui-document-tile .ui-icon { width: 2rem; height: 2rem; }
+.ui-document-tile small { color: var(--text-secondary); }
+.ui-document-tile:hover { border-color: currentColor; }
+.ui-document-tile:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+
+.ui-paper {
+  position: relative;
+  display: block;
+  width: 2.75rem;
+  height: 2.25rem;
+  perspective: 7rem;
+}
+.ui-paper > .ui-icon, .ui-paper__leaf {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 2rem;
+  height: 2rem;
+}
+.ui-paper__leaf {
+  transform-origin: 21% center;
+}
+.ui-paper__leaf::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: white;
+  clip-path: polygon(21% 13%, 58% 13%, 79% 34%, 79% 87%, 21% 87%);
+}
+.ui-paper__leaf .ui-icon { position: relative; display: block; }

@@ -1,7 +1,9 @@
-import { news, escapeHtml as esc, dateLabel, articleUrl, arrow, rememberNews } from './news-data.js';
+import {readOrganization} from './content-organization.js';
+import { news, escapeHtml as esc, dateLabel, articleUrl, arrow, rememberNews } from './news-data.js?v=20261106e';
 import { initSearchField } from './ui-controls.js';
 const search = document.querySelector('#news-search');
 const category = document.querySelector('#news-category');
+category.innerHTML='<option value="all">Todas las categorías</option>'+[...new Set(news.map(n=>n.category))].map(name=>`<option>${esc(name)}</option>`).join('');
 const params = new URLSearchParams(location.search);
 search.value = params.get('q') || '';
 category.value = [...category.options].some(o => o.value === params.get('category')) ? params.get('category') : 'all';
@@ -17,8 +19,9 @@ function render() {
   history.replaceState(null, '', '?' + new URLSearchParams({q:search.value,category:category.value,page:String(current)}));
   const featured = document.querySelector('[data-featured]');
   featured.hidden = Boolean(term || category.value !== 'all' || current !== 1);
-  const item = news[0];
-  featured.innerHTML = `<a class="news-feature" href="${articleUrl(item)}"><img src="assets/art/${item.image}" alt="${esc(item.alt)}" /><div><p class="news-meta">${esc(item.category)} · ${dateLabel(item.date)}</p><h2>${esc(item.title)}</h2><p>${esc(item.summary)}</p><span class="news-read">Leer noticia ${arrow}</span></div></a>`;
+  const item = news.find(n=>n.id===readOrganization().featured);
+  if(!item){featured.hidden=true;}
+  featured.innerHTML = item ? `<a class="news-feature" href="${articleUrl(item)}"><img src="assets/art/${item.image}" alt="${esc(item.alt)}" /><div><p class="news-meta">${esc(item.category)} · ${dateLabel(item.date)}</p><h2>${esc(item.title)}</h2><p>${esc(item.summary)}</p><span class="news-read">Leer noticia ${arrow}</span></div></a>` : '';
   document.querySelector('[data-news-list]').innerHTML = filtered.slice((current-1)*pageSize,current*pageSize).map(item => `<a class="ui-list-row" href="${articleUrl(item)}"><span class="ui-list-row__mark"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-file-text" /></svg></span><span class="ui-list-row__content"><strong>${esc(item.title)}</strong><small>${esc(item.summary)}</small></span><span class="ui-list-row__meta">${esc(item.category)}<br>${dateLabel(item.date)}</span><span class="ui-list-row__action">${arrow}</span></a>`).join('');
   document.querySelector('[data-count]').textContent = `${filtered.length} ${filtered.length===1?'publicación':'publicaciones'}`;
   document.querySelector('[data-empty]').hidden = filtered.length > 0;

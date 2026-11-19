@@ -1,5 +1,5 @@
-import { news } from './news-data.js';
-import { documents, informationPages, normalize } from './published-information.js';
+import { news } from './news-data.js?v=20261106e';
+import { documents, informationPages, normalize } from './published-information.js?v=20261106e';
 import { readVacancies } from './vacancies-store.js';
 export function publishedIndex() {
   const entry=(item,kind,route,summary,meta)=>({id:kind+':'+item.id,title:item.title,summary,meta:kind+' · '+meta,href:route+'?id='+encodeURIComponent(item.id)});

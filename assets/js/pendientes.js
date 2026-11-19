@@ -1,5 +1,5 @@
 import { initSearchField, initFilterBar, updateFilterCounts } from './ui-controls.js?v=3';
-import { readItems, resetItems, escapeHtml as esc, dateLabel, typeLabel, actionLabel, overlapping } from './pending-store.js';
+import { readItems, resetItems, escapeHtml as esc, dateLabel, typeLabel, actionLabel, overlapping } from './pending-store.js?v=20261106e';
 const search = document.querySelector('#pending-search');
 const type = document.querySelector('#type-filter');
 const state = document.querySelector('#state-filter');

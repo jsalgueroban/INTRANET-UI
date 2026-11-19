@@ -1,5 +1,5 @@
-import { escapeHtml as esc } from './news-data.js';
-import { resourceCollectionMarkup } from './ui-resource.js';
+import { escapeHtml as esc } from './news-data.js?v=20261106e';
+import { resourceCollectionMarkup } from './ui-resource.js?v=20261106e';
 import { validResourceData } from './resource-binary-store.js';
 export function editorialContentMarkup(content, { heading = 2, resolve } = {}) {
   const level = [1, 2, 3].includes(heading) ? heading : 2;

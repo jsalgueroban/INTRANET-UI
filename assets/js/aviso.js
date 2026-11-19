@@ -1,6 +1,6 @@
-import { resolveNotice, markRead } from './notification-store.js';
-import { escapeHtml as esc, dateLabel } from './news-data.js';
-import { feedback } from './ui-content-links.js';
+import { resolveNotice, markRead } from './notification-store.js?v=20261106e';
+import { escapeHtml as esc, dateLabel } from './news-data.js?v=20261106e';
+import { feedback } from './ui-content-links.js?v=20261106e';
 const host=document.querySelector('[data-notice]'),params=new URLSearchParams(location.search),id=params.get('id');
 const state=['all','unread','read'].includes(params.get('from'))?params.get('from'):'all';document.querySelector('[data-notices-back]').href='notificaciones.html?state='+state;
 function render(){try{const result=resolveNotice(id);if(result.item)markRead(id);const heading=result.item?`<header class="document-heading"><p>${dateLabel(result.item.date)} · Leída</p><h2>${esc(result.item.title)}</h2></header>`:'';

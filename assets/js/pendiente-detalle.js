@@ -1,6 +1,6 @@
 import { reviewSnapshot, snapshotReady } from './editorial-snapshot.js';
-import { mountEditorialReview } from './ui-editorial-review.js';
-import { readItems, decide, revisionToken, overlapping, viewer, escapeHtml as esc, dateLabel } from './pending-store.js';
+import { mountEditorialReview } from './ui-editorial-review.js?v=20261106e';
+import { readItems, decide, revisionToken, overlapping, viewer, escapeHtml as esc, dateLabel } from './pending-store.js?v=20261106e';
 const host = document.querySelector('[data-detail]');
 const id = new URLSearchParams(location.search).get('id');
 let busy = false;

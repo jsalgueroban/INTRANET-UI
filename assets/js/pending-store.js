@@ -1,3 +1,5 @@
+import {withdrawalToken} from './publication-lifecycle.js?v=20261106e';
+import {readRoomConfiguration,roomOpen,roomBlocks} from './room-configuration.js';
 import { enrichEditorialExample } from './editorial-examples.js';
 import { reviewSnapshot, snapshotReady } from './editorial-snapshot.js';
 const KEY = 'banasan-pending-demo-v1';
@@ -25,6 +27,8 @@ export function decide(id, decision, reason, expectedRevision) {
   const items = readItems();
   const item = items.find(entry => entry.id === id);
   if (!item) return { error: 'Este pendiente no está disponible para tu consulta.' };
+  if(item.type==='contenido'&&item.publicationId&&decision==='approve'&&item.withdrawalToken!==withdrawalToken(item.publicationId))return {error:'La publicación cambió de disponibilidad desde el envío. Prepara una nueva revisión antes de publicarla.'};
+  if(item.type==='contenido'&&item.publicationId&&decision==='approve'){const latest=items.filter(r=>r.publicationId===item.publicationId&&r.resolved&&r.status==='Publicado').sort((a,b)=>b.resolvedAt.localeCompare(a.resolvedAt))[0];if((latest?.id||null)!==(item.basePublicationRevision||null))return {error:'Ya existe una versión aprobada más reciente. Devuelve esta revisión para actualizarla.'};}
   if (item.resolved) return { error: 'Este pendiente ya fue resuelto. Consulta el resultado actualizado.' };
   if (item.author === viewer.id || (item.modifiedBy || []).includes(viewer.id)) return { error: 'Una persona distinta debe revisar esta solicitud.' };
   if (item.type === 'contenido' && expectedRevision !== revisionToken(item)) return { error: 'La revisión cambió desde que la abriste. Revisa la versión actual antes de decidir.' };
@@ -41,11 +45,13 @@ export const dateLabel = value => new Intl.DateTimeFormat('es-CO', { day: 'numer
 export const typeLabel = item => item.type === 'contenido' ? 'Contenido' : 'Reserva';
 export const actionLabel = item => item.resolved ? item.status : item.type === 'contenido' ? 'Revisar publicación' : 'Decidir reserva';
 
-export const rooms = [{ name: 'Sala principal', open: '08:00', close: '17:00' }, { name: 'Sala de reuniones 2', open: '08:00', close: '17:00' }];
+export const rooms = readRoomConfiguration().rooms;
 export function requestReservation(values) {
   const room = rooms.find(entry => entry.name === values.room);
   if (!room || !/^\d{4}-\d{2}-\d{2}$/.test(values.day) || !Number.isFinite(Date.parse(values.day))) return { error: 'Selecciona una sala y una fecha válidas.' };
   if (!/^\d{2}:\d{2}$/.test(values.start) || !/^\d{2}:\d{2}$/.test(values.end) || values.start >= values.end || values.start < room.open || values.end > room.close) return { error: 'Elige un horario dentro de la disponibilidad de la sala, con el fin posterior al inicio.' };
+  if(!roomOpen(room,values.day))return {error:'La sala no está habilitada este día.'};
+  if(roomBlocks(room.name,values.day).some(b=>b.start<values.end&&b.end>values.start))return {error:'Este horario tiene mantenimiento. El flujo de nuevas solicitudes durante un bloqueo está pendiente de definición.'};
   if (!values.purpose.trim()) return { error: 'Escribe el motivo de la reunión.' };
   const items = readItems();
   const item = { id: 'R-' + crypto.randomUUID().slice(0,8).toUpperCase(), type: 'reserva', title: values.title.trim() || 'Reserva de ' + room.name, person: viewer.name, author: viewer.id, company: viewer.company, received: new Intl.DateTimeFormat('en-CA', {timeZone:'America/Bogota'}).format(new Date()), status: 'Por aprobar', room: room.name, day: values.day, start: values.start, end: values.end, purpose: values.purpose.trim() };
@@ -68,7 +74,7 @@ export function cancelReservation(id) {
 }
 
 export function revisionToken(item) {
-  return JSON.stringify([item.id, item.round || 1, item.reason || '', item.title, item.before, item.after, item.change, item.author, item.modifiedBy || [], item.publishAt || null, item.beforeImage || null, item.afterImage || null, item.resources || [], item.beforeSnapshot || null, item.afterSnapshot || null]);
+  return JSON.stringify([item.id, item.round || 1, item.reason || '', item.title, item.before, item.after, item.change, item.author, item.modifiedBy || [], item.publishAt || null, item.beforeImage || null, item.afterImage || null, item.resources || [], item.beforeSnapshot || null, item.afterSnapshot || null,item.publicationId||null,item.withdrawalToken||null,item.basePublicationRevision||null]);
 }
 export function editorialRounds(item) {
   const { rounds, ...current } = item;
@@ -80,4 +86,13 @@ export function editorialEvents(item) {
     if (round.resolved) events.push({ label: round.status, actor: round.actor, at: round.resolvedAt, reason: round.reason, round: round.round });
     return events;
   }).reverse();
+}
+
+export function submitEditorialReview(draft,snapshot,before,withdrawal){
+  if(!snapshot.title.trim()||!snapshot.category.trim()||!snapshot.sections?.some(s=>s.text.trim()))throw new Error('Completa título, categoría y contenido antes de enviar.');
+  if(!snapshotReady(snapshot))throw new Error('Hay archivos no disponibles. Revisa los adjuntos antes de enviar.');
+  const items=readItems(),existing=items.find(i=>i.draftId===draft.id&&!i.resolved);
+  if(existing){if(JSON.stringify(existing.afterSnapshot)!==JSON.stringify(snapshot))throw new Error('Ya hay otra versión de este borrador en revisión. Consulta su resultado antes de enviar nuevos cambios.');return existing;}
+  const item={id:'C-'+crypto.randomUUID().slice(0,8).toUpperCase(),type:'contenido',company:'Banasan',section:'Noticias',title:snapshot.title,person:'Laura · Gestora de ejemplo',author:'laura',modifiedBy:['laura'],draftId:draft.id,publicationId:draft.sourceId||'noticia-'+draft.id,basePublicationRevision:before?.reviewId||null,withdrawalToken:withdrawal,received:new Date().toISOString(),status:'Por revisar',change:'Versión enviada desde el editor de ejemplo.',before:before?.summary||'',after:snapshot.summary,beforeSnapshot:before||{title:'Sin versión publicada',sections:[],resources:[]},afterSnapshot:structuredClone(snapshot)};
+  items.push(item);try{sessionStorage.setItem(KEY,JSON.stringify(items));}catch{throw new Error('No pudimos enviar la revisión. Conserva el borrador e inténtalo de nuevo.');}return item;
 }

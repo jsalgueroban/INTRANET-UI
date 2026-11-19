@@ -1,5 +1,5 @@
 import { readVacancies } from './vacancies-store.js';
-import { escapeHtml as esc, arrow } from './news-data.js';
+import { escapeHtml as esc, arrow } from './news-data.js?v=20261106e';
 import { initFilterBar, initSearchField, updateFilterCounts } from './ui-controls.js?v=3';
 const search=document.querySelector('#vacancy-search'),host=document.querySelector('[data-vacancies]');
 let view=new URLSearchParams(location.search).get('view')==='history'?'history':'available';

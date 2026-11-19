@@ -1,4 +1,4 @@
-import { documents, documentRows, normalize } from './published-information.js';
+import { documents, documentRows, normalize } from './published-information.js?v=20261106e';
 import { initSearchField } from './ui-controls.js';
 const search=document.querySelector('#document-search'),collection=document.querySelector('#document-collection'),year=document.querySelector('#document-year'),host=document.querySelector('[data-documents]');
 const params=new URLSearchParams(location.search);search.value=params.get('q')||'';
