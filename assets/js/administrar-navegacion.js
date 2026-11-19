@@ -1,5 +1,5 @@
 import {notify} from './ui-notifications.js';
-import {groups,destinations,readNavigation,saveNavigation,moveNavigation,destinationUrl} from './navigation-store.js';
+import {groups,destinations,readNavigation,saveNavigation,moveNavigation,destinationUrl} from './navigation-store.js?v=2';
 import {floatingPanel} from './ui-floating-panel.js';
 import {escapeHtml as esc} from './news-data.js?v=20261106e';
 const group=document.querySelector('[data-group]'),permission=document.querySelector('[data-permission]'),form=document.querySelector('[data-edit-form]'),status=document.querySelector('[data-status]');let editing=null;
