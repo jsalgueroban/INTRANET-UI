@@ -55,6 +55,30 @@ function apply(c: CompanyTheme) {
       continue;
     }
     let value = palette[role];
+    const source = name.match(/(?:tone|rgb)-([a-f0-9]{6})/)?.[1];
+    // Preserve the original depth hierarchy instead of flattening all navy roles.
+    const depth: Record<string, number> = {
+      "031d36": 0,
+      "001d36": 0,
+      "03182c": -12,
+      "042640": 8,
+      "06263f": 8,
+      "052b51": 15,
+      "052b47": 12,
+      "062b4a": 14,
+      "052b4c": 14,
+      "062f4b": 18,
+      "073451": 22,
+    };
+    if (role === "base" && source && source in depth) {
+      const step = depth[source];
+      value =
+        step === 0
+          ? c.base
+          : `color-mix(in srgb, ${c.base} ${100 - Math.abs(step)}%, ${step > 0 ? "white" : "black"})`;
+    }
+    if (source === "ffe04f")
+      value = `color-mix(in srgb, ${c.accent} 72%, white)`;
     if (name.startsWith("--company-rgb-")) {
       const alpha = Number(name.split("-").at(-1)!.replace("_", "."));
       value = `color-mix(in srgb, ${value} ${alpha * 100}%, transparent)`;
@@ -70,7 +94,8 @@ function apply(c: CompanyTheme) {
     "--text-action": c.base,
     "--border-focus": c.base,
     "--navy": c.base,
-    "--deep": c.base,
+    "--deep":
+      c.id === "banasan" ? c.base : `color-mix(in srgb, ${c.base} 85%, white)`,
   };
   for (const [name, value] of Object.entries(vars))
     root.style.setProperty(name, value);
@@ -393,37 +418,6 @@ function App() {
   const sampleHost = document.querySelector("[data-company-samples]");
   return (
     <ThemeProvider tokens={tokens(company)} className="company-theme-provider">
-      {shellSlots.map((slot) =>
-        createPortal(
-          <button
-            type="button"
-            className="company-context-switch company-context-switch--shell"
-            aria-haspopup="dialog"
-            aria-expanded={open}
-            aria-label={"Cambiar empresa: " + company.name}
-            title={"Cambiar empresa · " + company.name}
-            onClick={() => {
-              setDraft(company.id);
-              setOpen(true);
-            }}
-          >
-            <span className="company-logo-slot" data-company={company.id}>
-              <img src={company.logo} alt="" />
-            </span>
-            <svg
-              className="ui-icon company-switch-chevron"
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              aria-hidden="true"
-            >
-              <path d="m4 6 4 4 4-4" />
-            </svg>
-          </button>,
-          slot,
-        ),
-      )}
       <p className="sr-only" role="status">
         {announcement}
       </p>
@@ -495,10 +489,6 @@ function App() {
     </ThemeProvider>
   );
 }
-const shellSlots = [
-  ...document.querySelectorAll<HTMLElement>("[data-company-control-slot]"),
-];
-shellSlots.forEach((slot) => slot.replaceChildren());
 const host = document.createElement("div");
 host.id = "company-theme-preview";
 document.body.append(host);

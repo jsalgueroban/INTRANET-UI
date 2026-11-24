@@ -431,7 +431,6 @@ html[data-company-preview="el-rubi"] .nav-trigger:hover {
 .company-product-link {
   color: inherit;
   text-decoration: none;
-  display: block;
   line-height: 1;
 }
 [data-company-control-slot] {
@@ -539,3 +538,7 @@ html[data-company-preview]:not([data-company-preview="banasan"]) .account-mark,
 html[data-company-preview]:not([data-company-preview="banasan"]) .ui-workspace-nav a[aria-current="page"] {
   color: var(--on-primary);
 }
+
+/* Brand navigation only; company selection belongs to Profile. */
+.company-product-link [data-company-control-slot] { display: block; margin: 0 auto; }
+html[data-company-preview] .company-product-link img { object-fit: contain; padding: 0; }

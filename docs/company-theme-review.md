@@ -83,3 +83,17 @@ Evidencia: 37/37 vistas a 390 px sin overflow y sin fondos Banasan residuales en
 ## Entrega · 2026-11-24
 
 Publicación autorizada por el usuario en GitHub. Se entrega la propuesta y su documentación para revisión; no se consolidan paletas ni se publica un paquete. Contrato y matriz de cabeceras incluidos en docs/design-system.
+
+## Corrección de profundidad tonal · 2026-11-24
+
+Se corrige el aplanamiento de marca: los literales navy 900/800/700 y variantes ya no apuntan todos a la misma base. Se conserva base profunda y se derivan niveles intermedios/elevados con mezclas de blanco (8–22%); el nivel más profundo usa negro 12%. Las transparencias mantienen su alfa sobre cada nivel. El acento de hover también conserva una variante más clara. Banasan sigue usando exactamente los fallbacks originales; El Rubí mantiene su navegación clara. Corrección de consumidor, sin modificar la librería ni la composición.
+
+Verificación local: en las seis empresas Vacantes internas y footer tienen fondos distintos; Banasan mantiene rgb(3,29,54) y rgb(5,43,81). Escala 700/800/900 distinta para las otras cinco. Inicio a 1280 y 390 sin overflow horizontal. Captura renderizada revisada. Build correcto. Publicación pendiente de esta corrección.
+
+## Marca como enlace a Inicio · 2026-11-24
+
+Por instrucción del usuario, la marca completa en cabecera de escritorio y móvil es un único enlace a Inicio. Se retiran el botón de empresa y su flecha. Cuenta → Empresa navega a Perfil, sin interceptar para abrir un modal. Perfil → Empresa contiene la empresa activa y la acción Cambiar empresa que reutiliza CompanyPicker y el panel compartido; sustituye el selector antiguo de dos empresas de ejemplo. Se retira la carga del script antiguo del perfil.
+
+Probados cambio a Agrobanano desde Perfil, persistencia, apertura/Escape y navegación por marca en escritorio/móvil; cero selectores en cabecera, sin overflow y sin errores JS en recorrido final. Build y diff correctos. Cambio local sin publicar, junto a la corrección tonal anterior.
+
+Corrección adicional: el estilo del nuevo enlace sobrescribía display:none de la marca móvil y la mostraba también en escritorio. Se retira ese display genérico. Verificado a 1462/1280/390: exactamente una marca visible, central en escritorio y móvil en su breakpoint, sin overflow. Sin publicar.
