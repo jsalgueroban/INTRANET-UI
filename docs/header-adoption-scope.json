@@ -1,0 +1,42 @@
+{
+  "changed": [
+    "administrar-navegacion.html",
+    "aviso.html",
+    "biblioteca-documental.html",
+    "busqueda.html",
+    "canales.html",
+    "categorias-portada.html",
+    "contenidos.html",
+    "documento.html",
+    "documentos.html",
+    "editar-contenido.html",
+    "estructura.html",
+    "historial-editorial.html",
+    "informacion.html",
+    "noticia.html",
+    "noticias.html",
+    "notificaciones.html",
+    "pendiente.html",
+    "pendientes.html",
+    "perfil.html",
+    "permisos.html",
+    "recursos-contenido.html",
+    "recursos-globales.html",
+    "retiro-contenido.html",
+    "secciones.html",
+    "solicitar-reserva.html",
+    "solicitudes-internas.html",
+    "vacante.html",
+    "vacantes.html",
+    "vista-previa.html"
+  ],
+  "protected": [
+    "componentes.html",
+    "data-list-demo.html",
+    "index.html",
+    "inicio.html",
+    "login.html",
+    "navigation-demo.html",
+    "platform-demo.html"
+  ]
+}

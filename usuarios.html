@@ -10,31 +10,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/foundation.css?v=30" />
-  <link rel="stylesheet" href="assets/css/usuarios.css?v=30" />
-  <link rel="stylesheet" href="assets/css/roles.css" />
-  <link rel="stylesheet" href="assets/css/components.css?v=35" />
-  <link rel="stylesheet" href="assets/css/account-tray.css?v=6" />
-  <link rel="stylesheet" href="assets/css/site-header.css?v=4" />
-  <link rel="stylesheet" href="assets/css/usuarios-activacion.css?v=1" />
-  <script src="assets/js/site-header.js?v=14" defer></script>
+  <link rel="stylesheet" href="assets/css/foundation.css?v=company-system-14" />
+  <link rel="stylesheet" href="assets/css/usuarios.css?v=company-system-14" />
+  <link rel="stylesheet" href="assets/css/roles.css?v=company-system-14" />
+  <link rel="stylesheet" href="assets/css/components.css?v=company-system-14" />
+  <link rel="stylesheet" href="assets/css/account-tray.css?v=company-system-14" />
+  <link rel="stylesheet" href="assets/css/site-header.css?v=company-system-14" />
+  <link rel="stylesheet" href="assets/css/usuarios-activacion.css?v=company-system-14" />
+  <script src="assets/js/site-header.js?v=company-system-14" defer></script>
   <script type="module" src="assets/js/usuarios.js?v=32"></script>
   <script src="assets/js/account-tray.js?v=3" defer></script>
-</head>
+<link rel="stylesheet" href="assets/css/workspace-heading.css?v=company-system-14" /></head>
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <div data-site-header></div>
 
   <main id="contenido" class="admin-main">
-    <header class="page-heading">
+    <header class="page-heading ui-workspace-heading">
       <div class="ui-page-heading"><a class="ui-return" href="inicio.html" aria-label="Volver a Inicio"><span class="ui-return__icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg></span><span class="ui-return__label">Inicio</span></a><h1>Administración<br />de usuarios.</h1></div>
-      <div class="page-note">
+      <div class="page-note ui-workspace-heading__note">
         <p>Gestiona cuentas, perfiles, dependencias y roles de acceso a la Intranet.</p>
         <button class="ui-action ui-action--primary" type="button" data-new-user>Agregar usuario <span class="ui-action__icon"><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" /></svg></span></button>
       </div>
     </header>
 
-    <nav class="roles-section-nav" aria-label="Administración de acceso"><a href="usuarios.html" aria-current="page">Usuarios</a><a href="roles.html">Roles y permisos</a></nav>
+    <nav class="roles-section-nav ui-workspace-nav" aria-label="Administración de acceso"><a href="usuarios.html" aria-current="page">Usuarios</a><a href="roles.html">Roles y permisos</a></nav>
     <section class="workspace" aria-label="Explorador de usuarios">
       <div class="workspace-toolbar">
         <div class="search-control"><label for="user-search">Buscar usuarios</label><div class="ui-search-field" data-filled="false"><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-search" /></svg><input id="user-search" type="search" placeholder="Nombre o correo" autocomplete="off" data-search /><button class="ui-search-field__clear" type="button" aria-label="Limpiar búsqueda" data-search-clear><svg class="ui-icon" aria-hidden="true"><use href="assets/icons/tabler-sprite.svg#ti-x" /></svg></button></div></div>

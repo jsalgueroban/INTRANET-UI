@@ -1,6 +1,6 @@
 :root{
-  --navy:#031d36;--deep:#052b51;--blue:#0874c9;--blue-soft:#e7f3fa;
-  --yellow:#ffd000;--ink:#10253a;--muted:#607184;--paper:#fff;
+  --navy:var(--company-tone-031d36, #031d36);--deep:var(--company-tone-052b51, #052b51);--blue:var(--company-tone-0874c9, #0874c9);--blue-soft:var(--company-tone-e7f3fa, #e7f3fa);
+  --yellow:var(--company-tone-ffd000, #ffd000);--ink:#10253a;--muted:#607184;--paper:#fff;
   --mist:#eef4f6;--page:#f7fafb;--line:#d8e3e9;--success:#176b49;
   --ease:cubic-bezier(.23,1,.32,1);--display:var(--font-family-display);
   --body:var(--font-family-body)
@@ -10,14 +10,14 @@ html{background:var(--page);scroll-behavior:smooth}
 body{margin:0;color:var(--ink);font-family:var(--body);background:linear-gradient(180deg,var(--navy) 0 calc(322px - var(--navigation-lift,0px)),var(--page) calc(322px - var(--navigation-lift,0px)))}
 button,input{font:inherit}button{color:inherit}a{color:inherit;text-decoration:none}
 svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-:focus-visible{outline:3px solid #8bd4ff;outline-offset:3px}
+:focus-visible{outline:3px solid var(--company-tone-8bd4ff, #8bd4ff);outline-offset:3px}
 .skip-link{position:fixed;z-index:100;top:8px;left:8px;padding:10px 14px;color:#fff;background:var(--blue);transform:translateY(-150%)}
 .skip-link:focus{transform:none}
 
 .site-header{position:fixed;z-index:30;top:14px;left:0;width:100%;padding:0 28px;transition:transform 280ms var(--ease)}
 .nav-shell{position:relative;display:grid;width:min(1160px,calc(100vw - 64px));min-height:64px;grid-template-columns:1fr 126px 1fr;align-items:center;margin:auto;padding:0 14px;border-radius:16px;color:#fff;background:rgba(4,35,61,.94);box-shadow:0 14px 38px rgba(2,19,35,.18);backdrop-filter:blur(18px) saturate(125%);transition:background 180ms ease,box-shadow 180ms ease}
 .site-header.is-scrolled{transform:translateY(-8px)}
-.site-header.is-scrolled .nav-shell{background:rgba(3,29,54,.98);box-shadow:0 18px 42px rgba(2,19,35,.24)}
+.site-header.is-scrolled .nav-shell{background:var(--company-rgb-031d36-_98, rgba(3,29,54,.98));box-shadow:0 18px 42px rgba(2,19,35,.24)}
 .back-link{display:inline-flex;width:max-content;min-height:40px;align-items:center;gap:10px;padding:0 10px;border-radius:10px;font-size:var(--type-meta-size);font-weight:700;transition:background 160ms ease,color 160ms ease}
 .back-link svg{width:17px;transition:transform 170ms var(--ease)}
 .admin-brand{display:grid;height:82px;place-items:center;align-content:center;border-radius:0 0 15px 15px;background:rgba(4,35,61,.98);box-shadow:0 13px 24px rgba(2,19,35,.18);transform:translateY(9px);transition:transform 220ms var(--ease),background 180ms ease}
@@ -26,7 +26,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-l
 .admin-brand img{width:70px;margin-top:6px;filter:grayscale(1) brightness(0) invert(1);opacity:.58}
 .admin-session{display:flex;align-items:center;justify-content:flex-end;gap:15px;color:rgba(255,255,255,.68);font-size:var(--type-meta-size)}
 .account-mark{position:relative;display:grid;width:43px;height:40px;place-items:center;overflow:hidden;border:0;color:var(--navy);font-size:var(--type-meta-size);font-weight:800;background:var(--yellow);clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));cursor:pointer;transition:transform 160ms var(--ease),background 160ms ease}
-.account-mark i{position:absolute;right:-5px;bottom:8px;width:17px;height:2px;background:rgba(3,29,54,.32);transform:rotate(-45deg)}
+.account-mark i{position:absolute;right:-5px;bottom:8px;width:17px;height:2px;background:var(--company-rgb-031d36-_32, rgba(3,29,54,.32));transform:rotate(-45deg)}
 .account-mark:active{transform:scale(.96)}
 
 .admin-main{width:min(1240px,calc(100% - 64px));margin:0 auto 96px;padding-top:132px}
@@ -62,7 +62,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-l
 
 .user-detail{padding:34px}
 .detail-identity{display:flex;align-items:center;gap:18px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.14)}
-.identity-mark--inverse{width:54px;height:54px;flex:none;border-color:rgba(255,208,0,.7);color:var(--navy);font-size:var(--type-meta-size);background:var(--yellow)}
+.identity-mark--inverse{width:54px;height:54px;flex:none;border-color:var(--company-rgb-ffd000-_7, rgba(255,208,0,.7));color:var(--navy);font-size:var(--type-meta-size);background:var(--yellow)}
 .identity-mark--inverse i{width:22px;background:var(--blue)}
 .detail-identity p{margin:0 0 5px;color:rgba(255,255,255,.48);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
 .detail-identity h2{margin:0;font:var(--type-section)}
@@ -77,7 +77,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-l
 
 @media(hover:hover) and (pointer:fine){
   .back-link:hover{background:rgba(255,255,255,.08)}.back-link:hover svg{transform:translateX(-3px)}
-  .account-mark:hover{background:#ffe04f;transform:translateY(-2px)}
+  .account-mark:hover{background:var(--company-tone-ffe04f, #ffe04f);transform:translateY(-2px)}
   .user-row:hover>svg{transform:translateX(3px)}
 }
 @media(max-width:900px){
@@ -105,9 +105,9 @@ svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-l
   html{scroll-behavior:auto}.site-header,.nav-shell,.admin-brand,.back-link svg,.account-mark,.user-row,.user-row>svg,.identity-mark i{transition-duration:.01ms!important;transform:none!important}
 }
 
-.nav-shell{background:linear-gradient(108deg,#052b47 0%,#073451 52%,#062f4b 100%);box-shadow:0 12px 26px rgba(1,14,28,.28)}
-.site-header.is-scrolled .nav-shell{background:linear-gradient(108deg,#042640 0%,#062f4b 52%,#052b47 100%);box-shadow:0 14px 30px rgba(1,14,28,.32)}
-.admin-brand{background:#052b51;box-shadow:0 10px 22px rgba(1,14,28,.3)}
+.nav-shell{background:linear-gradient(108deg,var(--company-tone-052b47, #052b47) 0%,var(--company-tone-073451, #073451) 52%,var(--company-tone-062f4b, #062f4b) 100%);box-shadow:0 12px 26px rgba(1,14,28,.28)}
+.site-header.is-scrolled .nav-shell{background:linear-gradient(108deg,var(--company-tone-042640, #042640) 0%,var(--company-tone-062f4b, #062f4b) 52%,var(--company-tone-052b47, #052b47) 100%);box-shadow:0 14px 30px rgba(1,14,28,.32)}
+.admin-brand{background:var(--company-tone-052b51, #052b51);box-shadow:0 10px 22px rgba(1,14,28,.3)}
 
 @media(min-width:901px){
   .nav-shell{width:min(1480px,calc(100vw - clamp(32px,5vw,96px)));min-height:70px;grid-template-columns:1fr 136px 1fr;padding:0 18px}

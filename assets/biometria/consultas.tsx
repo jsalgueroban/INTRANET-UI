@@ -49,7 +49,7 @@ export function Overview({ filters, go }: { filters: Filters; go: Go }) {
           return (
             <article key={company}>
               <header>
-                <h3>{company}</h3>
+                <h2>{company}</h2>
                 <span className={sources[company].late ? "late" : "fresh"}>
                   {sources[company].late ? "Carga atrasada" : "Carga al día"}
                 </span>
@@ -132,22 +132,8 @@ export function Overview({ filters, go }: { filters: Filters; go: Go }) {
     </>
   );
 }
-export function Records({
-  filters: f,
-  go,
-  canExport,
-}: {
-  filters: Filters;
-  go: Go;
-  canExport: boolean;
-}) {
-  const change = (key: string, value: string) =>
-    go("marcaciones", {
-      ...f,
-      [key]: value,
-      ...(key === "company" ? { place: "" } : {}),
-    });
-  const rows = marks.filter(
+export function filteredMarks(f: Filters) {
+  return marks.filter(
     (m) =>
       (!f.company || m.person.company === f.company) &&
       (!f.place || m.place === f.place) &&
@@ -155,8 +141,68 @@ export function Records({
       (!f.to || m.day <= f.to) &&
       matches(m.person.name + " " + m.person.id, f.q || ""),
   );
+}
+export function downloadMarks(rows: Mark[]) {
+  const data = [
+    [
+      "Fecha",
+      "Hora COT",
+      "Persona",
+      "Identificación",
+      "Empresa",
+      "Lugar",
+      "Departamento",
+      "Dispositivo",
+      "Punto de acceso",
+      "Evento",
+      "Nómina",
+    ],
+    ...rows.map((m) => [
+      m.day,
+      m.time,
+      m.person.name,
+      m.person.id,
+      m.person.company,
+      m.place,
+      m.person.department,
+      m.device,
+      m.person.company === "Banasan" ? m.point : "",
+      m.person.company === "Banasan" ? m.kind : "",
+      m.person.company === "Agros"
+        ? m.linked
+          ? "Vinculada"
+          : "Sin vincular"
+        : "",
+    ]),
+  ];
+  const csv = data
+    .map((row) => row.map((v) => '"' + v.replaceAll('"', '""') + '"').join(";"))
+    .join("\r\n");
+  const url = URL.createObjectURL(
+    new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" }),
+  );
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "marcaciones-demo.csv";
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+export function Records({ filters: f, go }: { filters: Filters; go: Go }) {
+  const change = (key: string, value: string) =>
+    go("marcaciones", {
+      ...f,
+      [key]: value,
+      ...(key === "company" ? { place: "" } : {}),
+    });
+  const rows = filteredMarks(f);
   const history = (m: Mark) =>
-    go("historico", { id: m.person.id, month: m.day.slice(0, 7), day: m.day });
+    go("historico", {
+      id: m.person.id,
+      month: m.day.slice(0, 7),
+      day: m.day,
+      origin: new URLSearchParams(f).toString(),
+    });
   const columns = [
     {
       key: "date",
@@ -204,53 +250,6 @@ export function Records({
         ),
     },
   ];
-  function download() {
-    const data = [
-      [
-        "Fecha",
-        "Hora COT",
-        "Persona",
-        "Identificación",
-        "Empresa",
-        "Lugar",
-        "Departamento",
-        "Dispositivo",
-        "Punto de acceso",
-        "Evento",
-        "Nómina",
-      ],
-      ...rows.map((m) => [
-        m.day,
-        m.time,
-        m.person.name,
-        m.person.id,
-        m.person.company,
-        m.place,
-        m.person.department,
-        m.device,
-        m.person.company === "Banasan" ? m.point : "",
-        m.person.company === "Banasan" ? m.kind : "",
-        m.person.company === "Agros"
-          ? m.linked
-            ? "Vinculada"
-            : "Sin vincular"
-          : "",
-      ]),
-    ];
-    const csv = data
-      .map((row) =>
-        row.map((v) => '"' + v.replaceAll('"', '""') + '"').join(";"),
-      )
-      .join("\r\n");
-    const url = URL.createObjectURL(
-      new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" }),
-    );
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "marcaciones-demo.csv";
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  }
   return (
     <>
       <div className="bio-filters">
@@ -298,7 +297,20 @@ export function Records({
           />
         </Field>
       </div>
-      <p>
+      <div className="bio-filter-actions">
+        <Button
+          variant="quiet"
+          onClick={() => go("marcaciones")}
+          disabled={
+            !Object.entries(f).some(
+              ([key, value]) => key !== "view" && Boolean(value),
+            )
+          }
+        >
+          Limpiar filtros
+        </Button>
+      </div>
+      <p className="bio-note">
         {companies
           .filter((c) => !f.company || c === f.company)
           .map((c) => c + " · " + syncText(c))
@@ -306,14 +318,6 @@ export function Records({
       </p>
       <div className="bio-toolbar">
         <h2>{rows.length} marcaciones</h2>
-        {canExport && (
-          <Button
-            disabled={!rows.length || Boolean(f.from && f.to && f.from > f.to)}
-            onClick={download}
-          >
-            Exportar CSV
-          </Button>
-        )}
       </div>
       {f.from && f.to && f.from > f.to ? (
         <p role="alert">
@@ -362,12 +366,20 @@ export function History({ filters: f, go }: { filters: Filters; go: Go }) {
   );
   const days = [...new Set(rows.map((m) => m.day))].map((day) => ({
     day,
-    list: rows.filter((m) => m.day === day).reverse(),
+    list: rows
+      .filter((m) => m.day === day)
+      .sort((a, b) => a.time.localeCompare(b.time)),
   }));
   const active = days.find((d) => d.day === f.day);
   function choose(day: string) {
     revealDay.current = true;
-    if (person) go("historico", { id: person.id, month, day });
+    if (person)
+      go("historico", {
+        id: person.id,
+        month,
+        day,
+        ...(f.origin ? { origin: f.origin } : {}),
+      });
   }
   return (
     <>
@@ -386,7 +398,13 @@ export function History({ filters: f, go }: { filters: Filters; go: Go }) {
         <SelectField
           label="Persona"
           value={person?.id || ""}
-          onChange={(e) => go("historico", { id: e.target.value, month })}
+          onChange={(e) =>
+            go("historico", {
+              id: e.target.value,
+              month,
+              ...(f.origin ? { origin: f.origin } : {}),
+            })
+          }
         >
           {options.map((p) => (
             <option key={p.id} value={p.id}>
@@ -399,7 +417,11 @@ export function History({ filters: f, go }: { filters: Filters; go: Go }) {
           type="month"
           value={month}
           onChange={(e) =>
-            go("historico", { id: person?.id || "", month: e.target.value })
+            go("historico", {
+              id: person?.id || "",
+              month: e.target.value,
+              ...(f.origin ? { origin: f.origin } : {}),
+            })
           }
         />
       </div>

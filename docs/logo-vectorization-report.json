@@ -1,0 +1,42 @@
+[
+  {
+    "name": "el-rubi",
+    "paths": 260,
+    "bytes": 102061,
+    "viewBox": "0 0 453 224",
+    "embeddedRaster": false,
+    "background": "transparent; alpha silhouette traced"
+  },
+  {
+    "name": "banaorganico",
+    "paths": 72,
+    "bytes": 98358,
+    "viewBox": "0 0 1796 593",
+    "embeddedRaster": false,
+    "background": "transparent; alpha silhouette traced"
+  },
+  {
+    "name": "agrobanano",
+    "paths": 52,
+    "bytes": 90811,
+    "viewBox": "0 0 1236 704",
+    "embeddedRaster": false,
+    "background": "transparent; alpha silhouette traced"
+  },
+  {
+    "name": "agrobanacaribe",
+    "paths": 165,
+    "bytes": 121471,
+    "viewBox": "0 0 1500 505",
+    "embeddedRaster": false,
+    "background": "transparent; alpha silhouette traced"
+  },
+  {
+    "name": "la-ceiba",
+    "paths": 3075,
+    "bytes": 1454185,
+    "viewBox": "0 0 1796 759",
+    "embeddedRaster": false,
+    "background": "transparent; alpha silhouette traced"
+  }
+]

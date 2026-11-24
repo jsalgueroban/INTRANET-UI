@@ -72,15 +72,6 @@
   min-width: 0;
   max-width: none;
 }
-.bio-filters input[type="search"] {
-  width: 100%;
-  height: var(--input-height);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--input-radius);
-  padding: 0 12px;
-  font: inherit;
-  background: var(--surface-raised);
-}
 .bio-page small {
   display: block;
   color: var(--text-secondary);
@@ -193,3 +184,165 @@
 .bio-page aside {
   scroll-margin-top: 120px;
 }
+
+/* Intranet: line-based navigation and task-first form composition. */
+.bio-page .news-heading {
+  display: block;
+  margin-bottom: 24px;
+}
+.bio-page .news-heading > p {
+  max-width: 70ch;
+  margin: 16px 0 0 60px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.bio-navigation {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+  overflow-x: auto;
+}
+.bio-navigation a {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 48px;
+  padding: 12px 0;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--type-label-size);
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+}
+.bio-navigation a[aria-current] {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-action);
+}
+.bio-navigation a:hover {
+  color: var(--text-action);
+}
+.bio-navigation a:focus-visible,
+.bio-link:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 3px;
+}
+.bio-page .bio-toolbar h2,
+.bio-companies article > header h2 {
+  font: var(--type-section);
+  margin: 0;
+}
+.bio-page .bio-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.bio-filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -12px;
+}
+.bio-page .bio-split > aside {
+  align-self: start;
+}
+.bio-page .bio-split ol {
+  padding-left: 20px;
+  margin: 20px 0;
+}
+.bio-page .bio-split li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.6;
+}
+.bio-page aside[aria-label="Detalle de novedad"] {
+  margin-top: 32px;
+  border-left: 0;
+  border-top: 1px solid var(--border-subtle);
+  padding: 24px 0 0;
+}
+.bio-case-form {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+}
+.bio-form-section {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.bio-form-section legend {
+  font: var(--type-subheading);
+  padding: 0;
+  margin-bottom: 16px;
+}
+.bio-form-section + .bio-form-section {
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+.bio-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+}
+.bio-form-grid > .biu-field,
+.bio-case-form .biu-field {
+  min-width: 0;
+  max-width: none;
+  width: 100%;
+}
+.bio-form-grid .bio-full {
+  grid-column: 1/-1;
+}
+.bio-case-form .bio-note {
+  line-height: 1.6;
+}
+.bio-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+.bio-case-form [role="alert"] {
+  color: var(--text-danger);
+  font-size: var(--type-label-size);
+  line-height: 1.6;
+}
+@media (max-width: 700px) {
+  .bio-navigation {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .bio-page .news-heading > p {
+    margin-left: 0;
+  }
+  .bio-page .bio-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bio-page .bio-filters > .biu-field:has(.biu-search-field) {
+    grid-column: 1/-1;
+  }
+  .bio-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .bio-form-actions > * {
+    flex: 1;
+  }
+  .bio-case-form .bio-full {
+    grid-column: auto;
+  }
+}
+@media (max-width: 420px) {
+  .bio-page .bio-filters {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bio-page{padding-top:132px}
+.bio-page .ui-workspace-heading h1:focus{outline:none}
+@media(max-width:900px){.bio-page{padding-top:124px}}
+@media(max-width:560px){.bio-page{padding-top:116px}}

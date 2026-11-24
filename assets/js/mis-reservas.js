@@ -1,3 +1,4 @@
+import {initReservationPanel} from './reservation-panel.js?v=1';
 import {notify,confirmAction} from './ui-notifications.js';
 import { readItems, cancelReservation, viewer, escapeHtml as esc, dateLabel } from './pending-store.js?v=20261106e';
 const host=document.querySelector('[data-my-reservations]');
@@ -17,3 +18,5 @@ function render(){
   }catch{host.innerHTML='<div class="ui-feedback"><strong>No pudimos cargar tus reservas</strong><button class="ui-action ui-action--secondary" data-retry>Reintentar</button></div>';host.querySelector('[data-retry]').addEventListener('click',render);}
 }
 filter.addEventListener('change',render);render();
+
+initReservationPanel(render);

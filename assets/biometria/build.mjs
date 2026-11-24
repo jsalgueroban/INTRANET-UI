@@ -26,3 +26,7 @@ await build({
     "react-dom": path.dirname(fromWeb.resolve("react-dom/package.json")),
   },
 });
+
+// Preserve company role connections when rebuilding the library CSS bundle.
+const { connectFile } = await import('../../scripts/company-theme-colors.mjs');
+connectFile(path.join(here, 'app.css'));

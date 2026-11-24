@@ -4,7 +4,7 @@ if (headerTarget) {
   headerTarget.outerHTML = `  <header class="site-header" data-header>
     <div class="nav-shell">
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><b>Menú</b></button>
-      <a class="mobile-brand" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
+      <div class="mobile-brand"><a class="company-product-link" style="color:inherit;text-decoration:none" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong></a><span data-company-control-slot="mobile"><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></span></div>
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
         <div class="nav-group nav-group--left">
           <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Nuestra empresa <span>⌄</span></button><div class="nav-popover"><a href="secciones.html">Información institucional</a><a href="informacion.html?id=cultura">Nuestra cultura</a><a href="estructura.html">Estructura organizacional</a><a href="noticias.html">Noticias</a><a href="canales.html">Canales internos</a></div></div>
@@ -12,7 +12,7 @@ if (headerTarget) {
 <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Biotime <span>⌄</span></button><div class="nav-popover"><a href="biometria.html#/?view=inicio">Inicio</a><a href="biometria.html#/?view=marcaciones">Marcaciones</a><a href="biometria.html#/?view=historico">Histórico por persona</a><a href="biometria.html#/?view=novedades">Novedades</a><a href="biometria.html#/?view=administracion">Fuentes y dispositivos</a></div></div>
           <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Administración <span>⌄</span></button><div class="nav-popover"><a href="usuarios.html">Usuarios</a><a href="roles.html">Roles y permisos</a><a href="permisos.html">Delegaciones</a><a href="contenidos.html">Contenidos</a><a href="categorias-portada.html">Portada</a><a href="biblioteca-documental.html">Biblioteca documental</a><a href="recursos-globales.html">Recursos globales</a><a href="administrar-salas.html">Salas</a><a href="solicitudes-internas.html">Sugerencias recibidas</a><a href="administrar-navegacion.html">Navegación</a><a href="componentes.html">Catálogo de componentes</a></div></div>
         </div>
-        <a class="brand-lockup ui-brand-lockup ui-brand-lockup--inverse" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></a>
+        <div class="brand-lockup ui-brand-lockup ui-brand-lockup--inverse"><a class="company-product-link" style="color:inherit;text-decoration:none" href="inicio.html" aria-label="Inicio de la Intranet"><strong>Intranet</strong></a><span data-company-control-slot="desktop"><img src="assets/brand/logo-banasan.svg" alt="Banasan" /></span></div>
         <div class="nav-group nav-group--right">
           <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Bienestar laboral <span>⌄</span></button><div class="nav-popover"><a href="informacion.html?id=beneficios">Beneficios</a><a href="vacantes.html">Vacantes internas</a><a href="salas.html">Salas y reservas</a></div></div>
           <div class="nav-item"><button class="nav-trigger" type="button" aria-expanded="false">Formatos y documentos <span>⌄</span></button><div class="nav-popover"><a href="documentos.html?collection=Formatos">Formatos publicados</a><a href="documentos.html?collection=Calendario%20Bananero">Calendario Bananero</a><a href="documentos.html">Documentos publicados</a></div></div>
@@ -31,7 +31,7 @@ if (headerTarget) {
             <header class="account-tray__identity"><div><strong>Cuenta</strong></div><button type="button" aria-label="Cerrar cuenta" data-account-close><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></header>
             <nav class="account-tray__nav" aria-label="Opciones de cuenta">
               <a href="perfil.html"><span><strong>Perfil</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
-              <a href="perfil.html#empresa"><span><strong>Empresa</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+              <a href="perfil.html#empresa" data-change-company><span><strong>Empresa</strong><small data-active-company></small></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
               <a href="usuarios.html"><span><strong>Gestión de usuarios</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
               <a href="roles.html"><span><strong>Gestión de roles</strong></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
             </nav>
@@ -163,7 +163,7 @@ if(siteHeader&&navShell&&navPullHandle){
     finishNavMotion();
   };
   const dismissNavigation=()=>{
-    if(!desktopNavigation.matches||pulling||siteHeader.classList.contains('is-collapsed'))return;
+    if(!desktopNavigation.matches||pulling||document.querySelector('dialog[open]')||siteHeader.classList.contains('is-collapsed'))return;
     setNavCollapsed(true);
   };
   document.addEventListener('pointerdown',event=>{keyboardNavigation=false;pointerStartedOutside=!siteHeader.contains(event.target);},{capture:true});
@@ -257,3 +257,12 @@ if(siteHeader&&navShell&&navPullHandle){
 })();
 
 import('./navigation-store.js?v=2').then(({applyNavigation})=>{applyNavigation();window.addEventListener('navigation-updated',applyNavigation);}).catch(()=>{});
+
+// Visual company themes: isolated review layer, not an authorization context.
+(()=>{
+ const file=location.pathname.split('/').pop()||'index.html';
+ if(['index.html','login.html','componentes.html','data-list-demo.html','navigation-demo.html','platform-demo.html'].includes(file))return;
+ if(document.querySelector('[data-company-theme-loader]'))return;
+ for(const href of ['assets/company-theme/app.css?v=14','assets/company-theme/preview.css?v=14']){const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.append(link);}
+ const script=document.createElement('script');script.type='module';script.src='assets/company-theme/app.js?v=14';script.dataset.companyThemeLoader='';document.body.append(script);
+})();

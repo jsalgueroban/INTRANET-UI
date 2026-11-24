@@ -2,3 +2,38 @@ body{background:var(--surface-page)}.rooms-page{width:min(1240px,calc(100% - 64p
 @media(max-width:850px){.rooms-agenda,.rooms-request-layout{grid-template-columns:1fr}.rooms-summary{padding:24px 0 0;border-left:0;border-top:1px solid var(--border-subtle)}.rooms-controls{flex-wrap:wrap}.rooms-controls label{flex:1;min-width:180px}.rooms-controls>a{margin-left:0}.rooms-own{align-items:start;flex-direction:column}.rooms-day-heading{flex-wrap:wrap}}
 @media(max-width:550px){.rooms-page{width:calc(100% - 32px);padding-top:118px}.rooms-heading{align-items:start;flex-direction:column;gap:12px}.rooms-workspace{padding:24px 18px}.rooms-controls{gap:16px}.rooms-controls label{min-width:100%}.rooms-controls>a{width:100%;justify-content:center}.rooms-form-grid{grid-template-columns:1fr}.rooms-full{grid-column:auto}.rooms-week{gap:2px}.rooms-week .ui-action{padding:0;min-width:44px}.rooms-day-heading{gap:0}.rooms-form-actions .ui-action{flex:1;justify-content:center}.rooms-event{grid-template-columns:65px 1fr;gap:12px}}
 .rooms-day{position:relative}.rooms-week>[data-week]{min-width:0}
+
+/* Composition from Intranet Foundation 0.4: task, lines and spacing. */
+.rooms-calendar-page .rooms-controls{padding-bottom:24px;border-bottom:1px solid var(--border-subtle)}
+.rooms-calendar-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px}
+.rooms-calendar-heading h2{font:var(--type-subheading);margin:0}
+.rooms-calendar-heading h2::first-letter{text-transform:uppercase}
+.rooms-calendar-page .rooms-week{padding-top:12px;margin-bottom:32px}
+.rooms-calendar-page .rooms-summary{padding-left:32px}
+.rooms-calendar-page .rooms-slot{min-height:44px;align-items:center}
+@media(max-width:850px){.rooms-calendar-page .rooms-summary{padding-left:0}}
+
+.rooms-reservation-panel .rooms-request-layout{grid-template-columns:1fr;gap:24px}
+.rooms-reservation-panel .rooms-summary{padding:20px 0 0;border-left:0;border-top:1px solid var(--border-subtle)}
+.rooms-reservation-panel .rooms-summary h2{font:var(--type-subheading);margin-bottom:12px}
+.rooms-reservation-panel .rooms-success{padding:0}
+
+.rooms-reservation-form{min-width:0}
+.rooms-form-section{border:0;padding:0;margin:0;min-width:0}
+.rooms-form-section legend{font:var(--type-subheading);padding:0;margin-bottom:16px}
+.rooms-form-section+.rooms-form-section{margin-top:24px;padding-top:16px;border-top:1px solid var(--border-subtle)}
+.rooms-reservation-form .rooms-form-grid{gap:16px 24px}
+.rooms-reservation-form .ui-field{min-width:0;max-width:none}
+.rooms-reservation-form .ui-field :is(input,select,textarea){width:100%;min-width:0;font:inherit;font-size:16px}
+.rooms-reservation-form textarea{resize:vertical}
+.rooms-field-help{font-size:var(--type-meta-size);line-height:1.6;color:var(--text-secondary);margin:12px 0 0}
+.rooms-field-help p{margin:8px 0 0}
+.rooms-field-help h3{font:var(--type-label-size) var(--font-family-body);font-weight:600;margin:12px 0 0}
+.rooms-approval-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--border-subtle)}
+.rooms-reservation-form .rooms-form-actions{margin-top:20px;padding-top:0}
+.rooms-reservation-form>.rooms-note{margin-bottom:0}
+@media(max-width:550px){.rooms-reservation-form .rooms-form-grid{grid-template-columns:1fr 1fr;gap:16px}.rooms-reservation-form .rooms-form-grid>.ui-field:nth-child(-n+2){grid-column:1/-1}.rooms-reservation-form .rooms-full{grid-column:1/-1}}
+
+.rooms-module-page{padding-top:132px}
+@media(max-width:900px){.rooms-module-page{padding-top:124px}}
+@media(max-width:560px){.rooms-module-page{padding-top:116px}}

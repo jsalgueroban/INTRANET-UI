@@ -1,3 +1,4 @@
+import { FloatingForm } from "./FloatingForm";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   Button,
@@ -68,7 +69,15 @@ function load(): Case[] {
     return seeds;
   }
 }
-export function Cases({ role }: { role: Role }) {
+export function Cases({
+  role,
+  editing,
+  onEditingChange: setEditing,
+}: {
+  role: Role;
+  editing: boolean;
+  onEditingChange: (value: boolean) => void;
+}) {
   const [items, setItems] = useState<Case[]>(load);
   const [status, setStatus] = useState("all");
   const [query, setQuery] = useState("");
@@ -81,13 +90,23 @@ export function Cases({ role }: { role: Role }) {
         .includes(query.trim().toLocaleLowerCase("es"))
     );
   });
-  const [editing, setEditing] = useState(false),
-    [active, setActive] = useState(""),
+  const [active, setActive] = useState(""),
     [id, setId] = useState(people[0].id),
     [error, setError] = useState("");
+  useEffect(() => {
+    if (editing) setError("");
+  }, [editing]);
   const person = people.find((p) => p.id === id) ?? people[0],
     detail = items.find((item) => item.key === active);
   const detailPanel = useRef<HTMLElement>(null);
+  const detailTrigger = useRef<HTMLElement | null>(null);
+  function showDetail(key: string) {
+    detailTrigger.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    setActive(key);
+  }
   useEffect(() => {
     if (!active) return;
     detailPanel.current?.focus({ preventScroll: true });
@@ -141,60 +160,88 @@ export function Cases({ role }: { role: Role }) {
     <>
       <div className="bio-toolbar">
         <h2>Novedades registradas</h2>
-        <Button
-          variant={editing ? "quiet" : "primary"}
-          onClick={() => setEditing(!editing)}
-        >
-          {editing ? "Cancelar" : "Registrar novedad"}
-        </Button>
       </div>
       {editing && (
-        <form className="bio-form" onSubmit={submit}>
-          <div className="bio-filters">
-            <SelectField
-              label="Persona"
-              value={id}
-              onChange={(e) => setId(e.target.value)}
-            >
-              {people.map((p) => (
-                <option value={p.id} key={p.id}>
-                  {p.name} · {p.company}
-                </option>
-              ))}
-            </SelectField>
-            <SelectField label="Área o finca" key={person.company} name="place">
-              {places[person.company].map((p) => (
-                <option key={p}>{p}</option>
-              ))}
-            </SelectField>
-            <SelectField label="Tipo" name="type">
-              <option>Permiso</option>
-              <option>Corrección solicitada</option>
-              <option>Observación de marcación</option>
-            </SelectField>
-            {["from", "to"].map((k, i) => (
-              <TextField
-                key={k}
-                label={i ? "Hasta" : "Desde"}
+        <FloatingForm
+          title="Registrar novedad"
+          onClose={() => setEditing(false)}
+        >
+          <form className="bio-form bio-case-form" onSubmit={submit}>
+            <fieldset className="bio-form-section">
+              <legend>Persona y ubicación</legend>
+              <div className="bio-form-grid">
+                <SelectField
+                  label="Persona"
+                  value={id}
+                  onChange={(e) => setId(e.target.value)}
+                >
+                  {people.map((p) => (
+                    <option value={p.id} key={p.id}>
+                      {p.name} · {p.company}
+                    </option>
+                  ))}
+                </SelectField>
+                <SelectField
+                  label="Área o finca"
+                  key={person.company}
+                  name="place"
+                >
+                  {places[person.company].map((p) => (
+                    <option key={p}>{p}</option>
+                  ))}
+                </SelectField>
+              </div>
+            </fieldset>
+            <fieldset className="bio-form-section">
+              <legend>Novedad y período</legend>
+              <div className="bio-form-grid">
+                <SelectField label="Tipo" name="type" className="bio-full">
+                  <option>Permiso</option>
+                  <option>Corrección solicitada</option>
+                  <option>Observación de marcación</option>
+                </SelectField>
+                {["from", "to"].map((k, i) => (
+                  <TextField
+                    key={k}
+                    label={i ? "Hasta" : "Desde"}
+                    required
+                    type="date"
+                    name={k}
+                    defaultValue={today}
+                  />
+                ))}
+              </div>
+            </fieldset>
+            <fieldset className="bio-form-section">
+              <legend>Detalle de la novedad</legend>
+              <TextAreaField
+                label="Observación"
+                name="note"
                 required
-                type="date"
-                name={k}
-                defaultValue={today}
+                maxLength={1000}
               />
-            ))}
-          </div>
-          <TextAreaField
-            label="Observación"
-            name="note"
-            required
-            maxLength={1000}
-          />
-          <Button type="submit" variant="primary">
-            Guardar novedad
-          </Button>
-        </form>
+            </fieldset>
+            <p className="bio-note">
+              Registrar una novedad no modifica las marcaciones. Quedará
+              pendiente de revisión.
+            </p>
+            {error && (
+              <p className="rooms-error" role="alert">
+                {error}
+              </p>
+            )}
+            <div className="bio-form-actions">
+              <Button variant="quiet" onClick={() => setEditing(false)}>
+                Cancelar
+              </Button>
+              <Button type="submit" variant="primary">
+                Guardar novedad
+              </Button>
+            </div>
+          </form>
+        </FloatingForm>
       )}
-      {error && <p role="alert">{error}</p>}
+      {!editing && error && <p role="alert">{error}</p>}
       <FilterBar
         counted
         aria-label="Estado de las novedades"
@@ -233,14 +280,14 @@ export function Cases({ role }: { role: Role }) {
         rows={matching}
         rowKey={(i) => i.key}
         actions={[
-          { label: "Consultar historial", onSelect: (i) => setActive(i.key) },
+          { label: "Consultar historial", onSelect: (i) => showDetail(i.key) },
         ]}
         columns={[
           {
             key: "p",
             heading: "Persona",
             render: (i) => (
-              <button className="bio-link" onClick={() => setActive(i.key)}>
+              <button className="bio-link" onClick={() => showDetail(i.key)}>
                 {people.find((p) => p.id === i.id)?.name}
               </button>
             ),
@@ -279,7 +326,13 @@ export function Cases({ role }: { role: Role }) {
             <h3>
               {detail.type} · {people.find((p) => p.id === detail.id)?.name}
             </h3>
-            <Button variant="quiet" onClick={() => setActive("")}>
+            <Button
+              variant="quiet"
+              onClick={() => {
+                setActive("");
+                detailTrigger.current?.focus();
+              }}
+            >
               Cerrar detalle
             </Button>
           </div>
@@ -322,10 +375,13 @@ export function Admin() {
       <div className="bio-companies">
         {companies.map((c, i) => (
           <article key={c}>
-            <h3>{c}</h3>
-            <p>
-              {syncText(c)} · {i ? "Carga atrasada" : "Carga al día"}
-            </p>
+            <header>
+              <h2>{c}</h2>
+              <span className={i ? "late" : "fresh"}>
+                {i ? "Carga atrasada" : "Carga al día"}
+              </span>
+            </header>
+            <p>{syncText(c)}</p>
             <PaginatedTable
               label={"Dispositivos de " + c}
               actions={[]}

@@ -1,0 +1,50 @@
+[
+  {
+    "company": "banasan",
+    "source": "assets\\brand\\logo-banasan.svg",
+    "presentation": "assets\\company-theme\\banasan-display.svg",
+    "viewBox": "37.855 35.894 2586.364 605.713",
+    "padding": "1%",
+    "geometry": "unchanged"
+  },
+  {
+    "company": "el-rubi",
+    "source": "assets\\company-theme\\el-rubi.svg",
+    "presentation": "assets\\company-theme\\el-rubi-display.svg",
+    "viewBox": "24.020 19.020 405.960 166.960",
+    "padding": "1%",
+    "geometry": "unchanged"
+  },
+  {
+    "company": "banaorganico",
+    "source": "assets\\company-theme\\banaorganico.svg",
+    "presentation": "assets\\company-theme\\banaorganico-display.svg",
+    "viewBox": "67.710 70.710 1661.580 450.580",
+    "padding": "1%",
+    "geometry": "unchanged"
+  },
+  {
+    "company": "agrobanano",
+    "source": "assets\\company-theme\\agrobanano.svg",
+    "presentation": "assets\\company-theme\\agrobanano-display.svg",
+    "viewBox": "100.860 82.860 1034.280 537.280",
+    "padding": "1%",
+    "geometry": "unchanged"
+  },
+  {
+    "company": "agrobanacaribe",
+    "source": "assets\\company-theme\\agrobanacaribe.svg",
+    "presentation": "assets\\company-theme\\agrobanacaribe-display.svg",
+    "viewBox": "84.960 64.960 1330.080 375.080",
+    "padding": "1%",
+    "geometry": "unchanged"
+  },
+  {
+    "company": "la-ceiba",
+    "source": "assets\\company-theme\\la-ceiba.svg",
+    "presentation": "assets\\company-theme\\la-ceiba-display.svg",
+    "viewBox": "75.410 135.410 1590.180 506.180",
+    "padding": "1%",
+    "geometry": "unchanged"
+  }
+]

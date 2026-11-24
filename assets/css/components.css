@@ -1,4 +1,4 @@
-@import url("./ui-notifications.css?v=1");
+@import url("./ui-notifications.css?v=company-system-14");
 
 .ui-icon{
   width:var(--icon-sm);
@@ -47,7 +47,7 @@
   transition:transform var(--motion-feedback) var(--motion-expressive),background var(--motion-feedback) ease;
 }
 @media(hover:hover) and (pointer:fine){
-  .ui-action--primary:hover{transform:translateY(-2px);box-shadow:0 7px 0 rgba(190,151,0,.28)}
+  .ui-action--primary:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--company-rgb-be9700-_28, rgba(190,151,0,.28))}
   .ui-action--primary:hover .ui-action__icon{transform:translate(2px,-2px);background:rgba(255,255,255,.72)}
 }
 
@@ -118,7 +118,7 @@
 .ui-quick-access{position:relative;display:grid;min-height:136px;align-content:center;gap:5px;padding:22px;border-top:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);color:var(--text-primary);background:transparent;text-decoration:none;transition:color var(--motion-feedback) ease,background var(--motion-feedback) ease}.ui-quick-access:last-child{border-right:0}.ui-quick-access__icon{position:absolute;top:18px;right:18px;color:var(--text-action)}.ui-quick-access strong{max-width:170px;font-family:var(--font-display);font-size:var(--font-size-md);line-height:1.15}.ui-quick-access small{color:var(--text-secondary);font-size:var(--font-size-xs)}
 @media(hover:hover) and (pointer:fine){.ui-quick-access:hover{color:var(--text-inverse);background:var(--action-secondary)}.ui-quick-access:hover small,.ui-quick-access:hover .ui-quick-access__icon{color:inherit}}
 
-.ui-copyright{display:flex;justify-content:center;padding:22px max(20px,env(safe-area-inset-right)) 22px max(20px,env(safe-area-inset-left));border-top:1px solid rgba(255,255,255,.12);color:rgba(234,244,248,.72);font-size:var(--type-meta-size);text-align:center}
+.ui-copyright{display:flex;justify-content:center;padding:22px max(20px,env(safe-area-inset-right)) 22px max(20px,env(safe-area-inset-left));border-top:1px solid rgba(255,255,255,.12);color:var(--company-rgb-eaf4f8-_72, rgba(234,244,248,.72));font-size:var(--type-meta-size);text-align:center}
 .ui-copyright a{color:inherit;transition:color var(--motion-feedback) ease}
 .ui-copyright a:hover{color:var(--text-inverse)}
 .ui-copyright--light{border-color:var(--border-subtle);color:var(--text-secondary)}
@@ -204,7 +204,7 @@
 @media(prefers-reduced-motion:reduce){.ui-check input,.ui-check input::before,.ui-switch__track,.ui-switch__track::after{transition:none}}
 
 .ui-help{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700}.ui-help__trigger{min-height:44px;padding:0 12px;border:0;color:var(--text-action);background:transparent;font:inherit;cursor:pointer}.ui-help__content{flex-basis:100%;margin:0;padding:12px 16px;border-left:3px solid var(--action-primary);color:var(--text-secondary);font-size:var(--font-size-sm);font-weight:400}.ui-help__content[hidden]{display:none}
-.ui-dialog{width:min(480px,calc(100% - 32px));padding:32px;border:0;border-radius:22px 8px 22px 8px;color:var(--text-primary);background:var(--surface-raised);box-shadow:0 24px 80px rgba(3,29,54,.25)}.ui-dialog::backdrop{background:rgba(3,29,54,.66)}.ui-dialog h2{margin:0;font-family:var(--font-display);letter-spacing:-.035em}.ui-dialog p{color:var(--text-secondary);line-height:1.5}.ui-dialog__actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:24px}
+.ui-dialog{width:min(480px,calc(100% - 32px));padding:32px;border:0;border-radius:22px 8px 22px 8px;color:var(--text-primary);background:var(--surface-raised);box-shadow:0 24px 80px var(--company-rgb-031d36-_25, rgba(3,29,54,.25))}.ui-dialog::backdrop{background:var(--company-rgb-031d36-_66, rgba(3,29,54,.66))}.ui-dialog h2{margin:0;font-family:var(--font-display);letter-spacing:-.035em}.ui-dialog p{color:var(--text-secondary);line-height:1.5}.ui-dialog__actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:24px}
 .ui-pagination{display:flex;align-items:center;gap:4px}.ui-pagination button{min-width:44px;min-height:44px;border:0;border-radius:14px 4px 14px 4px;color:var(--text-primary);background:transparent;font:inherit;cursor:pointer}.ui-pagination button[aria-current="page"]{color:var(--color-navy-900);background:var(--action-primary);font-weight:700}.ui-pagination button:disabled{opacity:var(--opacity-disabled);cursor:not-allowed}.ui-pagination__status{margin:0;color:var(--text-secondary);font-size:var(--font-size-xs)}
 .ui-help__trigger:focus-visible,.ui-pagination button:focus-visible{outline:3px solid var(--border-focus);outline-offset:2px}
 

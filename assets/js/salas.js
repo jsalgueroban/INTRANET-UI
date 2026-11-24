@@ -1,3 +1,4 @@
+import {initReservationPanel} from './reservation-panel.js?v=1';
 import {roomBlocks,roomOpen} from './room-configuration.js';
 import { rooms, readItems, dateLabel, escapeHtml as esc } from './pending-store.js?v=20261106e';
 const room = document.querySelector('#room');
@@ -12,6 +13,7 @@ function render() {
   const params = new URLSearchParams({room:room.value,day:day.value});
   history.replaceState(null,'','?'+params);
   const selected = rooms.find(entry => entry.name === room.value);
+  document.querySelector('[data-month]').textContent = new Intl.DateTimeFormat('es-CO',{month:'long',year:'numeric'}).format(new Date(day.value+'T12:00:00'));
   document.querySelector('[data-request]').href = 'solicitar-reserva.html?'+params;
   document.querySelector('[data-day-title]').textContent = dateLabel(day.value);
   document.querySelector('[data-hours]').textContent = `${selected.open} – ${selected.close}`;
@@ -37,6 +39,10 @@ function render() {
     document.querySelector('[data-availability]').innerHTML = '<h3>Horarios sin reserva aprobada</h3>'+(gaps.length?gaps.map(([start,end])=>`<a class="rooms-slot" href="solicitar-reserva.html?${params}&start=${start}&end=${end}"><span>${start} – ${end}</span><span aria-hidden="true">↗</span></a>`).join(''):'<p>No quedan horarios disponibles.</p>');
   } catch {document.querySelector('[data-agenda]').innerHTML='<div class="ui-feedback"><strong>No pudimos cargar las reservas</strong><button class="ui-action ui-action--secondary" data-retry>Reintentar</button></div>';document.querySelector('[data-availability]').textContent='No se pudo comprobar la disponibilidad.';document.querySelector('[data-retry]').addEventListener('click',render);}
 }
+document.querySelector('[data-today]').addEventListener('click',()=>{day.value=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Bogota'}).format(new Date());render();});
 room.addEventListener('change',render);day.addEventListener('change',render);
 for(const [selector,delta] of [['[data-prev]',-7],['[data-next]',7]]) document.querySelector(selector).addEventListener('click',()=>{const date=new Date(day.value+'T12:00:00');date.setDate(date.getDate()+delta);day.value=iso(date);render();});
 render();
+
+
+initReservationPanel(render);
