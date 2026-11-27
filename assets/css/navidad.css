@@ -1,0 +1,65 @@
+/* Ambientación navideña de la propuesta. */
+.season-art{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;color:#f3d185;opacity:1;transition:opacity .3s}
+.season-art svg{position:absolute;right:0;top:0;width:48%;height:auto;max-height:100%;overflow:visible}
+.season-art:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 83% 4%,#f4ba4850,transparent 43%),radial-gradient(ellipse at 100% 90%,#f3bb3425,transparent 38%)}
+.season-label{display:flex;align-items:center;gap:12px;color:#f2d397;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.season-label:before{content:"✦";font-size:20px;line-height:1}
+.archive-shell--selected .archive-manifesto h1{font-size:clamp(42px,3.8vw,59px);max-width:510px;line-height:1.07}
+.archive-shell--selected .archive-manifesto{width:min(520px,40vw);right:5.5%;z-index:3}
+.archive-shell--selected .archive-manifesto>p:last-child{font-size:16px;max-width:395px;line-height:1.65;color:#f7f0df}
+.archive-shell--selected .archive-art{filter:saturate(.78) brightness(.72) sepia(.12)}
+.archive-shell--selected .archive-manifesto:before{background:radial-gradient(ellipse at 42% 50%,#031c33a8 0,#031c3366 52%,transparent 78%)}
+.season-signature{display:flex;align-items:center;gap:12px;margin-top:30px;color:#f6d79e;font-size:12px;letter-spacing:.06em}.season-signature:before{content:"";height:1px;width:38px;background:#f6d79e}
+.season-on .hero-image{filter:saturate(.8) brightness(.72) sepia(.15)}
+.season-on .hero-content{z-index:3}.season-on .hero-content h1{font-size:clamp(60px,7.2vw,112px);line-height:1;max-width:850px}
+.season-on .hero-content>p{max-width:440px;color:#f5eee2}
+.season-on .hero-wash{background:linear-gradient(90deg,#03203bea 0,#03203b9c 40%,#03203b24 77%)}
+.season-on .hero .season-art svg{width:43%}
+.season-on .hero .season-label{margin-bottom:20px}
+.season-on .hero .season-signature{margin-top:26px}
+.season-off .season-art,.season-off .season-label,.season-off .season-signature{display:none}
+.season-off .archive-shell--selected .archive-art{filter:saturate(.99) contrast(1.02) brightness(.97)}
+.season-off .archive-shell--selected .archive-manifesto h1{font-size:clamp(42px,3.65vw,56px);line-height:.99}
+.season-off .archive-shell--selected .archive-manifesto>p:last-child{color:rgba(238,246,250,.78)}
+@media(min-width:1081px){.season-on .archive-shell--selected .archive-manifesto{top:51%}}
+@media(max-width:1080px){.archive-shell--selected .archive-manifesto{width:min(620px,100%);right:auto}.season-art svg{width:64%;opacity:.85}.archive-shell--selected .archive-manifesto h1{font-size:42px}.archive-shell--selected .archive-manifesto>p:last-child{font-size:15px}.season-label{font-size:10px;margin-bottom:15px}.season-signature{margin-top:22px}.season-on .hero .season-art svg{width:60%}}
+@media(max-width:600px){.season-art svg{width:90%;right:-10%;opacity:.65}.archive-shell--selected .archive-manifesto h1{font-size:36px}.season-on .hero-content h1{font-size:58px}.season-on .hero .season-art svg{width:84%;right:-12%;opacity:.65}.season-on .hero .season-label{font-size:9px;letter-spacing:.14em}.season-signature{font-size:11px}.archive-shell--selected .archive-manifesto{padding-top:52px}}
+@media(prefers-reduced-motion:reduce){.season-art{transition:none}.archive-art{animation:none!important;transition:none!important;transform:none!important}}
+
+/* Seasonal accents distributed across the existing surfaces. */
+.season-on .nav-shell{border-bottom-color:#cfb16d;box-shadow:0 14px 50px #02132333,0 1px 0 #e6c88266}
+
+.season-on .quick-section,.season-on .news-section,.season-on .jobs-section,.season-on .site-footer,.season-on .archive-access{position:relative;isolation:isolate}
+.season-detail{position:absolute;right:22px;top:15px;width:180px;height:105px;pointer-events:none;z-index:-1;opacity:.92}
+.season-on .quick-section{background:linear-gradient(110deg,#fffdf7,#f3f7f7 68%)}
+
+
+
+.season-on .news-section{background:linear-gradient(135deg,#f9f6ec,#f2f7f9 65%)}
+.season-on .lead-story{border-top:2px solid #cfb472;border-radius:18px;overflow:hidden}
+.season-on .story-image>span{background:#092d43;color:#ffe4a0;border:1px solid #b6944e}
+.season-on .jobs-section{border-top:1px solid #cfb16d66}
+.season-on .site-footer{border-top:2px solid #b69854}
+.season-on .site-footer .season-detail{width:250px;height:145px;right:28px;top:8px;z-index:0;opacity:.6}
+.season-on .archive-access .season-detail{width:112px;height:70px;right:-15px;top:-50px;z-index:0;opacity:.7}
+.season-on .hero .season-art svg{width:31%;opacity:.8}
+.season-on .archive-shell>.season-art svg{width:36%;opacity:.85}
+.season-off .season-detail{display:none}
+@media(max-width:860px){.season-detail{width:110px;height:68px;right:10px;top:8px;opacity:.6}.season-on .site-footer .season-detail{width:150px;opacity:.4}.season-on .archive-access .season-detail{right:12px;top:8px;width:85px}.season-on .hero .season-art svg{width:62%;opacity:.55}.season-on .archive-shell>.season-art svg{width:70%;opacity:.6}}
+
+.quick-section>.season-detail,.news-section>.season-detail,.jobs-section>.season-detail{width:112px;height:65px;top:6px;right:24px}@media(max-width:860px){.quick-section>.season-detail,.news-section>.season-detail,.jobs-section>.season-detail{width:80px;height:48px;top:0;right:8px}}
+
+
+/* Interior screens: separate decorative band, outside headings and controls. */
+.season-ribbon{position:relative;height:44px;margin:0 0 14px;pointer-events:none;overflow:hidden}
+.season-ribbon .season-detail{top:-9px;right:0;width:108px;height:63px;z-index:0;opacity:.8}
+.season-thread{position:absolute;left:0;right:112px;top:24px;height:1px;background:linear-gradient(90deg,transparent,#c5a45d66 20%,#c5a45d99 80%,transparent)}
+.season-on.season-interior>footer{border-top:1px solid #c5a45d66}
+.season-off .season-ribbon{visibility:hidden}
+@media(max-width:600px){.season-ribbon{height:32px;margin-bottom:10px}.season-ribbon .season-detail{width:85px;height:50px;top:-8px}.season-thread{top:17px;right:88px}}
+
+
+
+/* Real hanging bulbs, with a clear gap around the brand. */
+.season-on .nav-shell:after{content:'';position:absolute;left:18px;right:18px;bottom:-28px;height:32px;pointer-events:none;background:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDQwIiBmaWxsPSJub25lIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImIiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmY4ZDkiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZGMyNzQiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNMCAyUTI0MCAyNSA1MDAgMk03MDAgMlE5NjAgMjUgMTIwMCAyIiBzdHJva2U9IiM4MTdiNTciIHN0cm9rZS13aWR0aD0iMS4yIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDUgNikiPjxwYXRoIGQ9Ik0wIDBWNSIgc3Ryb2tlPSIjODE3YjU3IiBzdHJva2Utd2lkdGg9IjEiLz48cmVjdCB4PSItMiIgeT0iNSIgd2lkdGg9IjQiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiM3MTZjNGMiLz48ZWxsaXBzZSBjeT0iMTIiIHJ4PSIzIiByeT0iNSIgZmlsbD0idXJsKCNiKSIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjUiIHJ5PSI3IiBmaWxsPSIjZmZkYjhhIiBvcGFjaXR5PSIuMTIiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIwIDExKSI+PHBhdGggZD0iTTAgMFY1IiBzdHJva2U9IiM4MTdiNTciIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9Ii0yIiB5PSI1IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiByeD0iMSIgZmlsbD0iIzcxNmM0YyIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjMiIHJ5PSI1IiBmaWxsPSJ1cmwoI2IpIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iNSIgcnk9IjciIGZpbGw9IiNmZmRiOGEiIG9wYWNpdHk9Ii4xMiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMDAgMTMpIj48cGF0aCBkPSJNMCAwVjUiIHN0cm9rZT0iIzgxN2I1NyIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iLTIiIHk9IjUiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIHJ4PSIxIiBmaWxsPSIjNzE2YzRjIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iMyIgcnk9IjUiIGZpbGw9InVybCgjYikiLz48ZWxsaXBzZSBjeT0iMTIiIHJ4PSI1IiByeT0iNyIgZmlsbD0iI2ZmZGI4YSIgb3BhY2l0eT0iLjEyIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI4MCAxMykiPjxwYXRoIGQ9Ik0wIDBWNSIgc3Ryb2tlPSIjODE3YjU3IiBzdHJva2Utd2lkdGg9IjEiLz48cmVjdCB4PSItMiIgeT0iNSIgd2lkdGg9IjQiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiM3MTZjNGMiLz48ZWxsaXBzZSBjeT0iMTIiIHJ4PSIzIiByeT0iNSIgZmlsbD0idXJsKCNiKSIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjUiIHJ5PSI3IiBmaWxsPSIjZmZkYjhhIiBvcGFjaXR5PSIuMTIiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzYwIDExKSI+PHBhdGggZD0iTTAgMFY1IiBzdHJva2U9IiM4MTdiNTciIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9Ii0yIiB5PSI1IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiByeD0iMSIgZmlsbD0iIzcxNmM0YyIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjMiIHJ5PSI1IiBmaWxsPSJ1cmwoI2IpIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iNSIgcnk9IjciIGZpbGw9IiNmZmRiOGEiIG9wYWNpdHk9Ii4xMiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NDUgNikiPjxwYXRoIGQ9Ik0wIDBWNSIgc3Ryb2tlPSIjODE3YjU3IiBzdHJva2Utd2lkdGg9IjEiLz48cmVjdCB4PSItMiIgeT0iNSIgd2lkdGg9IjQiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiM3MTZjNGMiLz48ZWxsaXBzZSBjeT0iMTIiIHJ4PSIzIiByeT0iNSIgZmlsbD0idXJsKCNiKSIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjUiIHJ5PSI3IiBmaWxsPSIjZmZkYjhhIiBvcGFjaXR5PSIuMTIiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzU1IDYpIj48cGF0aCBkPSJNMCAwVjUiIHN0cm9rZT0iIzgxN2I1NyIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iLTIiIHk9IjUiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIHJ4PSIxIiBmaWxsPSIjNzE2YzRjIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iMyIgcnk9IjUiIGZpbGw9InVybCgjYikiLz48ZWxsaXBzZSBjeT0iMTIiIHJ4PSI1IiByeT0iNyIgZmlsbD0iI2ZmZGI4YSIgb3BhY2l0eT0iLjEyIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg0MCAxMSkiPjxwYXRoIGQ9Ik0wIDBWNSIgc3Ryb2tlPSIjODE3YjU3IiBzdHJva2Utd2lkdGg9IjEiLz48cmVjdCB4PSItMiIgeT0iNSIgd2lkdGg9IjQiIGhlaWdodD0iMyIgcng9IjEiIGZpbGw9IiM3MTZjNGMiLz48ZWxsaXBzZSBjeT0iMTIiIHJ4PSIzIiByeT0iNSIgZmlsbD0idXJsKCNiKSIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjUiIHJ5PSI3IiBmaWxsPSIjZmZkYjhhIiBvcGFjaXR5PSIuMTIiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTIwIDEzKSI+PHBhdGggZD0iTTAgMFY1IiBzdHJva2U9IiM4MTdiNTciIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9Ii0yIiB5PSI1IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiByeD0iMSIgZmlsbD0iIzcxNmM0YyIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjMiIHJ5PSI1IiBmaWxsPSJ1cmwoI2IpIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iNSIgcnk9IjciIGZpbGw9IiNmZmRiOGEiIG9wYWNpdHk9Ii4xMiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDAwIDEzKSI+PHBhdGggZD0iTTAgMFY1IiBzdHJva2U9IiM4MTdiNTciIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9Ii0yIiB5PSI1IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiByeD0iMSIgZmlsbD0iIzcxNmM0YyIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjMiIHJ5PSI1IiBmaWxsPSJ1cmwoI2IpIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iNSIgcnk9IjciIGZpbGw9IiNmZmRiOGEiIG9wYWNpdHk9Ii4xMiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDgwIDExKSI+PHBhdGggZD0iTTAgMFY1IiBzdHJva2U9IiM4MTdiNTciIHN0cm9rZS13aWR0aD0iMSIvPjxyZWN0IHg9Ii0yIiB5PSI1IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiByeD0iMSIgZmlsbD0iIzcxNmM0YyIvPjxlbGxpcHNlIGN5PSIxMiIgcng9IjMiIHJ5PSI1IiBmaWxsPSJ1cmwoI2IpIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iNSIgcnk9IjciIGZpbGw9IiNmZmRiOGEiIG9wYWNpdHk9Ii4xMiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTU1IDYpIj48cGF0aCBkPSJNMCAwVjUiIHN0cm9rZT0iIzgxN2I1NyIgc3Ryb2tlLXdpZHRoPSIxIi8+PHJlY3QgeD0iLTIiIHk9IjUiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIHJ4PSIxIiBmaWxsPSIjNzE2YzRjIi8+PGVsbGlwc2UgY3k9IjEyIiByeD0iMyIgcnk9IjUiIGZpbGw9InVybCgjYikiLz48ZWxsaXBzZSBjeT0iMTIiIHJ4PSI1IiByeT0iNyIgZmlsbD0iI2ZmZGI4YSIgb3BhY2l0eT0iLjEyIi8+PC9nPjwvc3ZnPg==') center top/100% 100% no-repeat;opacity:.95}
+@media(max-width:860px){.season-on .nav-shell:after{display:none}}
